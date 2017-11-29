@@ -12,7 +12,7 @@ Javascript web app fork from my c++ version
 ## Interval Reference
 
 | Interval       | Value|
-| ------------- |:-----:|
+| -------------- |:----:|
 | Perfect Unison |	0, 1|
 | Minor second   |	2	|
 | Major second 	 |	3 	|
@@ -29,3 +29,13 @@ Javascript web app fork from my c++ version
 | Perfect octave   |	13 |
 
 ## Chord Formation
+
+| Chord Name| Interval Group	|	Number of Notes	|
+| ----------| --------------	|:-----------------:|
+|	Major	|```[5,4]```	| 3	|
+|	Major 7	|```[5,4,5]```	|	4	|
+
+
+
+
+
