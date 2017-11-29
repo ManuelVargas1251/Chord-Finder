@@ -29,12 +29,22 @@ Javascript web app fork from my c++ version
 | Perfect octave   |	13 |
 
 ## Chord Formation
+4 triads, 8 Tetrads
 
-| Chord Name| Interval Group	|	Number of Notes	|
-| ----------| --------------	|:-----------------:|
-|	Major	|```[5,4]```	| 3	|
-|	Major 7	|```[5,4,5]```	|	4	|
-
+| Chord Name		| Interval Group		|	Chord Type	|
+| ----------		| --------------		|:-----------------:|
+|	Major			|	```[5, 4]```		| 	Triad	|
+|	Minor			|	```[4, 5]```		| 	Triad	|
+|	Augmented		|	```[5, 5]```		| 	Triad	|
+|	Diminished		|	```[4, 4]```		| 	Triad	|
+|	Major 7th		|	```[5, 4, 5]```		|	Tetrad	|
+|	Minor 7th		|	```[4, 5, 4]```		|	Tetrad	|
+|	Dominant 7th	|	```[5, 4, 4]```		|	Tetrad	|
+|	Augmented 7th	|	```Tetrad```		|	Tetrad	|
+|	Augmented Major	|	```Tetrad```		|	Tetrad	|
+|	Diminished 7th	|	```Tetrad```		|	Tetrad	|
+|	Half-diminished |	```Tetrad```		|	Tetrad	|
+|	Minor major 	|	```Tetrad```		|	Tetrad	|
 
 
 
