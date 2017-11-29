@@ -1,6 +1,6 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.1-red.svg?style=flat)
+![Version](https://img.shields.io/badge/Version-0.2-red.svg?style=flat)
 
 # Chord Finder
 
@@ -29,23 +29,25 @@ Javascript web app fork from my c++ version
 | Perfect octave   |	13 |
 
 ## Chord Formation
-4 triads, 8 Tetrads
+4 Triads, 8 Tetrads 
 
-| Chord Name		| Interval Group		|	Chord Type	|
-| ----------		| --------------		|:-----------------:|
-|	Major			|	```[5, 4]```		| 	Triad	|
-|	Minor			|	```[4, 5]```		| 	Triad	|
-|	Augmented		|	```[5, 5]```		| 	Triad	|
-|	Diminished		|	```[4, 4]```		| 	Triad	|
-|	Major 7th		|	```[5, 4, 5]```		|	Tetrad	|
-|	Minor 7th		|	```[4, 5, 4]```		|	Tetrad	|
-|	Dominant 7th	|	```[5, 4, 4]```		|	Tetrad	|
-|	Augmented 7th	|	```Tetrad```		|	Tetrad	|
-|	Augmented Major	|	```Tetrad```		|	Tetrad	|
-|	Diminished 7th	|	```Tetrad```		|	Tetrad	|
-|	Half-diminished |	```Tetrad```		|	Tetrad	|
-|	Minor major 	|	```Tetrad```		|	Tetrad	|
+| Chord Name			| Interval Group		|	Chord Type	|
+| ----------			| --------------		|:-----------------:|
+|	Major				|	```[5, 4]```		| 	Triad	|
+|	Minor				|	```[4, 5]```		| 	Triad	|
+|	Augmented			|	```[5, 5]```		| 	Triad	|
+|	Diminished			|	```[4, 4]```		| 	Triad	|
+|	Major 7th			|	```[5, 4, 5]```		|	Tetrad	|
+|	Minor 7th			|	```[4, 5, 4]```		|	Tetrad	|
+|	Augmented 7th		|	```[5, 5, 3]```		|	Tetrad	|
+|	Dominant 7th		|	```[5, 4, 4]```		|	Tetrad	|
+|	Augmented Major 7th	|	```[5, 5, 4]```		|	Tetrad	|
+|	Diminished 7th		|	```[4, 4, 4]```		|	Tetrad	|
+|	Half-Diminished 	|	```[4, 4, 5]```		|	Tetrad	|
+|	Minor Major 		|	```[4, 5, 5]```		|	Tetrad	|
 
 
+# Reference
 
+[Chord Wiki](https://en.wikipedia.org/wiki/Chord_(music))
 
