@@ -7,3 +7,25 @@
 Javascript web app fork from my c++ version
 
 [View Demo - Work in Progress](https://mnl.space/Chord-Finder/)
+
+
+## Interval Reference
+
+| Interval       | Value|
+| ------------- |:-----:|
+| Perfect Unison |	0, 1|
+| Minor second   |	2	|
+| Major second 	 |	3 	|
+| Minor third    |	4	|
+| Major third    |	5 	|
+| Perfect fourth |	6 	|
+| Augmented fourth |	7 |
+| Diminished fifth |	7 |
+| Perfect fifth    |	8 |
+| Minor sixth  	   |	9 |
+| Major sixth      |	10 |
+| Minor seventh    |	11 |
+| Major seventh    |	12 |
+| Perfect octave   |	13 |
+
+## Chord Formation

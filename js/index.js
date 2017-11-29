@@ -6,7 +6,6 @@ function get_user_chord(){
 	return ["D","F#","A"];
 }
 
-
 //returns what type of accidental the chord has; sharps, flats, or natural
 function get_accidental(user_chord){
 	
@@ -54,8 +53,25 @@ function get_alpha_root(user_chord, chord_size, alphabet){
 	return alpha_root.concat(alpha_temp)
 }
 
-function get_interval(note, alphabet){
-	console.log("one int");
+function get_interval(alphabet, start_note, end_note){
+	//console.log("one int");
+	//console.log(start_note + " " + end_note)
+	
+	var index = 0;
+	var indexj = 0;
+	
+	while(alphabet[index] != start_note){
+		index ++;
+	}
+	
+	while(alphabet[index] != end_note){
+		//console.log(alphabet[index])
+		index++;
+		indexj++
+	}
+	console.log("index: " + indexj);
+	
+	return indexj+1;
 }
 
 function get_intervals(user_chord, alphabet_from_root){
@@ -65,16 +81,16 @@ function get_intervals(user_chord, alphabet_from_root){
 	let intervals = [];
 	
 	while(i>0){
+		intervals.push(get_interval(alphabet_from_root, user_chord[index], user_chord[index+1]));
 		
-		intervals.push(get_interval(user_chord[index], alphabet_from_root));
-		
-		
-		console.log("pla")
-		i--;
-		index++;
+		//console.log("pla")
+		i -= 1;
+		index += 1;
 	}
 	
-	console.log("getting intervals")
+	// using 5-limit tuning
+	// https://en.wikipedia.org/wiki/Interval_(music)#Interval_number_and_quality
+	console.log("Intervals: " + intervals)
 }
 
 //////////////////
