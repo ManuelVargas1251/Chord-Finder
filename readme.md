@@ -1,6 +1,6 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.2-red.svg?style=flat)
+![Version](https://img.shields.io/badge/Version-0.4-red.svg?style=flat)
 
 # Chord Finder
 
@@ -10,6 +10,7 @@ Javascript web app fork from my c++ version
 
 
 ## Interval Reference
+I'm storing aconstant var with thsi information to be able to be read-only
 
 | Interval Name     | Interval	|
 | -------------- 	|:-----:|
@@ -28,7 +29,7 @@ Javascript web app fork from my c++ version
 | Major Seventh   	|	12 	|
 | Perfect Octave  	|	13 	|
 
-## Chord Formation
+## Chord Reference
 4 Triads, 8 Tetrads 
 
 | Chord Name			| Interval Group			|	Chord Type	|

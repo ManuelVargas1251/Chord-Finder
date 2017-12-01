@@ -1,7 +1,16 @@
 const _alphabet = [
-	"A", ["A#", "Bb"], "B", 
-	"C", ["C#", "Db"], 
-	"D", ["D#", "Eb"], "E", 
-	"F", ["F#", "Gb"], 
-	"G", ["G#", "Ab"]
+ 
+	"C", 
+	["C#", "Db"],	//accidental
+	"D", 
+	["D#", "Eb"],	//accidental
+	"E", 
+	"F", 
+	["F#", "Gb"],	//accidental
+	"G", 
+	["G#", "Ab"],	//accidental
+	"A", 
+	["A#", "Bb"],	//accidental
+	"B"
 ];
+
