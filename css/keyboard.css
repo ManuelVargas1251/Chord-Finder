@@ -5,4 +5,9 @@ keyboard{
     display: flex;
     align-items: center;
     justify-content: center;
+	
+	background-color: white;
+	
+	width: 20%;
+	padding: 20px;
 }

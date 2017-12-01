@@ -1,5 +1,4 @@
 const _alphabet = [
- 
 	"C", 
 	["C#", "Db"],	//accidental
 	"D", 

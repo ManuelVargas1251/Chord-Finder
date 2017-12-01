@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="">
+<html lang="en">
 
 	<head>
 		<title>Chord Finder</title>
@@ -8,26 +8,29 @@
 		<link rel="stylesheet" href="css/index.css">
 	</head>
 
-	<body>
-		<!-- Chord Finder App -->
+<!--
+	<div id="body" >
+		 Chord Finder App  ng-controller="chordController"
 		<div id="keyboard">
-			keys go here (work in progress)
+			<div id="key"></div>
+			<div id="key"></div>
+			<div id="key"></div>
 		</div>
-	</body>
+	</div>
+-->
 
-	<!-- Angular -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-	
 	<!-- global definitions -->
-	<script src="js/_intervals.js"></script>
 	<script src="js/_alphabet.js"></script>
-	
+	<script src="js/_intervals.js"></script>
+
 	<script src="js/getAlphabetFromRoot.js"></script>
-	<script src="js/getChord.js"></script>
-	<script src="js/getInterval.js "></script>
 	<script src="js/getUserIntervals.js "></script>
+	<script src="js/getInterval.js "></script>
 	<script src="js/getUserChord.js"></script>
-	
+	<script src="js/getChord.js"></script>
+
 	<script src="js/index.js"></script>
 
+	<!-- Angular -->
+<!--	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>-->
 </html>
