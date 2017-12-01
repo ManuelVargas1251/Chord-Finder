@@ -11,7 +11,7 @@ Javascript web app fork from my c++ version
 
 ## Interval Reference
 
-| Interval       	| Value	|
+| Interval Name     | Interval	|
 | -------------- 	|:-----:|
 | Perfect Unison 	|	0, 1|
 | Minor Second   	|	2	|
