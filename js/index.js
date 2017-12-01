@@ -16,7 +16,7 @@ function find(){
 	//console.log(intervals)
 
 	let chord = getChord(userChord[0], userIntervals)
-	console.log("=>  "+chord)
+	console.log("=>  " + chord)
 }
 
 let userChord = getUserChord()
