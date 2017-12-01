@@ -37,14 +37,14 @@ Javascript web app fork from my c++ version
 |	Minor				|	```[4, 5]```			| 	Triad	|
 |	Augmented			|	```[5, 5]```			| 	Triad	|
 |	Diminished			|	```[4, 4]```			| 	Triad	|
-|	Major 7th			|	```[5, 4, 5]```			|	Seventh	|
-|	Minor 7th			|	```[4, 5, 4]```			|	Seventh	|
-|	Augmented 7th		|	```[5, 5, 3]```			|	Seventh	|
+|	Major 7				|	```[5, 4, 5]```			|	Seventh	|
+|	Minor 7				|	```[4, 5, 4]```			|	Seventh	|
+|	Augmented 7			|	```[5, 5, 3]```			|	Seventh	|
 |	Dominant 7th		|	```[5, 4, 4]```			|	Seventh	|
-|	Augmented Major 7th	|	```[5, 5, 4]```			|	Seventh	|
-|	Diminished 7th		|	```[4, 4, 4]```			|	Seventh	|
-|	Half-Diminished 	|	```[4, 4, 5]```			|	Seventh	|
-|	Minor Major 		|	```[4, 5, 5]```			|	Seventh	|
+|	Augmented Major 7	|	```[5, 5, 4]```			|	Seventh	|
+|	Fully Diminished 7	|	```[4, 4, 4]```			|	Seventh	|
+|	Half-Diminished  	|	```[4, 4, 5]```			|	Seventh	|
+|	Minor Major 7 		|	```[4, 5, 5]```			|	Seventh	|
 |	Major 9th			|	```[5, 4, 5, 4]```		|	Extended 	|
 |	Dominant 9th		|	```[5, 4, 4, 5]```		|	Extended 	|
 |	Dominant 11th		|	```[5, 4, 4, 5, 4]```	|	Extended 	|
