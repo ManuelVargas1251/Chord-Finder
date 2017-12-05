@@ -5,7 +5,6 @@ function getAlphabetFromRoot(user_chord){
 	var alpha_root = []
 	var alpha_temp = []
 
-
 	_alphabet.forEach(function(key){
 		if(key === chord_root || alpha_root.length){
 			alpha_root.push(key)

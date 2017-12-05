@@ -1,6 +1,6 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.4-red.svg?style=flat)
+![Version](https://img.shields.io/badge/Version-0.5.0-red.svg?style=flat)
 
 # Chord Finder
 
@@ -8,6 +8,17 @@ Javascript web app fork from my c++ version
 
 [View Demo - Work in Progress](https://mnl.space/Chord-Finder/)
 
+## Usage
+
+Currently this is a console app while I work on the javascript. To use, click on the demo link above, open the [Chrome Console](https://developers.google.com/web/tools/chrome-devtools/console/) (F12) (or equivalent browser console) and you should see an inital chord already executed (if it's not, the program is broken and you should come back later 😞). 
+
+![prompt](src/img/prompt.png)
+
+To find a chord name, use the `updateChord()` function and pass in an array with the notes you want. 
+```javascript
+updateChord(["A","C","E"])	//	Result => A Minor
+```
+![updateChord](src/img/updateChord.png)
 
 ## Interval Reference
 I'm storing aconstant var with thsi information to be able to be read-only

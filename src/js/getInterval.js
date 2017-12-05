@@ -15,5 +15,5 @@ function getInterval(alphabet, startNote, endNote){
 		interval++;
 	}
 	
-	return interval+1;
+	return interval + 1;
 }

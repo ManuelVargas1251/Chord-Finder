@@ -1,0 +1,12 @@
+html{
+	background-color: #0077be;
+	color: white;
+	font-family: helvetica;
+}
+
+.card{
+	color: red;
+	background-color: darkseagreen;
+	height: 25px;
+	width: 25px;
+}

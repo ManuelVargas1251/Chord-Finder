@@ -1,7 +1,3 @@
-"use strict"
-
-console.clear()
-
 function updateChord(newChord){
 	
 	//returns alphabet starting with the root of the chord
@@ -16,10 +12,7 @@ function updateChord(newChord){
 	//console.log(intervals)
 
 	let chord = getChord(newChord[0], userIntervals)
-	console.log("=>  " + chord)
+	//console.log("=>  " + chord)
+	
+	return chord
 }
-
-// on load work
-let userChord = getUserChord()
-console.log("Chord: " + userChord)
-updateChord(userChord)

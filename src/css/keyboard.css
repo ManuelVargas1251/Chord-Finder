@@ -10,4 +10,13 @@ keyboard{
 	
 	width: 20%;
 	padding: 20px;
+	
+	color:red;
+}
+
+.key{
+	width: 50px;
+	height: 100px;
+	display:inline-block;
+	background-color: white;
 }
