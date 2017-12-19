@@ -15,10 +15,12 @@ Currently this is a console app while I work on the javascript. To use, click on
 ![prompt](src/img/prompt.png)
 
 To find a chord name, use the `updateChord()` function and pass in an array with the notes you want. 
+
+![updateChord](src/img/updateChord.png)
+
 ```javascript
 updateChord(["A","C","E"])	//	Result => A Minor
 ```
-![updateChord](src/img/updateChord.png)
 
 ## Interval Reference
 I'm storing aconstant var with thsi information to be able to be read-only

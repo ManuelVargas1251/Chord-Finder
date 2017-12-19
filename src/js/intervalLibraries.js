@@ -118,5 +118,6 @@ const _intervals = [
 		name: "3rd Inversion",
 		size: 3
 	}
-]
+];
 
+Object.freeze(_intervals);

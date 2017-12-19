@@ -12,7 +12,7 @@ function getChord(root, userIntervals){
 	//attach root to chord if there are more than two notes
 	//if output is an interval size of 2, don't show chord letter
 	if(_intervals[index].size > 1)
-		chord = root + " " + chord
+		chord = root + " " + chord;
 
 	return chord
 }
