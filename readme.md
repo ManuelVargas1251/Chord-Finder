@@ -1,12 +1,12 @@
 <!-- using shields.io for status buttons -->
-![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.5.0-red.svg?style=flat)
+![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg?style=plastic)
+![Version](https://img.shields.io/badge/Version-0.5.2-brightgreen.svg?style=flat?style=plastic)
 
 # Chord Finder
 
-Javascript web app fork from my c++ version
+Javascript web app redo from my C++ [console app](https://github.com/ManuelVargas1251/ChordFinder).
 
-[View Demo - Work in Progress](https://mnl.space/Chord-Finder/)
+[View Demo (Browser Console Only)](https://mnl.space/Chord-Finder/)
 
 ## Usage
 
