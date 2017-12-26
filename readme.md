@@ -1,6 +1,6 @@
 <!-- using shields.io for status buttons -->
-![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg?style=plastic)
-![Version](https://img.shields.io/badge/Version-0.5.3-brightgreen.svg?style=plastic)
+![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
+![Version](https://img.shields.io/badge/Version-0.5.4-brightgreen.svg)
 
 # Chord Finder
 

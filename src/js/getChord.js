@@ -47,7 +47,7 @@ function getChord(userChord, userIntervals){
 			output = _newIntervals.four.find(findINT);
 			break;
 		default:
-			console.log("error: not a chord or interval");
+			console.log("error: chord not defined yet");
 			break;
 	}
 
