@@ -1,6 +1,6 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.5.4-brightgreen.svg)
+![Version](https://img.shields.io/badge/Version-0.5.5-brightgreen.svg)
 
 # Chord Finder
 
@@ -10,20 +10,19 @@ Javascript web app redo from my C++ [console app](https://github.com/ManuelVarga
 
 ## Usage
 
-Currently this is a console app while I work on the javascript. To use, click on the demo link above, open the [Chrome Console](https://developers.google.com/web/tools/chrome-devtools/console/) (F12) (or equivalent browser console) and you should see an inital chord already executed (if it's not, the program is broken and you should come back later 😞). 
+Currently this is a console application while I work on the user interface. 
 
-![prompt](src/img/prompt.png)
+To use, click on the demo link above, open the [Chrome Console](https://developers.google.com/web/tools/chrome-devtools/console/) (or equivalent browser console) and you should see an inital chord already executed; if it's not, the program is broken and you should come back later 😞.
 
 To find a chord name, use the `updateChord()` function and pass in an array with the notes you want. 
-
-![updateChord](src/img/updateChord.png)
 
 ```javascript
 updateChord(["A","C","E"])	//	Result => A Minor
 ```
 
-## Interval Reference
-I'm storing aconstant var with thsi information to be able to be read-only
+## Interval Library
+
+### Interval Reference
 
 | Interval Name     | Interval	|
 | -------------- 	|:-----:|
@@ -42,27 +41,26 @@ I'm storing aconstant var with thsi information to be able to be read-only
 | Major Seventh   	|	12 	|
 | Perfect Octave  	|	13 	|
 
-## Chord Reference
-4 Triads, 8 Tetrads 
+### Chord Reference
 
-| Chord Name			| Interval Group			|	Chord Type	|
-| ----------			| --------------			|:-----------------:|
-|	Major				|	```[5, 4]```			| 	Triad	|
-|	Minor				|	```[4, 5]```			| 	Triad	|
-|	Augmented			|	```[5, 5]```			| 	Triad	|
-|	Diminished			|	```[4, 4]```			| 	Triad	|
-|	Major 7				|	```[5, 4, 5]```			|	Seventh	|
-|	Minor 7				|	```[4, 5, 4]```			|	Seventh	|
-|	Augmented 7			|	```[5, 5, 3]```			|	Seventh	|
-|	Dominant 7th		|	```[5, 4, 4]```			|	Seventh	|
-|	Augmented Major 7	|	```[5, 5, 4]```			|	Seventh	|
-|	Fully Diminished 7	|	```[4, 4, 4]```			|	Seventh	|
-|	Half-Diminished  	|	```[4, 4, 5]```			|	Seventh	|
-|	Minor Major 7 		|	```[4, 5, 5]```			|	Seventh	|
-|	Major 9th			|	```[5, 4, 5, 4]```		|	Extended 	|
-|	Dominant 9th		|	```[5, 4, 4, 5]```		|	Extended 	|
-|	Dominant 11th		|	```[5, 4, 4, 5, 4]```	|	Extended 	|
-|	Dominant 13th		|	```[5, 4, 4, 5, 4, 5]```|	Extended 	|
+| Chord Name			| Interval Values			|
+| ----------			| --------------			|
+|	Major				|	```[5, 4]```			| 
+|	Minor				|	```[4, 5]```			|
+|	Augmented			|	```[5, 5]```			| 	
+|	Diminished			|	```[4, 4]```			| 	
+|	Major 7				|	```[5, 4, 5]```			|
+|	Minor 7				|	```[4, 5, 4]```			|
+|	Augmented 7			|	```[5, 5, 3]```			|
+|	Dominant 7th		|	```[5, 4, 4]```			|	
+|	Augmented Major 7	|	```[5, 5, 4]```			|
+|	Fully Diminished 7	|	```[4, 4, 4]```			|
+|	Half-Diminished  	|	```[4, 4, 5]```			|
+|	Minor Major 7 		|	```[4, 5, 5]```			|	
+|	Major 9th			|	```[5, 4, 5, 4]```		|	
+|	Dominant 9th		|	```[5, 4, 4, 5]```		|
+|	Dominant 11th		|	```[5, 4, 4, 5, 4]```	|
+|	Dominant 13th		|	```[5, 4, 4, 5, 4, 5]```|
 
 
 # Reference

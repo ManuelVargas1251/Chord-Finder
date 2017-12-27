@@ -1,52 +1,61 @@
 <!doctype html>
-<html lang="en" >
+<html lang="en">
 
-	<head>
-		<title>Chord Finder</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
-		<link rel="stylesheet" href="src/css/index.css">
-		<!-- Angular -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-		<script
-				src="https://code.jquery.com/jquery-3.2.1.min.js"
-				integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-				crossorigin="anonymous"></script>
+<head>
+	<title>Chord Finder</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
 
-		<script src="src/js/ng-index.js"></script>
-	</head>
+	<link rel="stylesheet" href="src/css/index.css">
+	<link rel="stylesheet" href="src/css/keyboard.css">
 
-	<div id="body" ng-controller="chordFinderController">
-		<div id="keyboard">
-			<div class="key" id="C0"></div>
-			<div class="key" id="C#0" ></div>
-			<div class="key" id="D0" ></div>
-			<div class="key" id="D#0" ></div>
-			<div class="key" id="E0" ></div>
+	<!-- Angular -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	 crossorigin="anonymous"></script>
 
-		</div>
+	<script src="src/js/ng-index.js"></script>
+</head>
 
-		<!--
+<div id="body" ng-controller="chordFinderController">
+
+	<div id="keyboard">
+		<div class="key" id="C"></div>
+		<div class="key black" id="Ca"></div>
+		<div class="key" id="D"></div>
+		<div class="key black" id="Da"></div>
+		<div class="key" id="E"></div>
+		<div class="key" id="F"></div>
+		<div class="key black" id="Fa"></div>
+		<div class="key" id="G"></div>
+		<div class="key black" id="Ga"></div>
+		<div class="key" id="A"></div>
+		<div class="key black" id="Aa"></div>
+		<div class="key" id="B"></div>
+	</div>
+
+	<!--
 		<div class="card">
 			{{chord}}
 		</div>
 		-->
-		
-	</div>
 
-	<!-- Global Definitions -->
-	<script src="src/js/alphabet.js"></script>
-	<script src="src/js/intervalLibraries.js"></script>
-	
-	<!-- Angular Code -->
-	<script src="src/js/ng-index.js"></script>
-	
-	<script src="src/js/getAlphabetFromRoot.js"></script>
-	<script src="src/js/getUserIntervals.js "></script>
-	<script src="src/js/getInterval.js "></script>
-	<script src="src/js/getUserChord.js"></script>
-	<script src="src/js/updateChord.js"></script>
-	<script src="src/js/getChord.js"></script>
+</div>
 
-	<script src="src/js/index.js"></script>
+<!-- Global Definitions -->
+<script src="src/js/alphabet.js"></script>
+<script src="src/js/intervalLibrary.js"></script>
+
+<!-- Angular Code -->
+<script src="src/js/ng-index.js"></script>
+
+<script src="src/js/getAlphabetFromRoot.js"></script>
+<script src="src/js/getUserIntervals.js "></script>
+<script src="src/js/getInterval.js "></script>
+<script src="src/js/getUserChord.js"></script>
+<script src="src/js/updateChord.js"></script>
+<script src="src/js/getChord.js"></script>
+
+<script src="src/js/index.js"></script>
+
 </html>
