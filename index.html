@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html ng-app="chordFinder">
 
 <head>
 	<title>Chord Finder</title>
@@ -11,36 +11,38 @@
 
 	<!-- Angular -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 	 crossorigin="anonymous"></script>
 
 	<script src="src/js/ng-index.js"></script>
 </head>
 
-<div id="body" ng-controller="chordFinderController">
+<div id="body">
 
+
+	<!-- Keyboard
+		natural = n
+		accidental = a -->
 	<div id="keyboard">
-		<div class="key" id="C"></div>
-		<div class="key black" id="Ca"></div>
-		<div class="key" id="D"></div>
-		<div class="key black" id="Da"></div>
-		<div class="key" id="E"></div>
-		<div class="key" id="F"></div>
-		<div class="key black" id="Fa"></div>
-		<div class="key" id="G"></div>
-		<div class="key black" id="Ga"></div>
-		<div class="key" id="A"></div>
-		<div class="key black" id="Aa"></div>
-		<div class="key" id="B"></div>
+		<div id="cn" class="key left-corner"></div>
+		<div id="ca" class="key black"></div>
+		<div id="dn" class="key"></div>
+		<div id="da" class="key black"></div>
+		<div id="en" class="key"></div>
+		<div id="fn" class="key"></div>
+		<div id="fa" class="key black"></div>
+		<div id="gn" class="key"></div>
+		<div id="ga" class="key black"></div>
+		<div id="an" class="key"></div>
+		<div id="aa" class="key black"></div>
+		<div id="bn" class="key right-corner"></div>
 	</div>
 
-	<!--
-		<div class="card">
-			{{chord}}
-		</div>
-		-->
-
+	<div class="chord">A Minor
+	</div>
 </div>
+
 
 <!-- Global Definitions -->
 <script src="src/js/alphabet.js"></script>

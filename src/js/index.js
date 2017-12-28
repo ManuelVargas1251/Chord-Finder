@@ -1,16 +1,22 @@
-"use strict"
-console.clear()
+"use strict";
+console.clear();
+
+//var keyboard = _alphabet.slice().concat(_alphabet.slice())
+
+//main
+let userChord = getUserChord();
+
+console.log(updateChord(userChord));
 
 
-var keyboard = _alphabet.slice().concat(_alphabet.slice())
+//Event Handlers//
 
-//event handlers
-$("#C0").click(function(){
-	console.log("c0 was clicked yo")
+//when key is clicked
+$(".key").click(function(){
+
+	//print letter to console
+	console.log($(this).attr('id'));
+
+	//highlight key when pressed
+	$(this).toggleClass("pressed");
 });
-
-
-//
-let userChord = getUserChord()
-
-console.log(updateChord(userChord))

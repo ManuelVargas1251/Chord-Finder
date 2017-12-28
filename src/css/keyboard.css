@@ -1,28 +1,54 @@
+:root{
+	--piano-black: #1c1c1c;
+}
+
 #keyboard{
 	text-align: center;
-	vertical-align: middle;
+	/* vertical-align: middle; */
 
     display: flex;
-    align-items: center;
-    justify-content: center;
 	
-	background-color: white;
-	
-	width: 20%;
-	padding: 20px;
+	width: 400px;
+	/* padding: 5px; */
 	
 	color:red;
+	position: relative;
 }
 
 .key{
+
+	position: relative; 
+	float: left; 
+	margin: 0; 
+	padding: 0;
+
 	width: 50px;
-	height: 100px;
-	display: inline-block;
+	height: 200px;
+	/* display: inline-block; */
+
 	background-color: white;
-	border: solid 2px black;
+	border: solid 2px var(--piano-black);
+	border-radius: 0 0 7px 7px;
+
+	z-index: 6;
+	cursor: pointer;
 }
 
 .key.black{
-	background-color: black;
-	/* height: 55px; */
+	background-color: var(--piano-black);
+	margin: 0 0 0 -10px;
+	height: 125px;
+	z-index: 9;
+}
+
+.pressed{
+	background-color: lightseagreen;
+}
+
+.left-corner{
+	border-radius: 10px 0 7px 7px;
+}
+
+.right-corner{
+	border-radius: 0 10px 7px 7px;
 }
