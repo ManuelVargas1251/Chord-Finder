@@ -2,6 +2,12 @@ html{
 	background-color: #0077be;
 	color: white;
 	font-family: helvetica;
+	font-weight: bold;
+}
+
+#about{
+	font-size: 20px;
+	padding: 5px;
 }
 
 .chord{
@@ -9,8 +15,6 @@ html{
 	font-weight: bold;
 	text-align: center;
 	font-size: 50px;
-
-	background-color: darkseagreen;
 	height: 20%;
 	width: 100%;
 }

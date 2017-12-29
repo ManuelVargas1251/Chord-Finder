@@ -24,5 +24,7 @@ $(".key").click(function(){
 	$(this).toggleClass("pressed");
 
 	//everytime a key is pressed, update chord
-	console.log(updateChord(userChord));
+	//console.log(updateChord(userChord));
+
+	$(".chord").text(updateChord(userChord))
 });

@@ -1,6 +1,6 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.5.7-brightgreen.svg)
+![Version](https://img.shields.io/badge/Version-0.5.8-brightgreen.svg)
 
 # Chord Finder
 
@@ -12,12 +12,12 @@ Javascript web app redo from my C++ [console app](https://github.com/ManuelVarga
 
 Currently this is a console application while I work on the user interface. 
 
-To use, click on the demo link above, open the [Chrome Console](https://developers.google.com/web/tools/chrome-devtools/console/) (or equivalent browser console) and you should see an inital chord already executed; if it's not, the program is broken and you should come back later 😞.
+To use, click on the demo link above, open the [Chrome Console](https://developers.google.com/web/tools/chrome-devtools/console/) (or equivalent browser console).
 
 To find a chord name, use the `updateChord()` function and pass in an array with the notes you want. 
 
 ```javascript
-updateChord(["A","C","E"])	//	Result => A Minor
+updateChord(["A", "C#", "E", "G#"])	//  A Major 7
 ```
 
 ## Interval Library

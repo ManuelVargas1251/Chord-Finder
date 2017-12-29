@@ -1,6 +1,7 @@
 //searches the interval library to match the user's chord's intervals
 function depricated_getChord(userChord, userIntervals) {
-	let root = userChord[0], chord = "", index = 0
+
+	let root = userChord[0], chord = "", index = 0;
 
 	while (chord === "") {
 
@@ -23,7 +24,7 @@ function depricated_getChord(userChord, userIntervals) {
 //better searching method using .find()
 function getChord(userChord, userIntervals) {
 
-	let findINT = function (library) {
+	let findIntervals = function (library) {
 		//displays how many items it had to search through
 		//prints object and a count of the times it's been called
 		//console.log("this: " + this)	
@@ -38,16 +39,16 @@ function getChord(userChord, userIntervals) {
 			output = userChord[0];
 			break;
 		case 1:
-			output = _newIntervals.one.find(findINT).name;
+			output = _newIntervals.one.find(findIntervals).name;
 			break;
 		case 2:
-			output = userChord[0] + " " + _newIntervals.two.find(findINT).name;
+			output = userChord[0] + " " + _newIntervals.two.find(findIntervals).name;
 			break;
 		case 3:
-			output = userChord[0] + " " + _newIntervals.three.find(findINT).name;
+			output = userChord[0] + " " + _newIntervals.three.find(findIntervals).name;
 			break;
 		case 4:
-			output = userChord[0] + " " + _newIntervals.four.find(findINT).name;
+			output = userChord[0] + " " + _newIntervals.four.find(findIntervals).name;
 			break;
 		default:
 			console.log("error: chord not defined yet");

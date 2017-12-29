@@ -42,7 +42,7 @@
 }
 
 .pressed{
-	background-color: lightseagreen;
+	background-color: lightseagreen !important;
 }
 
 .left-corner{
