@@ -34,22 +34,26 @@ function getChord(userChord, userIntervals) {
 
 	//switch case depending on how many notes were pressed 
 	switch (userIntervals.length) {
+		case 0:
+			output = userChord[0];
+			break;
+		case 1:
+			output = _newIntervals.one.find(findINT).name;
+			break;
 		case 2:
-			output = _newIntervals.two.find(findINT);
+			output = userChord[0] + " " + _newIntervals.two.find(findINT).name;
 			break;
 		case 3:
-			output = _newIntervals.three.find(findINT);
+			output = userChord[0] + " " + _newIntervals.three.find(findINT).name;
 			break;
 		case 4:
-			output = _newIntervals.four.find(findINT);
-			break;
-		case 5:
-			output = _newIntervals.four.find(findINT);
+			output = userChord[0] + " " + _newIntervals.four.find(findINT).name;
 			break;
 		default:
 			console.log("error: chord not defined yet");
 			break;
 	}
 
-	return userChord[0] + " " + output.name
+	//return userChord[0] + " " + output.name
+	return output
 }
