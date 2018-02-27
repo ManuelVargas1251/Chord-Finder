@@ -1,8 +1,8 @@
 function getInterval(alphabet, startNote, endNote) {
 	//console.log(start_note + " " + end_note)
 
-	let index = 0;
-	let interval = 0;
+	let index = 0
+	let interval = 0
 
 	//traverse through alphabet if start note not reached yet
 	while (!alphabet[index].includes(startNote)) {
@@ -15,6 +15,6 @@ function getInterval(alphabet, startNote, endNote) {
 		index++;
 		interval++;
 	}
-
-	return interval + 1;
+	
+	return interval + 1
 }

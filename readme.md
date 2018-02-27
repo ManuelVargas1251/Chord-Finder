@@ -1,18 +1,19 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.5.8-brightgreen.svg)
+![Version](https://img.shields.io/badge/Version-0.6.0-brightgreen.svg)
 
-# Chord Finder
+# Chord Finder 🎹❓
 
-Javascript web app redo from my C++ [console app](https://github.com/ManuelVargas1251/ChordFinder).
+Javascript web application that tells you what chord you are playing. Click on the notes to build your chord! 
 
-[View Demo (Browser Console Only)](https://mnl.space/Chord-Finder/)
+I started by rewriting my own C++ [console application](https://github.com/ManuelVargas1251/ChordFinder) to javascript and added the interface as I went. Still a work in progress.
 
-## Usage
+[View Demo](https://mnl.space/Chord-Finder/)
 
-Currently this is a console application while I work on the user interface. 
+![](interface.png)
 
-To use, click on the demo link above, open the [Chrome Console](https://developers.google.com/web/tools/chrome-devtools/console/) (or equivalent browser console).
+### Console Usage
+If you don't like the interface you can easily call the functions from the [Chrome Console](https://developers.google.com/web/tools/chrome-devtools/console/)  or use them in your own project.
 
 To find a chord name, use the `updateChord()` function and pass in an array with the notes you want. 
 
@@ -21,6 +22,7 @@ updateChord(["A", "C#", "E", "G#"])	//  A Major 7
 ```
 
 ## Interval Library
+Below is how I store the relations of the note intervals as well as grouping of intervals commonly called chords.
 
 ### Interval Reference
 

@@ -1,33 +1,33 @@
 :root{
-	--piano-black: #1c1c1c;
+	--piano-black: #363636;
+	--piano-white: #f9fffc;
+	--piano-pressed: lightseagreen;
 }
 
 #keyboard{
 	text-align: center;
-	/* vertical-align: middle; */
-
     display: flex;
-	
 	width: 400px;
-	/* padding: 5px; */
-	
-	color:red;
 	position: relative;
+
+	/* padding: 5px; */
+	/* vertical-align: middle; */
 }
 
 .key{
-
 	position: relative; 
 	float: left; 
 	margin: 0; 
+	/* margin: 0 0 0 -20px; */
 	padding: 0;
 
 	width: 50px;
 	height: 200px;
 	/* display: inline-block; */
 
-	background-color: white;
+	background-color: var(--piano-white);
 	border: solid 2px var(--piano-black);
+	color: var(--piano-black);
 	border-radius: 0 0 7px 7px;
 
 	z-index: 6;
@@ -36,13 +36,14 @@
 
 .key.black{
 	background-color: var(--piano-black);
-	margin: 0 0 0 -10px;
+	color: var(--piano-white);
+	margin: 0 0 0 -15px;
 	height: 125px;
 	z-index: 9;
 }
 
 .pressed{
-	background-color: lightseagreen !important;
+	background-color: var(--piano-pressed) !important;
 }
 
 .left-corner{

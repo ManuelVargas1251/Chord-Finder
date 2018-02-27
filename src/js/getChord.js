@@ -1,26 +1,4 @@
 //searches the interval library to match the user's chord's intervals
-function depricated_getChord(userChord, userIntervals) {
-
-	let root = userChord[0], chord = "", index = 0;
-
-	while (chord === "") {
-
-		if (userIntervals.toString() === _intervals[index].interval.toString()) {
-			chord = _intervals[index].name;
-		}
-
-		index++
-	}
-
-	//attach root to chord if there are more than two notes
-	//if output is an interval size of 2, don't show chord letter
-	if (_intervals[index].size > 1)
-		chord = root + " " + chord;
-
-	return chord
-}
-
-//new function that will replace the above function
 //better searching method using .find()
 function getChord(userChord, userIntervals) {
 
@@ -28,8 +6,8 @@ function getChord(userChord, userIntervals) {
 		//displays how many items it had to search through
 		//prints object and a count of the times it's been called
 		//console.log("this: " + this)	
-		return library.interval == userIntervals.toString();
-	};
+		return library.interval == userIntervals.toString()
+	}
 
 	//finding the correct array by only sending the interval to be found in the object where the length matches means that searching will take a lot less time because it only has to search through a smaller section of the object library; this will be important for when the object libraries become larger.
 

@@ -118,9 +118,9 @@ const _intervals = [
 		name: "3rd Inversion",
 		size: 3
 	}
-];
+]
 
-Object.freeze(_intervals);
+Object.freeze(_intervals)
 
 //new interval library structure
 //using freeze to prevent data from being altered
@@ -147,6 +147,14 @@ const _newIntervals = Object.freeze({
 			interval: [6],
 			name: "Perfect Fourth"
 		},
+		{
+			interval: [7],
+			name: "Augmented Fourth"
+		},
+		{
+			interval: [8],
+			name: "Perfect Fifth"
+		}
 	],
 
 	//Triads
@@ -230,4 +238,4 @@ const _newIntervals = Object.freeze({
 			name: "3rd Inversion"
 		}]
 
-});
+})

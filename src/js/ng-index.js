@@ -1,5 +1,6 @@
 // angular app
-var chordFinder = angular.module('chordFinder', []);
+// angular functions will come later
+// var chordFinder = angular.module('chordFinder', []);
 
 
 // chordFinder.controller('chordFinderController', function ($scope){
