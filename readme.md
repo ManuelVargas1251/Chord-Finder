@@ -4,13 +4,13 @@
 
 # Chord Finder 🎹❓
 
-Javascript web application that tells you what chord you are playing. Click on the notes to build your chord! 
+Javascript web application that tells you what chord you are playing. Click on the notes to build your chord! If you select two notes it will tell you what the interval is between those two notes.
 
-I started by rewriting my own C++ [console application](https://github.com/ManuelVargas1251/ChordFinder) to javascript and added the interface as I went. Still a work in progress.
+I started by rewriting my own previous C++ [console application](https://github.com/ManuelVargas1251/ChordFinder) in javascript and added the interface as I went. Still a work in progress.
 
 [View Demo](https://mnl.space/Chord-Finder/)
 
-![](interface.png)
+![](interface.gif)
 
 ### Console Usage
 If you don't like the interface you can easily call the functions from the [Chrome Console](https://developers.google.com/web/tools/chrome-devtools/console/)  or use them in your own project.
@@ -28,7 +28,6 @@ Below is how I store the relations of the note intervals as well as grouping of 
 
 | Interval Name     | Interval	|
 | -------------- 	|:-----:|
-| Perfect Unison 	|	0, 1|
 | Minor Second   	|	2	|
 | Major Second 	 	|	3 	|
 | Minor Third    	|	4	|
@@ -41,7 +40,6 @@ Below is how I store the relations of the note intervals as well as grouping of 
 | Major Sixth     	|	10 	|
 | Minor Seventh   	|	11 	|
 | Major Seventh   	|	12 	|
-| Perfect Octave  	|	13 	|
 
 ### Chord Reference
 
@@ -67,5 +65,6 @@ Below is how I store the relations of the note intervals as well as grouping of 
 
 # Reference
 
-[Chord Wiki](https://en.wikipedia.org/wiki/Chord_(music))
+[Musical Chord Wiki](https://en.wikipedia.org/wiki/Chord_(music))
+[Musical Interval Wiki](https://en.wikipedia.org/wiki/Interval_(music))
 

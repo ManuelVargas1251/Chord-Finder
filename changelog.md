@@ -5,6 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [0.6.1] - 2018-02-27
+### Added
+- centered UI
+- fixed [issue #1](https://github.com/ManuelVargas1251/Chord-Finder/issues/1) by wrapping switch in `getChord()` inside an if-else statement that checks if the user chord array has any notes in it. If it doesn't, it skips the switch case and returns an empty string.
+### Changed
+- renamed `convertChord()` to `getNoteChord()`
+- interface screenshot in `readme.md` is now a gif
+- renamed `_newIntervals` object to `_intervals`
+
 
 ## [0.6.0] - 2018-02-26
 ### Added
@@ -22,6 +31,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - interface message; keyboard works as intended now!
 - about class style; maybe later
 - removed deprecated 'getChord()' function
+
 
 ## [0.5.8] - 2017-12-29
 ### Added
@@ -64,9 +74,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Commits exist before 0.5.5 but I wasn't keeping count.
 
-[0.6.0]: #
-[0.5.8]: https://github.com/ManuelVargas1251/Twelve-Tone-Generator/commit/d3fa8c1a9ea3b2a9bc2bec5dec10fd4f2e88fb55
-[0.5.7]: https://github.com/ManuelVargas1251/Twelve-Tone-Generator/commit/a70fa201fd150e6f30f5973beff5046f42202862
-[0.5.6]: https://github.com/ManuelVargas1251/Twelve-Tone-Generator/commit/884727f8dc11147e5f43ada27f148062b526a132
-[0.5.5]: https://github.com/ManuelVargas1251/Twelve-Tone-Generator/commit/27eb5752df9f6dcf6071b9999518c57d1b102aa2
-
+[0.6.1]: #
+[0.6.0]: https://github.com/ManuelVargas1251/Chord-Finder/commit/e8f06dd58904f322473074d79b822ed78e02321e
+[0.5.8]: https://github.com/ManuelVargas1251/Chord-Finder/commit/f2223a7a1cff9acb21104438920574e23c90bc08
+[0.5.7]: https://github.com/ManuelVargas1251/Chord-Finder/commit/75b11393e3e68f078db3aa085ba6232e213cb49b
+[0.5.6]: https://github.com/ManuelVargas1251/Chord-Finder/commit/48a092a2aadb57f417f87367fd186d6c64fb7fc4
+[0.5.5]: https://github.com/ManuelVargas1251/Chord-Finder/commit/14326d629f5ac41210af279a91e9a5950e6422ae

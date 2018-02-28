@@ -5,6 +5,12 @@ html{
 	font-weight: bold;
 }
 
+#body{
+	margin: auto;
+    width: 50%;
+	padding: 10px;
+}
+
 .chord{
 	color: white;
 	font-weight: bold;
@@ -12,5 +18,6 @@ html{
 	font-size: 50px;
 	height: 20%;
 	width: 100%;
+	text-align: center;
 }
 

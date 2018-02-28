@@ -11,23 +11,26 @@ var userChord = []
 // when a key is clicked,
 $(".key").click(function () {
 
-	// when key is clicked, save note in newNote
-	let newNoteId = $(this).attr('id')
-	
+	//toggle key color key when pressed
+	$(this).toggleClass("pressed")
+
 	// define bool for testing duplicate note entries
 	let isDuplicate = false
-	
+
+	// when key is clicked, save note in newNote
+	let newNoteId = $(this).attr('id')
+
 	//if duplicate, remove both
 	userChordIds.forEach((element, i) => {
-		if(newNoteId == element){
+		if (newNoteId == element) {
 			//console.log("dup found!")
 			isDuplicate = true
 			userChordIds.splice(i, 1)
-		} 
+		}
 	})
-	
+
 	// push to array if no duplicate found
-	if(isDuplicate == false){
+	if (isDuplicate == false) {
 		userChordIds.push(newNoteId)
 	}
 
@@ -36,15 +39,12 @@ $(".key").click(function () {
 	userChordIds.sort((a, b) => {
 		return a - b
 	})
-	console.log('Sorted userChordIds: ' + userChordIds);
+	console.log('sorted userChordIds: ' + userChordIds);
 
 	//convert note ids to note names
-	userChord = convertChord(userChordIds)
+	userChord = getNoteChord(userChordIds)
 
 	console.log('userChord: ' + userChord);
-
-	//highlight key when pressed
-	$(this).toggleClass("pressed")
 
 	// run the update chord
 	$(".chord").text(updateChord(userChord))

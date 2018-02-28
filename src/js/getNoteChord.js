@@ -1,5 +1,5 @@
 // converts user inputted chord from array of id to literal note name array
-function convertChord(idChord) {
+function getNoteChord(idChord) {
 
     let noteChord = []
 
