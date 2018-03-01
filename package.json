@@ -1,0 +1,26 @@
+{
+  "name": "chord-finder",
+  "version": "1.0.0",
+  "description": "<!-- using shields.io for status buttons -->\r ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)\r ![Version](https://img.shields.io/badge/Version-0.6.1-brightgreen.svg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManuelVargas1251/Chord-Finder.git"
+  },
+  "keywords": [],
+  "author": "Manuel Vargas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ManuelVargas1251/Chord-Finder/issues"
+  },
+  "homepage": "https://github.com/ManuelVargas1251/Chord-Finder#readme",
+  "dependencies": {
+    "jest": "^22.4.2"
+  },
+  "jest": {
+    "setupFiles": ["../src/js/global.js"]
+  }
+}

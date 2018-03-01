@@ -11,3 +11,4 @@ function getNoteChord(idChord) {
 
     return noteChord
 }
+module.exports = getNoteChord;
