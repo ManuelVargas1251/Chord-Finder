@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.6.2] - 2018-02-28
+### Added
+- node to start unit testing
+- jest unit tests; setup only
+### Changed
+- global variables now in one file, `globals.js`
 
 ## [0.6.1] - 2018-02-27
 ### Added

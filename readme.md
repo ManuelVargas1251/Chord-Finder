@@ -1,8 +1,8 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.6.1-brightgreen.svg)
+![Version](https://img.shields.io/badge/Version-0.6.2-brightgreen.svg)
 
-# Chord Finder 🎹❓
+# Chord Finder 🎹
 
 Javascript web application that tells you what chord you are playing. Click on the notes to build your chord! If you select two notes it will tell you what the interval is between those two notes.
 
@@ -19,6 +19,14 @@ To find a chord name, use the `updateChord()` function and pass in an array with
 
 ```javascript
 updateChord(["A", "C#", "E", "G#"])	//  A Major 7
+```
+
+## Unit Testing
+Really wanted to start unit testing my methods. Initial stages so far using [Facebook's Jest](https://facebook.github.io/jest/). Needed to add node. To test along, install the npm modules and test ✔.
+
+```npm
+npm install
+npm test
 ```
 
 ## Interval Library
@@ -66,5 +74,6 @@ Below is how I store the relations of the note intervals as well as grouping of 
 # Reference
 
 [Musical Chord Wiki](https://en.wikipedia.org/wiki/Chord_(music))
+
 [Musical Interval Wiki](https://en.wikipedia.org/wiki/Interval_(music))
 
