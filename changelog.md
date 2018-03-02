@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+
+## [0.6.3] - 2018-03-01
+### Added
+- globals included in package.json; will be moved
+### Changed
+- first unit test passed!
+
 ## [0.6.2] - 2018-02-28
 ### Added
 - node to start unit testing

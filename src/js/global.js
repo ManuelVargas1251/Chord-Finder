@@ -165,5 +165,3 @@ const _intervals = Object.freeze({
 		}]
 
 })
-
-//module.exports = global;

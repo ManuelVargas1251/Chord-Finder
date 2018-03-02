@@ -1,6 +1,6 @@
 {
   "name": "chord-finder",
-  "version": "1.0.0",
+  "version": "0.6.2",
   "description": "<!-- using shields.io for status buttons -->\r ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)\r ![Version](https://img.shields.io/badge/Version-0.6.1-brightgreen.svg)",
   "main": "index.js",
   "scripts": {
@@ -17,10 +17,268 @@
     "url": "https://github.com/ManuelVargas1251/Chord-Finder/issues"
   },
   "homepage": "https://github.com/ManuelVargas1251/Chord-Finder#readme",
-  "dependencies": {
+  "devDependencies": {
     "jest": "^22.4.2"
   },
   "jest": {
-    "setupFiles": ["../src/js/global.js"]
+    "globals": {
+      "_alphabet": [
+        [
+          "C",
+          "B#"
+        ],
+        [
+          "C#",
+          "Db"
+        ],
+        "D",
+        [
+          "D#",
+          "Eb"
+        ],
+        "E",
+        [
+          "F",
+          "E#"
+        ],
+        [
+          "F#",
+          "Gb"
+        ],
+        "G",
+        [
+          "G#",
+          "Ab"
+        ],
+        "A",
+        [
+          "A#",
+          "Bb"
+        ],
+        [
+          "B",
+          "Cb"
+        ]
+      ],
+      "_notes": {
+        "0": "C",
+        "1": "C#",
+        "2": "D",
+        "3": "D#",
+        "4": "E",
+        "5": "F",
+        "6": "F#",
+        "7": "G",
+        "8": "G#",
+        "9": "A",
+        "10": "A#",
+        "11": "B"
+      },
+      "_intervals": {
+        "one": [
+          {
+            "interval": [
+              2
+            ],
+            "name": "Minor 2nd"
+          },
+          {
+            "interval": [
+              3
+            ],
+            "name": "Major 2nd"
+          },
+          {
+            "interval": [
+              4
+            ],
+            "name": "Minor 3rd"
+          },
+          {
+            "interval": [
+              5
+            ],
+            "name": "Major 3rd"
+          },
+          {
+            "interval": [
+              6
+            ],
+            "name": "Perfect Fourth"
+          },
+          {
+            "interval": [
+              7
+            ],
+            "name": "Augmented Fourth",
+            "secondName": "Diminished Fifth"
+          },
+          {
+            "interval": [
+              8
+            ],
+            "name": "Perfect Fifth"
+          },
+          {
+            "interval": [
+              9
+            ],
+            "name": "Minor Sixth"
+          },
+          {
+            "interval": [
+              10
+            ],
+            "name": "Major Sixth"
+          },
+          {
+            "interval": [
+              11
+            ],
+            "name": "Minor Seventh"
+          },
+          {
+            "interval": [
+              12
+            ],
+            "name": "Major Seventh"
+          }
+        ],
+        "two": [
+          {
+            "interval": [
+              5,
+              4
+            ],
+            "name": "Major"
+          },
+          {
+            "interval": [
+              4,
+              5
+            ],
+            "name": "Minor"
+          },
+          {
+            "interval": [
+              5,
+              5
+            ],
+            "name": "Augmented"
+          },
+          {
+            "interval": [
+              4,
+              4
+            ],
+            "name": "Diminished"
+          },
+          {
+            "interval": [
+              4,
+              6
+            ],
+            "name": "1st Inversion"
+          },
+          {
+            "interval": [
+              6,
+              5
+            ],
+            "name": "2nd Inversion"
+          }
+        ],
+        "three": [
+          {
+            "interval": [
+              5,
+              4,
+              5
+            ],
+            "name": "Major 7"
+          },
+          {
+            "interval": [
+              4,
+              5,
+              4
+            ],
+            "name": "Minor 7"
+          },
+          {
+            "interval": [
+              5,
+              5,
+              3
+            ],
+            "name": "Augmented 7"
+          },
+          {
+            "interval": [
+              5,
+              4,
+              4
+            ],
+            "name": "Dominant 7"
+          },
+          {
+            "interval": [
+              5,
+              5,
+              4
+            ],
+            "name": "Augmented Major 7"
+          },
+          {
+            "interval": [
+              4,
+              4,
+              4
+            ],
+            "name": "Fully Diminished 7"
+          },
+          {
+            "interval": [
+              4,
+              4,
+              4
+            ],
+            "name": "Half-Diminished 7"
+          },
+          {
+            "interval": [
+              4,
+              5,
+              5
+            ],
+            "name": "Minor Major 7"
+          },
+          {
+            "interval": [
+              4,
+              5,
+              2
+            ],
+            "name": "1st Inversion"
+          },
+          {
+            "interval": [
+              5,
+              2,
+              5
+            ],
+            "name": "2nd Inversion"
+          },
+          {
+            "interval": [
+              2,
+              5,
+              4
+            ],
+            "name": "3rd Inversion"
+          }
+        ]
+      }
+    }
   }
 }
