@@ -1,6 +1,6 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.6.3-brightgreen.svg)
+![Version](https://img.shields.io/badge/Version-0.6.4-brightgreen.svg)
 [![jest](https://facebook.github.io/jest/img/jest-badge.svg)](https://github.com/facebook/jest)
 
 # Chord Finder 🎹
@@ -23,7 +23,7 @@ updateChord(["A", "C#", "E", "G#"])	//  A Major 7
 ```
 
 ## Unit Testing
-Really wanted to start unit testing my methods. Initial stages so far using [Facebook's Jest](https://facebook.github.io/jest/). Needed to add node. To test along, install the npm modules and test ✔.
+Really wanted to start unit testing my methods. Using [Facebook's Jest](https://facebook.github.io/jest/) for 6 method tests. To test along, install the npm modules and test ✔.
 
 ```npm
 npm install

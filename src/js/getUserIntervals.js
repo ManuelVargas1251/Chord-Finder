@@ -14,3 +14,4 @@ function getUserIntervals(userChord, alphabet_from_root) {
 
 	return intervals
 }
+module.exports = getUserIntervals

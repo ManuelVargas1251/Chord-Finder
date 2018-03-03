@@ -17,3 +17,4 @@ function updateChord(newChord){
 	
 	return chord
 }
+module.exports = updateChord

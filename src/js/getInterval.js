@@ -18,3 +18,4 @@ function getInterval(alphabet, startNote, endNote) {
 	
 	return interval + 1
 }
+module.exports = getInterval

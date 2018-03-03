@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [0.6.4] - 2018-03-03
+### Added
+- all method tests (4 passing!)
+### Deleted
+- deleted `getUserChord()`; no longer used
+
 ## [0.6.3] - 2018-03-01
 ### Added
 - globals included in package.json; will be moved
