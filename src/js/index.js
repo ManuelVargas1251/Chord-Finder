@@ -1,6 +1,6 @@
 // entry point to start functionality
 
-"use strict"
+'use strict'
 console.clear()
 
 // two global arrays, one storing chord ids, the other storing chord note names
@@ -20,10 +20,9 @@ $(".key").click(function () {
 	// when key is clicked, save note in newNote
 	let newNoteId = $(this).attr('id')
 
-	//if duplicate, remove both
+	//if newNote is already in the array, remove both
 	userChordIds.forEach((element, i) => {
 		if (newNoteId == element) {
-			//console.log("dup found!")
 			isDuplicate = true
 			userChordIds.splice(i, 1)
 		}
@@ -35,17 +34,16 @@ $(".key").click(function () {
 	}
 
 	// sort and update array
-	// implicit sort bc default implementation does not sort double digits correctly
+	// explicit sort bc default implementation does not sort double digits correctly
 	userChordIds.sort((a, b) => {
 		return a - b
 	})
-	console.log('sorted userChordIds: ' + userChordIds);
+	console.log('sorted userChordIds: ' + userChordIds)
 
 	//convert note ids to note names
 	userChord = getNoteChord(userChordIds)
-
-	console.log('userChord: ' + userChord);
+	console.log('userChord: ' + userChord)
 
 	// run the update chord
-	$(".chord").text(updateChord(userChord))
+	$('.chord').text(updateChord(userChord))
 })

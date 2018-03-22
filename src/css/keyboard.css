@@ -22,20 +22,23 @@
 	width: 50px;
 	height: 200px;
 	/* display: inline-block; */
-
-	background-color: var(--piano-white);
+	
 	border: solid 2px var(--piano-black);
-	color: var(--piano-black);
 	border-radius: 0 0 7px 7px;
-
-	z-index: 6;
+	z-index: 1;
 	cursor: pointer;
+}
+
+.key.white{
+	width: 80px;
+	background-color: var(--piano-white);
+	color: var(--piano-black);
 }
 
 .key.black{
 	background-color: var(--piano-black);
 	color: var(--piano-white);
-	margin: 0 0 0 -15px;
+	margin: 0 0px 0 -15px;
 	height: 125px;
 	z-index: 9;
 }

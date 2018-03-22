@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.6.5] - 2018-03-21
+### Added
+- separate css for white key sizing
+### Changed
+- ui font
+- condensed `getNoteChord.js` and `updateChord.js`
+### Deleted
+- deleted keyboard ui numbers
 
 ## [0.6.4] - 2018-03-03
 ### Added
@@ -93,7 +101,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Commits exist before 0.5.5 but I wasn't keeping count.
 
-[0.6.1]: #
+[0.6.5]: #
+[0.6.4]: https://github.com/ManuelVargas1251/Chord-Finder/commit/656dc07b98d596fb1f9e3a93e5081324f08fc9ef
+[0.6.3]: https://github.com/ManuelVargas1251/Chord-Finder/commit/21e4a01ccd3bb22fd34d4a1f3c75feaec14a85e9
+[0.6.2]: https://github.com/ManuelVargas1251/Chord-Finder/commit/2f8c4e6d8ec4f742b2bbecb3e5e6a8d942176007
+[0.6.1]: https://github.com/ManuelVargas1251/Chord-Finder/commit/906623097acc93b6fbc25a8707e853c910881549
 [0.6.0]: https://github.com/ManuelVargas1251/Chord-Finder/commit/e8f06dd58904f322473074d79b822ed78e02321e
 [0.5.8]: https://github.com/ManuelVargas1251/Chord-Finder/commit/f2223a7a1cff9acb21104438920574e23c90bc08
 [0.5.7]: https://github.com/ManuelVargas1251/Chord-Finder/commit/75b11393e3e68f078db3aa085ba6232e213cb49b
