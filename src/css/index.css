@@ -1,8 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
+:root{
+	--piano-black: #363636;
+	--piano-white: #f9fffc;
+	--piano-pressed: rgb(206, 100, 140);
+	--background-color: rgb(255, 117, 86);
+}
+
+ 
 html{
-	background-color: #0077be;
-	color: white;
+	background-color: var(--background-color);
+	color: var(--piano-white);
 	font-family: 'Raleway', helvetica;
 	font-weight: bold;
 }
