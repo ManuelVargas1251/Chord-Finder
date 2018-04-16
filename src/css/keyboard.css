@@ -7,24 +7,24 @@
 }
 
 .key{
-	position: relative; 
+	position: relative;
+	cursor: pointer;
 	
 	/* border color */
 	border: solid 2px var(--piano-black);
 
 	/* rounded keys */
 	border-radius: 0 0 7px 7px;
-	
-	z-index: 1;
-	cursor: pointer;
 }
+	
 
 .key.white{
 	background-color: var(--piano-white);
 	color: var(--piano-black);
 
-	height: 200px;
+	height: 180px;
 	width: 70px;
+	z-index: 1;
 }
 
 .key.black{
@@ -34,7 +34,7 @@
 	/* border color */
 	border: solid 3px var(--piano-black);
 
-	height: 125px;
+	height: 100px;
 	width: 50px;
 	margin: 0px -22px;
 	
