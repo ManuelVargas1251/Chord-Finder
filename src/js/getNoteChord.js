@@ -5,4 +5,4 @@ function getNoteChord(idChord) {
         return _notes[element]
     })
 }
-module.exports = getNoteChord
+// module.exports = getNoteChord

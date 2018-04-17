@@ -17,4 +17,4 @@ function getAlphabetFromRoot(user_chord) {
 	})
 	return alpha_root.concat(alpha_temp)
 }
-module.exports = getAlphabetFromRoot
+// module.exports = getAlphabetFromRoot

@@ -12,4 +12,4 @@ function updateChord(newChord){
 	// find chord using the chord letters and interval values
 	return getChord(newChord, userIntervals)
 }
-module.exports = updateChord
+// module.exports = updateChord
