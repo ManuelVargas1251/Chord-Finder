@@ -21,25 +21,21 @@ let keyMapping = {
 	106: 11 //'B'
 }
 
-
 // using a mouse click
 $(".key").click(function () {
 	//toggle key color key when pressed
-	$(this).toggleClass("pressed")
-
 	//pass note id to add to chord
+	$(this).toggleClass("pressed")
 	processDOMChord($(this).attr('id'))
 })
 
 // using computer keyboard mapping
 $("html").keypress(function (element) {
-	//toggle key color key when pressed
-	$("#" + noteCode).toggleClass("pressed")
-
+	//grab note and use it
 	noteCode = keyMapping[element.which]
-
-	console.log(noteCode)
+	$("#" + noteCode).toggleClass("pressed")
 	processDOMChord(noteCode)
+	console.log(noteCode)
 })
 
 function processDOMChord(newNoteId) {
