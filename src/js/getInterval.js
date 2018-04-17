@@ -15,4 +15,4 @@ function getInterval(alphabet, startNote, endNote) {
 	}
 	return interval
 }
-module.exports = getInterval
+// module.exports = getInterval
