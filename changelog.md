@@ -5,12 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [0.6.6] - 2018-04-16
+
+
+## [0.6.6] - 2018-04-18
 ### Added
 - physical keyboard mapping
-- reformat keyboard ui
 - refactor input handling to it's own file
 - css color variables all in one place
+- try/catch for when a chord is not found + ui clear
+### Changed
+- redo keyboard ui
+
 ## [0.6.5] - 2018-03-21
 ### Added
 - separate css for white key sizing
@@ -20,11 +25,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Deleted
 - deleted keyboard ui numbers
 
+
 ## [0.6.4] - 2018-03-03
 ### Added
 - all method tests (4 passing!)
 ### Deleted
 - deleted `getUserChord()`; no longer used
+
 
 ## [0.6.3] - 2018-03-01
 ### Added
@@ -32,12 +39,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - first unit test passed!
 
+
 ## [0.6.2] - 2018-02-28
 ### Added
 - node to start unit testing
 - jest unit tests; setup only
 ### Changed
 - global variables now in one file, `globals.js`
+
 
 ## [0.6.1] - 2018-02-27
 ### Added
