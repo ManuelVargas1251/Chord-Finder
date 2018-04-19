@@ -5,8 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [0.6.6] - 2018-04-15
-
+## [0.6.6] - 2018-04-16
+### Added
+- physical keyboard mapping
+- reformat keyboard ui
+- refactor input handling to it's own file
+- css color variables all in one place
 ## [0.6.5] - 2018-03-21
 ### Added
 - separate css for white key sizing
@@ -104,6 +108,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Commits exist before 0.5.5 but I wasn't keeping count.
 
+[0.6.6]: #
 [0.6.5]: #
 [0.6.4]: https://github.com/ManuelVargas1251/Chord-Finder/commit/656dc07b98d596fb1f9e3a93e5081324f08fc9ef
 [0.6.3]: https://github.com/ManuelVargas1251/Chord-Finder/commit/21e4a01ccd3bb22fd34d4a1f3c75feaec14a85e9
