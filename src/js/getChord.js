@@ -13,27 +13,34 @@ function getChord(userChord, userIntervals) {
 
 	//console.log('num of intervals: ' + userIntervals.length)
 	if (userChord.length != 0) {
-		// searches interval library depending on how many intervals the chord has
-		switch (userIntervals.length) {
-			case 0:
-				output = userChord[0];
-				break;
-			case 1:
-				output = _intervals.one.find(findIntervals).name;
-				break;
-			case 2:
-				output = userChord[0] + ' ' + _intervals.two.find(findIntervals).name;
-				break;
-			case 3:
-				output = userChord[0] + ' ' + _intervals.three.find(findIntervals).name;
-				break;
-			case 4:
-				output = userChord[0] + ' ' + _intervals.four.find(findIntervals).name;
-				break;
-			default:
-				console.log('error: chord not defined yet')
-				break;
+		try {
+			// searches interval library depending on how many intervals the chord has
+			switch (userIntervals.length) {
+				case 0:
+					output = userChord[0];
+					break;
+				case 1:
+					output = _intervals.one.find(findIntervals).name;
+					break;
+				case 2:
+					output = userChord[0] + ' ' + _intervals.two.find(findIntervals).name;
+					break;
+				case 3:
+					output = userChord[0] + ' ' + _intervals.three.find(findIntervals).name;
+					break;
+				case 4:
+					output = userChord[0] + ' ' + _intervals.four.find(findIntervals).name;
+					break;
+				default:
+					console.log('--warning: chord not defined yet--')
+					break;
+			}
+
+		}catch(e){
+			output = ''
+			console.log("no chord defined")
 		}
+
 	}
 	else {
 		// if there are no notes in the chord, return an empty string
@@ -43,4 +50,4 @@ function getChord(userChord, userIntervals) {
 	//return userChord[0] + " " + output.name
 	return output
 }
-module.exports = getChord
+// module.exports = getChord

@@ -1,4 +1,19 @@
 
+const keyMapping = {
+	97: 0,
+	119: 1,
+	115: 2,
+	101: 3,
+	100: 4,
+	102: 5,
+	116: 6,
+	103: 7,
+	121: 8,
+	104: 9,
+	117: 10,
+	106: 11
+}
+
 //defining different names for notes even though the final web app won't have the ability to distinguish between them because the user will only have a keyboard layout.
 const _alphabet = [
 	["C", "B#"],	//C

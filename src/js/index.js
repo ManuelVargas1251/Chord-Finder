@@ -1,49 +1,26 @@
-// entry point to start functionality
-
+// DOM Events Handlers
 'use strict'
 console.clear()
 
 // two global arrays, one storing chord ids, the other storing chord note names
-var userChordIds = []
-var userChord = []
+let userChordIds = []
+let userChord = []
 
-// key click event handler
-// when a key is clicked,
+// using a mouse click
 $(".key").click(function () {
-
 	//toggle key color key when pressed
+	//pass note id to add to chord
 	$(this).toggleClass("pressed")
 
-	// define bool for testing duplicate note entries
-	let isDuplicate = false
+	processDOMChord($(this).attr('id'))
+})
 
-	// when key is clicked, save note in newNote
-	let newNoteId = $(this).attr('id')
+// using computer keyboard mapping
+$("html").keypress(function (element) {
+	//grab note and use it
+	let noteCode = keyMapping[element.which]
 
-	//if newNote is already in the array, remove both
-	userChordIds.forEach((element, i) => {
-		if (newNoteId == element) {
-			isDuplicate = true
-			userChordIds.splice(i, 1)
-		}
-	})
-
-	// push to array if no duplicate found
-	if (isDuplicate == false) {
-		userChordIds.push(newNoteId)
-	}
-
-	// sort and update array
-	// explicit sort bc default implementation does not sort double digits correctly
-	userChordIds.sort((a, b) => {
-		return a - b
-	})
-	console.log('sorted userChordIds: ' + userChordIds)
-
-	//convert note ids to note names
-	userChord = getNoteChord(userChordIds)
-	console.log('userChord: ' + userChord)
-
-	// run the update chord
-	$('.chord').text(updateChord(userChord))
+	$( "#" + noteCode).toggleClass("pressed")
+	processDOMChord(noteCode)
+	console.log(noteCode)
 })
