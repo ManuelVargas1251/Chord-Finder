@@ -11,7 +11,7 @@ I started by rewriting my previous C++ chord finder [console application](https:
 
 [View Demo](https://mnl.space/Chord-Finder/)
 
-![](interface.gif)
+![](src/interface.gif)
 
 ### Console Usage
 You can use the [Chrome Console](https://developers.google.com/web/tools/chrome-devtools/console/) to use the functions directly or use them in your own project.
@@ -30,51 +30,8 @@ npm install
 npm test
 ```
 
-## Interval Library
-Below is how I store the relations of the note intervals as well as grouping of intervals commonly called chords.
-
-### Interval Reference
-
-| Interval Name     | Interval	|
-| -------------- 	|:-----:|
-| Minor Second   	|	2	|
-| Major Second 	 	|	3 	|
-| Minor Third    	|	4	|
-| Major Third	    |	5 	|
-| Perfect Fourth	|	6 	|
-| Augmented Fourth	|	7 	|
-| Diminished Fifth	|	7 	|
-| Perfect Fifth    	|	8 	|
-| Minor Sixth  	   	|	9 	|
-| Major Sixth     	|	10 	|
-| Minor Seventh   	|	11 	|
-| Major Seventh   	|	12 	|
-
-### Chord Reference
-
-| Chord Name			| Interval Values			|
-| ----------			| --------------			|
-|	Major				|	```[5, 4]```			| 
-|	Minor				|	```[4, 5]```			|
-|	Augmented			|	```[5, 5]```			| 	
-|	Diminished			|	```[4, 4]```			| 	
-|	Major 7				|	```[5, 4, 5]```			|
-|	Minor 7				|	```[4, 5, 4]```			|
-|	Augmented 7			|	```[5, 5, 3]```			|
-|	Dominant 7th		|	```[5, 4, 4]```			|	
-|	Augmented Major 7	|	```[5, 5, 4]```			|
-|	Fully Diminished 7	|	```[4, 4, 4]```			|
-|	Half-Diminished  	|	```[4, 4, 5]```			|
-|	Minor Major 7 		|	```[4, 5, 5]```			|	
-|	Major 9th			|	```[5, 4, 5, 4]```		|	
-|	Dominant 9th		|	```[5, 4, 4, 5]```		|
-|	Dominant 11th		|	```[5, 4, 4, 5, 4]```	|
-|	Dominant 13th		|	```[5, 4, 4, 5, 4, 5]```|
-
-
 # Reference
 
 [Musical Chord Wiki](https://en.wikipedia.org/wiki/Chord_(music))
 
 [Musical Interval Wiki](https://en.wikipedia.org/wiki/Interval_(music))
-
