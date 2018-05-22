@@ -1,9 +1,9 @@
 //return alphabet starting with the root of the chord
 function getAlphabetFromRoot(user_chord) {
 
-	let chord_root = user_chord[0]
-	let alpha_root = []
-	let alpha_temp = []
+	let chord_root = user_chord[0],
+		alpha_root = [],
+		alpha_temp = []
 
 	_alphabet.forEach(function (key) {
 		if (key === chord_root || alpha_root.length) {

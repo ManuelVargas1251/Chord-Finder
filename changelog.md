@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-
+## [0.6.7] - 2018-23-05
 
 ## [0.6.6] - 2018-04-18
 ### Added
@@ -117,8 +117,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Commits exist before 0.5.5 but I wasn't keeping count.
 
-[0.6.6]: #
-[0.6.5]: #
+[0.6.7]: #
+[0.6.6]: https://github.com/ManuelVargas1251/Chord-Finder/commit/2aee0a47cf887c99843350d7ac40b4b371c14bed
+[0.6.5]: https://github.com/ManuelVargas1251/Chord-Finder/commit/c4b513b5d88f16a59bf6510851c2be014d33a533
 [0.6.4]: https://github.com/ManuelVargas1251/Chord-Finder/commit/656dc07b98d596fb1f9e3a93e5081324f08fc9ef
 [0.6.3]: https://github.com/ManuelVargas1251/Chord-Finder/commit/21e4a01ccd3bb22fd34d4a1f3c75feaec14a85e9
 [0.6.2]: https://github.com/ManuelVargas1251/Chord-Finder/commit/2f8c4e6d8ec4f742b2bbecb3e5e6a8d942176007

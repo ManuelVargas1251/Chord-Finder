@@ -32,13 +32,13 @@ function getChord(userChord, userIntervals) {
 					output = userChord[0] + ' ' + _intervals.four.find(findIntervals).name;
 					break;
 				default:
-					console.log('--warning: chord not defined yet--')
+					console.warn('--warning: chord not defined yet--')
 					break;
 			}
 
 		}catch(e){
 			output = ''
-			console.log("no chord defined")
+			console.warn("no chord defined")
 		}
 
 	}
@@ -46,7 +46,6 @@ function getChord(userChord, userIntervals) {
 		// if there are no notes in the chord, return an empty string
 		output = ''
 	}
-
 	//return userChord[0] + " " + output.name
 	return output
 }
