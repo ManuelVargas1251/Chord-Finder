@@ -9,7 +9,6 @@ function updateChord(newChord) {
 		//console.log(intervals)
 		userIntervals = getUserIntervals(newChord, alphabetFromRoot)
 
-
 	// find chord using the chord letters and interval values
 	return getChord(newChord, userIntervals)
 }

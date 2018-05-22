@@ -6,14 +6,14 @@ function processDOMChord(newNoteId) {
 
     //if newNote is already in the array, remove both
     userChordIds.forEach((element, i) => {
-        if (newNoteId == element) {
+        if (newNoteId === element) {
             isDuplicate = true
             userChordIds.splice(i, 1)
         }
     })
 
     // push to array if no duplicate found
-    if (isDuplicate == false) {
+    if (isDuplicate === false) {
         userChordIds.push(newNoteId)
     }
 

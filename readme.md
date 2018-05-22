@@ -11,7 +11,7 @@ I started by rewriting my previous C++ chord finder [console application](https:
 
 [View Demo](https://mnl.space/Chord-Finder/)
 
-![](src/interface.gif)
+![](src/demo.gif)
 
 ### Console Usage
 You can use the [Chrome Console](https://developers.google.com/web/tools/chrome-devtools/console/) to use the functions directly or use them in your own project.

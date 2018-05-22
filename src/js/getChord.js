@@ -46,7 +46,6 @@ function getChord(userChord, userIntervals) {
 		// if there are no notes in the chord, return an empty string
 		output = ''
 	}
-
 	//return userChord[0] + " " + output.name
 	return output
 }

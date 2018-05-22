@@ -6,7 +6,7 @@ console.clear()
 let userChordIds = [],
 	userChord = []
 
-// using a mouse click
+// mouse click event
 $(".key").click(function () {
 	//toggle key color key when pressed
 	//pass note id to add to chord
@@ -14,7 +14,7 @@ $(".key").click(function () {
 	processDOMChord($(this).attr('id'))
 })
 
-// using computer keyboard mapping
+// keyboard event
 $("html").keypress(function (element) {
 	let noteCode = keyMapping[element.which]
 	$("#" + noteCode).toggleClass("pressed")
