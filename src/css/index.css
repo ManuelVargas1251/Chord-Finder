@@ -15,7 +15,7 @@ html{
 	font-weight: bold;
 }
 
-#body{
+body{
 	margin: auto;
     width: 50%;
 	padding: 10px;
@@ -31,4 +31,3 @@ html{
 	width: 100%;
 	text-align: center;
 }
-
