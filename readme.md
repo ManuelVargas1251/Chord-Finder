@@ -9,11 +9,11 @@ Javascript web application that tells you what chord you are playing. Click or k
 
 I started by rewriting my previous C++ chord finder [console application](https://github.com/ManuelVargas1251/ChordFinder) in javascript and added the web interface as I went.
 
-[View Demo](https://mnl.space/Chord-Finder/)
+[View Web Application](https://mnl.space/Chord-Finder/)
 
 ![](src/demo.gif)
 
-### Console Usage
+## Console Usage
 You can use the [Chrome Console](https://developers.google.com/web/tools/chrome-devtools/console/) to use the functions directly or use them in your own project.
 
 To find a chord name, use the `updateChord()` function and pass in an array with the notes you want. 
