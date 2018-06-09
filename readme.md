@@ -5,7 +5,7 @@
 
 # Chord Finder 🎹
 
-This is a javascript web application that tells you what piano chord you are playing. Click or keypress the notes to build your chord! If you select two notes it will tell you what the interval is between those two notes.
+This is a javascript web application that tells you what piano yes I didmobileMarychord you are playing. Click or keypress the notes to build your chord! If you select two notes it will tell you what the interval is between those two notes.
 
 I started by rewriting my previous C++ chord finder [console application](https://github.com/ManuelVargas1251/ChordFinder) in javascript and added the web interface as I went.
 
