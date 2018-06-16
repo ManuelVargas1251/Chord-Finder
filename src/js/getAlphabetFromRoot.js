@@ -9,6 +9,11 @@ function getRoot(user_chord) {
 		// check note intervals()
 		//if intervals are all divisble by 5
 
+
+
+
+		
+
 	*/
 
 	if (user_chord.length > 1) {
