@@ -4,47 +4,6 @@ function getInterval(alphabet, startNote, endNote) {
 		interval = 1
 
 
-	// let fill_left = () => {
-	// 	while(1+2){
-	// 		console.info('this is 1')
-	// 	}
-	// }
-
-
-
-	// let note_reference = fill_left(startNote) + fill_right(startNote)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	//traverse through alphabet if start note not reached yet
 	while (!alphabet[index].includes(startNote)) {
 		//console.log(index + ": " + alphabet[index])
