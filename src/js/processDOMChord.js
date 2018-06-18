@@ -19,9 +19,9 @@ function processDOMChord(newNoteId) {
 
     // sort and update array
     // explicit sort bc default implementation does not sort double digits correctly
-    userChordIds.sort((a, b) => {
-        return a - b
-    })
+    // userChordIds.sort((a, b) => {
+    //     return a - b
+    // })
     console.log('sorted userChordIds: ' + userChordIds)
 
     //convert note ids to note names

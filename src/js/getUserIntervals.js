@@ -2,20 +2,50 @@
 function getUserIntervals(userChord, alphabet_from_root) {
 
 	console.log("user chord notesum: " + userChord.length)
-	let i = userChord.length - 1,
+
+	userChord.forEach(element => {
+		console.log(getNoteId(element))
+	});
+
+
+
+	let num_of_intervals = userChord.length - 1,
 		index = 0,
 		intervals = []
 
-	while (i > 0) {
+	while (num_of_intervals > 0) {
+
+
+		let note_one = userChord[index]
+		,note_two = userChord[index + 1]
+
+		console.log(
+			'1: ' + note_one +
+			', 2: ' + note_two
+
+		)
+
+		if (getNoteId(note_one) < getNoteId(note_two)) {
+			console.error('note ' + note_one + ' is to the left of note ' + note_two)
+		}
+		else {
+			console.error('note ' + note_one + ' is to the right of note ' + note_two)
+		}
+
+
 		intervals.push(
 			getInterval(
 				alphabet_from_root,
 				userChord[index],
 				userChord[index + 1]
 			)
+
+
+
+
 		)
-		i -= 1
-		index += 1
+		num_of_intervals--
+		index++
 	}
 
 	return intervals

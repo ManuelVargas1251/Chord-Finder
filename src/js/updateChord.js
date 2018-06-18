@@ -6,7 +6,7 @@ function updateChord(newChord) {
 	let alphabetFromRoot = getAlphabetFromRoot(newChord),
 
 		// stores array with all intervals of notes
-		//console.log(intervals)
+		// console.log(intervals)
 		userIntervals = getUserIntervals(newChord, alphabetFromRoot)
 
 	// find chord using the chord letters and interval values

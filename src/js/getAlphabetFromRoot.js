@@ -1,18 +1,13 @@
 
 
 
-
+// [C,F,A]
 function getRoot(user_chord) {
-	console.error('getChord: ' + user_chord)
+	console.log('getChord: ' + user_chord)
 	/*
 
 		// check note intervals()
 		//if intervals are all divisble by 5
-
-
-
-
-		
 
 	*/
 
