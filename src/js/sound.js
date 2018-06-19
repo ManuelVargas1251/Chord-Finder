@@ -1,15 +1,13 @@
 console.log('sound-start');
 
 
-var sound = new Howl({
-    src: ['src/sound/mySound.mp3'],
-    autoplay: true,
-    onend: function () {
-        console.log('Finished!');
-    }
-});
-
-sound.play();
-
+function playNote(newNoteId) {
+    let sound = new Howl({
+        src: ['src/sound/' + newNoteId +'.mp3'],
+        onend: function () {
+            console.log('Finished!');
+        }
+    }).play();
+}
 
 console.log('sound-end');

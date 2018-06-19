@@ -1,10 +1,11 @@
 
 function processDOMChord(newNoteId) {
+
     // define bool for testing duplicate note entries
     // when key is clicked, save note in newNote
     let isDuplicate = false
 
-    //if newNote is already in the array, remove both
+    // if newNote is already in the array, remove both
     userChordIds.forEach((element, i) => {
         if (newNoteId === element) {
             isDuplicate = true
@@ -14,6 +15,9 @@ function processDOMChord(newNoteId) {
 
     // push to array if no duplicate found
     if (isDuplicate === false) {
+        // play the audio
+        playNote(newNoteId)
+        //push the note into the array
         userChordIds.push(newNoteId)
     }
 
