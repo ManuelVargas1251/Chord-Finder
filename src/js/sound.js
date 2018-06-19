@@ -1,13 +1,11 @@
-console.log('sound-start');
-
-
-function playNote(newNoteId) {
+function playNote(NoteId) {
     let sound = new Howl({
-        src: ['src/sound/' + newNoteId +'.mp3'],
+        src: ['src/sound/' + NoteId + '.mp3'],
         onend: function () {
             console.log('Finished!');
+        },
+        onloaderror: function () {
+            console.error('no sound file found')
         }
-    }).play();
+    }).play()
 }
-
-console.log('sound-end');
