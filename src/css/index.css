@@ -3,6 +3,7 @@ html{
 	color: var(--piano-white);
 	font-family: 'Raleway', helvetica;
 	font-weight: bold;
+	overflow: hidden;
 }
 
 #body{
