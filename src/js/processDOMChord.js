@@ -16,7 +16,7 @@ function processDOMChord(newNoteId) {
     if (isDuplicate === false) {
         userChordIds.push(newNoteId)
     }
-    console.log('sorted userChordIds: ' + userChordIds)
+    console.log('new note: ' + userChordIds)
 
     // sort and update array
     // explicit sort bc default implementation does not sort double digits correctly

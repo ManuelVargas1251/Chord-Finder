@@ -3,37 +3,47 @@
 function getChord(userChord, userIntervals) {
 
 	let root_position = true
-
-
 	let root_note = ''
-
+	let root = 0
+		firstinversion = 0
+		secondinversion = 0
+	
 	userIntervals.forEach(interval => {
-		console.log(interval)
-		
-		if (interval > 5 ) {
-			root_position = false
-			root_note = userChord[2]
+		console.log('interval: ' + interval)
+
+		if (interval == 5 || interval == 4) {
+			//console.log('we are letting pass the interval:'+interval)
+			root++
+		} 
+		if (interval > 5) {
+			//root_note = userChord[2]
+			console.log('Any inversion')
+			secondinversion++
 		}
-
-		if(interval == 5 || interval == 4){
-			root_note = userChord[0]
+		else if (interval < 4) {
+			//root_note = userChord[1]
+			//console.log('1st inversion')
+			firstinversion++
 		}
-
-
-		else if(interval < 4){
-			root_note = userChord[1]
-		}
-
 
 	});
+	console.log('root: ' + root)
+	console.log('firstinversion: ' + firstinversion)
+	console.log('secondinversion: ' + secondinversion)
 
-	// if (!root_position) {
-	// 	console.warn('not root position!')
-	// }
-	// else{
-	// 	console.log('root position!')
-	// 	userChord[0]
-	// }
+	if (userIntervals.length == root) {
+		root_note = userChord[0]
+		console.log('root position: '+ root_position+', note: '+ root_note)
+	}
+	else{
+		console.warn('not root position bro')
+		if(userIntervals[0] > 5){
+			root_note = userChord[1]
+		}
+		if(userIntervals[1] == 6){
+			root_note = userChord[2]
+		}
+	}
 
 	// displays how many items it had to search through
 	// prints object and a count of the times it's been called
