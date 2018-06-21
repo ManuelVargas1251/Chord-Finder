@@ -16,13 +16,13 @@ function processDOMChord(newNoteId) {
     if (isDuplicate === false) {
         userChordIds.push(newNoteId)
     }
+    console.log('new note: ' + userChordIds)
 
     // sort and update array
     // explicit sort bc default implementation does not sort double digits correctly
     userChordIds.sort((a, b) => {
         return a - b
     })
-    console.log('sorted userChordIds: ' + userChordIds)
 
     //convert note ids to note names
     userChord = getNoteChord(userChordIds)
