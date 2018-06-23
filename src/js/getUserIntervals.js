@@ -1,17 +1,22 @@
 //return array of intervals found in chord
-function getUserIntervals(userChord, alphabet_from_root) {
+function getUserIntervals(userChord) {
+	console.log("userChord Length: " + userChord.length)
 
-	//console.log("user chord length: " + userChord.length)
-	let i = (userChord.length) - 1,
-		index = 0,
-		intervals = []
+	let index = 0,
+		intervals = [],
+		num_of_intervals = userChord.length - 1
 
-	while (i > 0) {
-		intervals.push(getInterval(alphabet_from_root, userChord[index], userChord[index + 1]))
-		i -= 1
-		index += 1
+	// store intervals
+	while (num_of_intervals > 0) {
+		intervals.push(
+			getInterval(
+				userChord[index],
+				userChord[index + 1]
+			)
+		)
+		num_of_intervals--
+		index++
 	}
-
 	return intervals
 }
 // module.exports = getUserIntervals

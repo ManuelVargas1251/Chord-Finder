@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
 	<title>Chord Finder</title>
 	<meta charset="utf-8">
@@ -8,35 +9,13 @@
 	<link rel="stylesheet" href="src/css/index.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
-
-<div id="body">
-	<!-- keyboard 
-	Luke, here is the keyboard HTML
-
-	keyboard css has it's own file called keyboard.css
-
-	CSS example:
-	#keyboard{
-		background-color: red;
-	}
-
-	JS w/jQuery Example
-	$('#keyboard').click(function(){
-		//your code here
-	})
-	
-	
-	-->
+  
+<body>
 	<div id="keyboard">
-
 
 		<!--
 			You should make a div here that will be a container for the synth dashboard
 		-->
-
-
-
-
 		<div id="0" class="key white left-corner"></div>
 		<div id="1" class="key black"></div>
 		<div id="2" class="key white"></div>
@@ -53,16 +32,18 @@
 	<!-- chord -->
 	<div class="chord">
 	</div>
-</div>
+</body>
 
 <!-- methods -->
 <script src="src/js/globals.js"></script>
-<script src="src/js/getAlphabetFromRoot.js"></script>
 <script src="src/js/getUserIntervals.js "></script>
 <script src="src/js/getInterval.js "></script>
 <script src="src/js/processDOMChord.js"></script>
 <script src="src/js/getNoteChord.js"></script>
 <script src="src/js/updateChord.js"></script>
 <script src="src/js/getChord.js"></script>
+<script src="src/js/external/howler.min.js"></script>
+<script src="src/js/sound.js"></script>
 <script src="src/js/index.js"></script>
+
 </html>
