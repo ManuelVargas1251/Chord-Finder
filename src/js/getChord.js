@@ -2,45 +2,35 @@
 // better searching method using .find()
 function getChord(userChord, userIntervals) {
 
-	let root_position = true
-	let root_note = ''
-	let root = 0
-		firstinversion = 0
-		secondinversion = 0
-	
+	// finding root note
+	let root_note = '',
+		root = 0,
+		inversions = 0;
+
+	// checks all user intervals if they are a major or minor third
+	// if not, if the interval is greater than 5, the chord is an inversion
+	// if not, if the interval is less than 4, extended inversions?
 	userIntervals.forEach(interval => {
-		console.log('interval: ' + interval)
-
+		//console.log('interval: ' + interval)
 		if (interval == 5 || interval == 4) {
-			//console.log('we are letting pass the interval:'+interval)
 			root++
-		} 
-		if (interval > 5) {
-			//root_note = userChord[2]
-			console.log('Any inversion')
-			secondinversion++
 		}
-		else if (interval < 4) {
-			//root_note = userChord[1]
-			//console.log('1st inversion')
-			firstinversion++
+		else if (interval > 5) {
+			inversions++
 		}
-
 	});
-	console.log('root: ' + root)
-	console.log('firstinversion: ' + firstinversion)
-	console.log('secondinversion: ' + secondinversion)
 
+	// if the root counter is equal to the num of intervals
+	// then the chord is in root position so return the first key
 	if (userIntervals.length == root) {
 		root_note = userChord[0]
-		console.log('root position: '+ root_position+', note: '+ root_note)
 	}
-	else{
-		console.warn('not root position bro')
-		if(userIntervals[0] > 5){
+	else {
+		//console.warn('inversion')
+		if (userIntervals[0] > 5) {
 			root_note = userChord[1]
 		}
-		if(userIntervals[1] == 6){
+		if (userIntervals[1] == 6) {
 			root_note = userChord[2]
 		}
 	}

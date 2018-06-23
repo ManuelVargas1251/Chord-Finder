@@ -6,6 +6,7 @@ function getUserIntervals(userChord) {
 		intervals = [],
 		num_of_intervals = userChord.length - 1
 
+	// store intervals
 	while (num_of_intervals > 0) {
 		intervals.push(
 			getInterval(
@@ -16,7 +17,6 @@ function getUserIntervals(userChord) {
 		num_of_intervals--
 		index++
 	}
-
 	return intervals
 }
 // module.exports = getUserIntervals
