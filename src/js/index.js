@@ -1,6 +1,6 @@
 // DOM Events Handlers
 'use strict'
-console.clear()
+//console.clear()
 
 // two global arrays, one storing chord ids, the other storing chord note names
 let userChordIds = [],
