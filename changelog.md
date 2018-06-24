@@ -6,14 +6,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [0.7.0] - 2018-24-06
-### Added
+### new
 - notes make sound when pressed
-- inversions work correctly now
 - keys change color when hovered on
+- added travis ci to run jest when pull requesting
 
+## fixed
+- inversions show correct root note
 
-
-## [0.6.7] - 2018-23-05
+## improved
+- css file setup
+- chord finding algorithm 
 
 ## [0.6.6] - 2018-04-18
 ### Added
