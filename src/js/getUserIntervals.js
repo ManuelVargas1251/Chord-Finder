@@ -19,4 +19,4 @@ function getUserIntervals(userChord) {
 	}
 	return intervals
 }
-// module.exports = getUserIntervals
+module.exports = getUserIntervals

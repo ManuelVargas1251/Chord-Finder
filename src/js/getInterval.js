@@ -3,3 +3,4 @@ function getInterval(note_one, note_two) {
 	console.warn(note_one + ', ' + note_two)
 	return interval
 }
+module.exports = getInterval
