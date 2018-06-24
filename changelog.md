@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [0.7.0] - 2018-24-06
+### Added
+- notes make sound when pressed
+- inversions work correctly now
+- keys change color when hovered on
+
+
+
 ## [0.6.7] - 2018-23-05
 
 ## [0.6.6] - 2018-04-18
