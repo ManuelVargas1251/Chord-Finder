@@ -10,8 +10,8 @@ function getUserIntervals(userChord) {
 	while (num_of_intervals > 0) {
 		intervals.push(
 			getInterval(
-				userChord[index],
-				userChord[index + 1]
+				getNoteId(userChord[index]),
+				getNoteId(userChord[index + 1])
 			)
 		)
 		num_of_intervals--

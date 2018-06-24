@@ -3,5 +3,4 @@ function getNoteId(value) {
         .keys(_notes)
         .find(key => _notes[key] === value);
 }
-
 module.exports = getNoteId
