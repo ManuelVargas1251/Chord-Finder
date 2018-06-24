@@ -1,3 +1,5 @@
+//import getNoteId from '../js/getNoteId'
+
 // searches the interval library to match the user's chord's intervals
 // better searching method using .find()
 function getChord(userChord, userIntervals) {
