@@ -5,18 +5,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [0.7.0] - 2018-24-06
+## [0.7.0] - 2018-25-06
 ### new
 - notes make sound when pressed
 - keys change color when hovered on
-- added travis ci to run jest when pull requesting
+- added travis ci to run jest when pull requesting with required checks in dev and master
 
 ## fixed
 - inversions show correct root note
 
 ## improved
 - css file setup
-- chord finding algorithm 
+- tests file location
+- chord finding algorithm
+- change log naming system
 
 ## [0.6.6] - 2018-04-18
 ### Added
