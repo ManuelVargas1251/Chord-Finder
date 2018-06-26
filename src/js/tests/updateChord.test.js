@@ -1,4 +1,4 @@
-const updateChord = require('../src/js/updateChord')
+const updateChord = require('../updateChord')
 // const getNoteId = require('../src/js/getNoteId')
 // const getUserIntervals = require('../src/js/getUserIntervals')
 const userChord = ['C', 'E', 'G', 'B']
