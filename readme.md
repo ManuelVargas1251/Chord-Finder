@@ -1,15 +1,15 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.6.7-brightgreen.svg)
+![Version](https://img.shields.io/badge/Version-0.7.0-brightgreen.svg)
 [![jest](https://facebook.github.io/jest/img/jest-badge.svg)](https://github.com/facebook/jest)
 
 # Chord Finder 🎹
 
-This is a javascript web application that tells you what piano yes I didmobileMarychord you are playing. Click or keypress the notes to build your chord! If you select two notes it will tell you what the interval is between those two notes.
+This is a js web application that tells you what chord you are playing on the piano in any inversion. Click or keypress the notes to build your chord! If you select two notes it will tell you what the interval is between those two notes. 
 
 I started by rewriting my previous C++ chord finder [console application](https://github.com/ManuelVargas1251/ChordFinder) in javascript and added the web interface as I went.
 
-[View Web Application](https://mnl.space/Chord-Finder/)
+[[View Web Application](https://mnl.space/Chord-Finder/)]
 
 ![](src/demo.gif)
 

@@ -4,7 +4,7 @@
   "description": "<!-- using shields.io for status buttons -->\r ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)\r ![Version](https://img.shields.io/badge/Version-0.6.1-brightgreen.svg)",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -280,5 +280,8 @@
         ]
       }
     }
+  },
+  "dependencies": {
+    "http": "0.0.0"
   }
 }
