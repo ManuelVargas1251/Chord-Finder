@@ -5,7 +5,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [0.6.7] - 2018-23-05
+## [0.7.0] 🍍 - 2018-25-06
+## new
+- notes make sound when pressed
+- keys change color when hovered on
+- added travis ci to run jest when pull requesting with required checks in dev and master
+
+## fixed
+- inversions show correct root note
+
+## improved
+- css file setup
+- tests file location
+- chord finding algorithm
+- change log naming system
 
 ## [0.6.6] - 2018-04-18
 ### Added
@@ -117,7 +130,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Commits exist before 0.5.5 but I wasn't keeping count.
 
-[0.6.7]: #
+[0.7.0]: #
+[0.6.7]: https://github.com/ManuelVargas1251/Chord-Finder/commit/c0a43cc386802942ad3348cd603830a154b2cf36
 [0.6.6]: https://github.com/ManuelVargas1251/Chord-Finder/commit/2aee0a47cf887c99843350d7ac40b4b371c14bed
 [0.6.5]: https://github.com/ManuelVargas1251/Chord-Finder/commit/c4b513b5d88f16a59bf6510851c2be014d33a533
 [0.6.4]: https://github.com/ManuelVargas1251/Chord-Finder/commit/656dc07b98d596fb1f9e3a93e5081324f08fc9ef

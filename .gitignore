@@ -1,6 +1,9 @@
 # Node
 node_modules
 
+# Tavis CI
+coverage
+
 # VS Code
 .vscode
 launch.json

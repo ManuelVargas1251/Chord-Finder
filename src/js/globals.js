@@ -123,6 +123,10 @@ const _intervals = Object.freeze({
 			name: "1st Inversion"
 		},
 		{
+			interval: [5, 6],
+			name: "1st Inversion"
+		},
+		{
 			interval: [6, 5],
 			name: "2nd Inversion"
 		},
