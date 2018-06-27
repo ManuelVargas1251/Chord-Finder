@@ -1,8 +1,9 @@
 # Node
 node_modules
 
-# Tavis CI
+# Tavis CI - coverage builds locally; yml file only needed to run locally
 coverage
+.coveralls.yml
 
 # VS Code
 .vscode

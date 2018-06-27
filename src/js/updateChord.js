@@ -1,6 +1,10 @@
+
+
 //return array of intervals found in chord
 function getUserIntervals(userChord) {
 	//console.log("userChord Length: " + userChord.length)
+
+	const getNoteId = require('./getNoteId');
 
 	let index = 0,
 		intervals = [],
@@ -9,27 +13,17 @@ function getUserIntervals(userChord) {
 	// store intervals
 	while (num_of_intervals > 0) {
 		intervals.push(
-			// getInterval(
-			// 	getNoteId(userChord[index]),
-			// 	getNoteId(userChord[index + 1])
-			// )
-
 			Math.abs(
 				getNoteId(userChord[index]) -
-				getNoteId(userChord[index + 1]))
-			+ 1
+				getNoteId(userChord[index + 1])) + 1
 		)
 		num_of_intervals--
 		index++
 	}
 	return intervals
 }
-function getNoteId(value) {
-	return Object
-		.keys(_notes)
-		.find(key => _notes[key] === value);
-}
 //module.exports = getUserIntervals
+
 // searches the interval library to match the user's chord's intervals
 // better searching method using .find()
 function getChord(userChord, userIntervals) {
@@ -123,15 +117,5 @@ function updateChord(newChord) {
 	// find chord using the chord letters and interval values
 	return getChord(newChord, userIntervals)
 }
-// module.exports = {
-// 	updateChord,
-// 	getUserIntervals,
-// 	getChord,
-// 	getNoteId
-// }
+
 module.exports = updateChord
-// {
-// 	getUserIntervals,
-// 	getChord,
-// 	getNoteId
-// }
