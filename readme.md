@@ -1,12 +1,12 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
 ![Version](https://img.shields.io/badge/Version-0.7.0-brightgreen.svg)
-[![Build Status - Master](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=master)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
-[![Build Status - Master](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=development)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
-[![Coverage Status - Master](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=master)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=master)
-[![Coverage Status - Development](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=development)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=development)
-
 [![Jest Unit Tests](https://facebook.github.io/jest/img/jest-badge.svg)](https://github.com/facebook/jest)
+[![Build Status - enhancement/coverage](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=enhancement%2Fcoverage)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
+[![Coverage Status - enhancement/coverage](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=enhancement%2Fcoverage)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=enhancement%2Fcoverage)
+
+
+
 
 # Chord Finder 🎹
 
@@ -27,13 +27,25 @@ To find a chord name, use the `updateChord()` function and pass in an array with
 updateChord(["A", "C#", "E", "G#"])	//  A Major 7
 ```
 
-## Unit Testing
-First try testing my projects. Using [Facebook's Jest](https://facebook.github.io/jest/) for 6 method tests. To test, install the npm modules and test ✔.
+## Unit Testing & Coverage
 
+Using [Facebook's Jest](https://facebook.github.io/jest/) for unit testing. Configured [Travis-CI](https://travis-ci.com/) for continuos integration on every commit and pull request as well as coverage reporting from [Coveralls](https://coveralls.io/)
+
+Install the npm modules to test
 ```npm
 npm install
 npm test
 ```
+
+Production
+
+[![Build Status - Master](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=master)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
+[![Coverage Status - Master](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=master)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=master)
+
+Development
+
+[![Build Status - Master](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=development)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
+[![Coverage Status - Development](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=development)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=development)
 
 # Reference
 
