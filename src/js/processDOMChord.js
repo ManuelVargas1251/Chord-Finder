@@ -16,7 +16,8 @@ function processDOMChord(newNoteId, getNoteId) {
     // push to array if no duplicate found
     if (isDuplicate === false) {
         // play the audio
-        playNote(newNoteId)
+        load.playNote(newNoteId)
+        
         //push the note into the array
         userChordIds.push(newNoteId)
     }
