@@ -1,0 +1,7 @@
+const sound = require('../sound')
+const userChord = ['C', 'E', 'G', 'B']
+
+test('return chord name from chord notes', () => {
+    expect(sound.playNote('0'))
+        .toEqual('C Major 7')
+})
