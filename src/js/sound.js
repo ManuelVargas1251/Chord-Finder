@@ -1,4 +1,4 @@
-var notes = []
+let notes = []
 
 //preloading notes files
 for (i = 0; i < 12; i++) {
