@@ -3,7 +3,10 @@ let notes = []
 //preloading notes files
 for (i = 0; i < 12; i++) {
     notes[i] = new Howl({
-        src: ['src/sound/' + i + '.wav'],
+        src: [
+            'src/sound/mp3/' + i + '.mp3',
+            'src/sound/wav/' + i + '.wav'
+        ],
         loop: false,
         preload: true
     });
@@ -13,5 +16,4 @@ for (i = 0; i < 12; i++) {
 //plays note when pressed/clicked
 function playNote(NoteId) {
     notes[NoteId].play()
-    console.log('sound: ' + sound)
 }
