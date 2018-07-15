@@ -1,4 +1,3 @@
-
 let notes = []
 
 //preloading notes files
@@ -19,4 +18,3 @@ function playNote(NoteId) {
     notes[NoteId].play()
     return notes[NoteId]
 }
-module.exports = playNote
