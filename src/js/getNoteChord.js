@@ -7,5 +7,5 @@ function getNoteChord(idChord) {
         })
 }
 
-module.exports = getNoteChord
+exports.getNoteChord = getNoteChord
 

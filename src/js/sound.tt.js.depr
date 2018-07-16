@@ -1,4 +1,4 @@
-const sound = require('../sound')
+const sound = require('./sound')
 const userChord = ['C', 'E', 'G', 'B']
 
 test('return chord name from chord notes', () => {

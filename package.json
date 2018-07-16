@@ -4,7 +4,9 @@
   "description": "<!-- using shields.io for status buttons -->\r ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)\r ![Version](https://img.shields.io/badge/Version-0.6.1-brightgreen.svg)",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "build": "node env",
+    "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "test-cov": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -283,7 +285,9 @@
     }
   },
   "dependencies": {
+    "env2": "^2.2.2",
     "http": "0.0.0",
-    "require": "^2.4.20"
+    "require": "^2.4.20",
+    "requirejs": "^2.3.5"
   }
 }

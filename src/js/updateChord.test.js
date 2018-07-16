@@ -1,12 +1,18 @@
-const updateChord = require('../updateChord')
+const updateChord = require('./updateChord').updateChord
 // const getInterval = require('../getInterval')
 // const getNoteId = require('../src/js/getNoteId')
 // const getUserIntervals = require('../src/js/getUserIntervals')
 const major7Chord = ['C', 'E', 'G', 'B']
 const minor7Chord = ['C', 'D#', 'G', 'A#']
+const two = ['C', 'D#']
+const six = ['C', 'F']
 const inversionChord = ['C', 'F', 'A']
-const morethan5Chord = ['C', 'G', 'B']
+const morethan5Chord = ['C', 'A', 'D']
 const emptyChord = ['C']
+const noNotes = []
+const notDefined = ['C', 'F','G', 'B']
+const four = ['C', 'F','G', 'B','D']
+const long = ['C', 'F','G', 'B', 'F','G', 'B']
 
 test('return chord name from chord notes', () => {
   expect(updateChord(major7Chord))
@@ -22,6 +28,24 @@ test('return chord name from chord notes', () => {
     .toEqual('F 2nd Inversion')
 
   expect(updateChord(morethan5Chord))
+    .toEqual('')
+
+  expect(updateChord(noNotes))
+    .toEqual('')
+
+  expect(updateChord(notDefined))
+    .toEqual('')
+
+  expect(updateChord(two))
+    .toEqual('Minor 3rd')
+
+  expect(updateChord(six))
+    .toEqual('Perfect Fourth')
+
+  expect(updateChord(four))
+    .toEqual('')
+
+  expect(updateChord(long))
     .toEqual('')
 })
 
