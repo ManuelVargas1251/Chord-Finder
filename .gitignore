@@ -1,5 +1,6 @@
 # Node
 node_modules
+.env
 
 # Travis CI - coverage builds locally; yml file only needed to run locally
 coverage
