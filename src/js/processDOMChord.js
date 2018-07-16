@@ -1,5 +1,5 @@
 
-function processDOMChord(newNoteId) {
+function processDOMChord(newNoteId, getNoteId) {
 
     // define bool for testing duplicate note entries
     // when key is clicked, save note in newNote
@@ -17,6 +17,7 @@ function processDOMChord(newNoteId) {
     if (isDuplicate === false) {
         // play the audio
         playNote(newNoteId)
+        
         //push the note into the array
         userChordIds.push(newNoteId)
     }
@@ -33,5 +34,5 @@ function processDOMChord(newNoteId) {
     console.log('userChord: ' + userChord)
 
     // run the chord update
-    $('.chord').text(updateChord(userChord))
+    $('.chord').text(updateChord(userChord, getNoteId))
 }
