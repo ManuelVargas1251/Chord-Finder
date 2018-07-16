@@ -1,4 +1,4 @@
-const updateChord = require('../updateChord')
+const updateChord = require('./updateChord').updateChord
 // const getInterval = require('../getInterval')
 // const getNoteId = require('../src/js/getNoteId')
 // const getUserIntervals = require('../src/js/getUserIntervals')

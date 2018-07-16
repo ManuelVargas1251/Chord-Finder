@@ -44,12 +44,12 @@ By using rawgit.com links I was able to get working lower environments to test c
 
 [Development](https://cdn.rawgit.com/ManuelVargas1251/Chord-Finder/development/index.html)
 
-[![Build Status - Master](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=development)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
+[![Build Status - Development](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=development)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
 [![Coverage Status - Development](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=development)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=development)
 
 [Enhancement/Coverage](https://cdn.rawgit.com/ManuelVargas1251/Chord-Finder/enhancement/coverage/index.html)
 
-[![Build Status - enhancement/coverage](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=enhancement%2Fcoverage)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
+[![Build Status - Enhancement/ Coverage](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=enhancement%2Fcoverage)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
 [![Coverage Status - enhancement/coverage](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=enhancement%2Fcoverage)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=enhancement%2Fcoverage)
 
 # Reference
