@@ -4,7 +4,8 @@ const updateChord = require('./updateChord').updateChord
 // const getUserIntervals = require('../src/js/getUserIntervals')
 const major7Chord = ['C', 'E', 'G', 'B']
 const minor7Chord = ['C', 'D#', 'G', 'A#']
-const long = ['C', 'D#', 'G', 'A#','D']
+const long = ['C', 'D#']
+const six = ['C', 'F']
 const inversionChord = ['C', 'F', 'A']
 const morethan5Chord = ['C', 'A', 'D']
 const emptyChord = ['C']
@@ -32,8 +33,12 @@ test('return chord name from chord notes', () => {
 
   expect(updateChord(notDefined))
     .toEqual('')
+
   expect(updateChord(long))
-    .toEqual('')
+    .toEqual('Minor 3rd')
+
+  expect(updateChord(six))
+    .toEqual('Perfect Fourth')
 })
 
 
