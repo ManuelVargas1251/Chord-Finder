@@ -5,7 +5,7 @@ const updateChord = require('./updateChord').updateChord
 const major7Chord = ['C', 'E', 'G', 'B']
 const minor7Chord = ['C', 'D#', 'G', 'A#']
 const inversionChord = ['C', 'F', 'A']
-const morethan5Chord = ['C', 'G', 'B']
+const morethan5Chord = ['C', 'A', 'D']
 const emptyChord = ['C']
 
 test('return chord name from chord notes', () => {
