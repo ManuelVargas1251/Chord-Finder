@@ -1,17 +1,16 @@
-// function getNoteId(value) {
-//     return Object
-//         .keys(_notes)
-//         .find(key => _notes[key] === value);
-// }
+function getNoteId(value) {
+    return Object
+        .keys(_notes)
+        .find(key => _notes[key] === value);
+}
 
-import  * as getNoteId from './getNoteId.mjs'
+// import  * as getNoteId from './getNoteId.mjs'
 
 //return array of intervals found in chord
 function getUserIntervals(userChord) {
 	//console.log("userChord Length: " + userChord.length)
 
 	//const getNoteId = require('./getNoteId');
-
 	let index = 0,
 		intervals = [],
 		num_of_intervals = userChord.length - 1

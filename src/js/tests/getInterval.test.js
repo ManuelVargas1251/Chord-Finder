@@ -1,7 +1,6 @@
 const getInterval = require('../getInterval')
-const getNoteId = require('../get')
 
 test('return interval between notes', () => {
-    expect(getInterval(getNoteId('F'), getNoteId('A')))
+    expect(getInterval(5, 9))
         .toEqual(5)
 })
