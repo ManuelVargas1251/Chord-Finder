@@ -1,8 +1,11 @@
 # Node
 node_modules
 
-# Tavis CI - coverage builds locally; yml file only needed to run locally
+# Travis CI - coverage builds locally; yml file only needed to run locally
 coverage
+
+# Coveralls
+.coveralls.yml
 
 # VS Code
 .vscode
