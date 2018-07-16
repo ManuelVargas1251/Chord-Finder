@@ -1,39 +1,20 @@
-function load() {
-    //move to dom process
-    var sound = new Howl({
-        src: [
-            'src/sound/0.wav',
-            'src/sound/1.wav',
-            'src/sound/2.wav',
-            'src/sound/3.wav',
-            'src/sound/4.wav',
-            'src/sound/5.wav',
-            'src/sound/6.wav',
-            'src/sound/7.wav',
-            'src/sound/8.wav',
-            'src/sound/9.wav',
-            'src/sound/10.wav',
-            'src/sound/11.wav'
-        ],
-        preload: true,
-        loop: false,
-        onend: function () {
-            console.log('Finished!');
-        },
-        onloaderror: function () {
-            console.error('no sound file found')
-        }
-    })
+let notes = []
 
-    let playNote = (NoteId) => {
-        let sound = new Howl({
-            src: ['src/sound/' + NoteId + '.wav'],
-        }).play()
-        console.log('sound: ' + sound)
-    }
-    
+//preloading notes files
+for (i = 0; i < 12; i++) {
+    notes[i] = new Howl({
+        src: [
+            'src/sound/mp3/' + i + '.mp3',
+            'src/sound/wav/' + i + '.wav'
+        ],
+        loop: false,
+        preload: true
+    });
+    console.log('notes:' + notes[0])
 }
 
-
-
-module.exports = load
+//plays note when pressed/clicked
+function playNote(NoteId) {
+    notes[NoteId].play()
+    return notes[NoteId]
+}
