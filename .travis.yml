@@ -3,6 +3,7 @@ node_js:
   - "node"
 env:
   - CXX=g++-4.8
+  - VERSION=0.7.20
 addons:
   apt:
     sources:
