@@ -15,7 +15,7 @@ for (i = 0; i < 12; i++) {
 }
 
 //plays note when pressed/clicked
-function playNote(NoteId) {
+function playNote(NoteId, notes) {
     notes[NoteId].play()
     return notes[NoteId]
 }
