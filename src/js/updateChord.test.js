@@ -1,66 +1,36 @@
 const updateChord = require('./updateChord').updateChord
-// const getInterval = require('../getInterval')
-// const getNoteId = require('../src/js/getNoteId')
-// const getUserIntervals = require('../src/js/getUserIntervals')
-const major7Chord = ['C', 'E', 'G', 'B']
-const minor7Chord = ['C', 'D#', 'G', 'A#']
-const two = ['C', 'D#']
-const six = ['C', 'F']
-const inversionChord = ['C', 'F', 'A']
-const morethan5Chord = ['C', 'A', 'D']
-const emptyChord = ['C']
-const noNotes = []
-const notDefined = ['C', 'F','G', 'B']
-const four = ['C', 'F','G', 'B','D']
-const long = ['C', 'F','G', 'B', 'F','G', 'B']
 
 test('return chord name from chord notes', () => {
-  expect(updateChord(major7Chord))
+  expect(updateChord(['C', 'E', 'G', 'B']))
     .toEqual('C Major 7')
 
-  expect(updateChord(minor7Chord))
+  expect(updateChord(['C', 'D#', 'G', 'A#']))
     .toEqual('C Minor 7')
 
-  expect(updateChord(emptyChord))
+  expect(updateChord(['C']))
     .toEqual('C')
 
-  expect(updateChord(inversionChord))
+  expect(updateChord(['C', 'F', 'A']))
     .toEqual('F 2nd Inversion')
 
-  expect(updateChord(morethan5Chord))
-    .toEqual('')
-
-  expect(updateChord(noNotes))
-    .toEqual('')
-
-  expect(updateChord(notDefined))
-    .toEqual('')
-
-  expect(updateChord(two))
+  expect(updateChord(['C', 'D#']))
     .toEqual('Minor 3rd')
 
-  expect(updateChord(six))
-    .toEqual('Perfect Fourth')
-
-  expect(updateChord(four))
+  expect(updateChord(['C', 'G', 'B']))
     .toEqual('')
 
-  expect(updateChord(long))
+  expect(updateChord(['C', 'A', 'D']))
+    .toEqual('')
+
+  expect(updateChord([]))
+    .toEqual('')
+
+  expect(updateChord(['C', 'F', 'G', 'B']))
+    .toEqual('')
+
+  expect(updateChord(['C', 'F', 'G', 'B', 'D']))
+    .toEqual('')
+
+  expect(updateChord(['C', 'F', 'G', 'B', 'F', 'G', 'B']))
     .toEqual('')
 })
-
-
-
-// test('return intervals from user chord', () => {
-//   expect(getUserIntervals(['E', 'G#', 'B'], _alphabet))
-//     .toEqual([5, 4])
-// })
-
-// expect(getUserIntervals(['E', 'G#', 'B'], _alphabet))
-// .toEqual([5, 4])
-
-// expect(getChord(['C', 'E', 'G', 'B'], [5, 4, 5]))
-// .toEqual('C Major 7')
-
-// expect(getNoteId('C'))
-// .toEqual('0')
