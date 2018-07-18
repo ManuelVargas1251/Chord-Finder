@@ -1,10 +1,10 @@
-function getNoteId(value) {
-    return Object
-        .keys(_notes)
-        .find(key => _notes[key] === value);
-}
+// function getNoteId(value) {
+//     return Object
+//         .keys(_notes)
+//         .find(key => _notes[key] === value);
+// }
 
-// import  * as getNoteId from './getNoteId.mjs'
+const getNoteId = require('./getNoteId.js') 
 
 //return array of intervals found in chord
 function getUserIntervals(userChord) {

@@ -6,6 +6,7 @@ let preloaded = false
 preload()
 
 function preload() {
+    
     //new Howl();
     //preloading notes files
     for (i = 0; i < 12; i++) {
@@ -24,7 +25,7 @@ function preload() {
 
 //plays note when pressed/clicked
 function playNote(NoteId, notes) {
-    if (preloaded!=undefined) {
+    if (preloaded != undefined) {
         try {
             notes[NoteId].play()
         }
@@ -32,7 +33,7 @@ function playNote(NoteId, notes) {
             console.error(error);
         }
     }
-    else{
+    else {
         console.log('not preloaded')
     }
     return notes[NoteId]
