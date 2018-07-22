@@ -33,7 +33,7 @@ function getUserIntervals(userChord) {
 // searches the interval library to match the user's chord's intervals
 // better searching method using .find()
 function getChord(userChord, userIntervals) {
-
+	
 	// finding root note
 	let root_note = '',
 		root = 0,
