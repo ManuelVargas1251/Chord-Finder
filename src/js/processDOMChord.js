@@ -1,3 +1,5 @@
+const sound = require('./sound.js')
+const updateChord = require('./updateChord.js')
 
 function processDOMChord(newNoteId, getNoteId) {
 
@@ -16,8 +18,8 @@ function processDOMChord(newNoteId, getNoteId) {
     // push to array if no duplicate found
     if (isDuplicate === false) {
         // play the audio
-        playNote(newNoteId)
-        
+        sound.playNote(newNoteId)
+
         //push the note into the array
         userChordIds.push(newNoteId)
     }

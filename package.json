@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node env",
-    "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "test": "jest --coverage",
     "test-cov": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "repository": {
@@ -287,6 +287,7 @@
   },
   "dependencies": {
     "env2": "^2.2.2",
+    "howler": "^2.0.14",
     "http": "0.0.0",
     "require": "^2.4.20"
   }

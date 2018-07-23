@@ -1,4 +1,4 @@
-//const Howl = require('').Howl
+// const Howl = require('Howl')
 //let Howl = require('./external/Howler.min').Howl
 
 let preloaded = false
