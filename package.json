@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "node env",
-    "test": "jest --coverage",
-    "test-cov": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "jest": "jest --coverage"
   },
   "repository": {
     "type": "git",
