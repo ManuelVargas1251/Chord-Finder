@@ -132,7 +132,7 @@ module.exports = getUserIntervals
 'use strict'
 //console.clear()
 
-const ui = require('./processDOMChord.js')
+const processDOMChord = require('./processDOMChord.js')
 
 // two global arrays, one storing chord ids, the other storing chord note names
 let userChordIds = [],
@@ -143,14 +143,14 @@ $(".key").click(function () {
 	//toggle key color key when pressed
 	//pass note id to add to chord
 	$(this).toggleClass("pressed")
-	ui.processDOMChord($(this).attr('id'))
+	processDOMChord($(this).attr('id'), userChordIds)
 })
 
 // keyboard event
 $("html").keypress(function (element) {
 	let noteCode = keyMapping[element.which]
 	$("#" + noteCode).toggleClass("pressed")
-	processDOMChord(noteCode)
+	processDOMChord(noteCode, userChordIds)
 	console.log(noteCode)
 })
 
@@ -158,7 +158,7 @@ $("html").keypress(function (element) {
 const sound = require('./sound.js')
 const updateChord = require('./updateChord.js')
 
-function processDOMChord(newNoteId, getNoteId) {
+function processDOMChord(newNoteId, userChordIds) {
 
     // define bool for testing duplicate note entries
     // when key is clicked, save note in newNote
@@ -196,6 +196,7 @@ function processDOMChord(newNoteId, getNoteId) {
     $('.chord').text(updateChord(userChord, getNoteId))
 }
 
+module.exports = processDOMChord
 },{"./sound.js":7,"./updateChord.js":8}],7:[function(require,module,exports){
 // const Howl = require('Howl')
 //let Howl = require('./external/Howler.min').Howl

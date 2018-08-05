@@ -2,7 +2,7 @@
 'use strict'
 //console.clear()
 
-const ui = require('./processDOMChord.js')
+const processDOMChord = require('./processDOMChord.js')
 
 // two global arrays, one storing chord ids, the other storing chord note names
 let userChordIds = [],
@@ -13,13 +13,13 @@ $(".key").click(function () {
 	//toggle key color key when pressed
 	//pass note id to add to chord
 	$(this).toggleClass("pressed")
-	ui.processDOMChord($(this).attr('id'))
+	processDOMChord($(this).attr('id'), userChordIds)
 })
 
 // keyboard event
 $("html").keypress(function (element) {
 	let noteCode = keyMapping[element.which]
 	$("#" + noteCode).toggleClass("pressed")
-	processDOMChord(noteCode)
+	processDOMChord(noteCode, userChordIds)
 	console.log(noteCode)
 })

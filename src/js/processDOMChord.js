@@ -1,7 +1,7 @@
 const sound = require('./sound.js')
 const updateChord = require('./updateChord.js')
 
-function processDOMChord(newNoteId, getNoteId) {
+function processDOMChord(newNoteId, userChordIds) {
 
     // define bool for testing duplicate note entries
     // when key is clicked, save note in newNote
@@ -38,3 +38,5 @@ function processDOMChord(newNoteId, getNoteId) {
     // run the chord update
     $('.chord').text(updateChord(userChord, getNoteId))
 }
+
+module.exports = processDOMChord
