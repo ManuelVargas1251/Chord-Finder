@@ -11,4 +11,4 @@ function updateChord(newChord) {
 	return getChord(newChord, userIntervals)
 }
 
-exports.updateChord = updateChord
+module.exports = updateChord

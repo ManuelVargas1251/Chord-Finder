@@ -82,4 +82,4 @@ function getChord(userChord, userIntervals) {
 	//return userChord[0] + " " + output.name
 	return output
 }
-exports.getChord = getChord
+module.exports = getChord
