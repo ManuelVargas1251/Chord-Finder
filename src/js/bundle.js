@@ -93,6 +93,20 @@ function getInterval(note_one, note_two) {
 exports.getInterval = getInterval
 
 },{}],3:[function(require,module,exports){
+// converts user inputted chord 
+// from array of ids to literal note name array
+// return array of literal note names
+function getNoteChord(idChord) {
+    return idChord
+        .map((element) => {
+            return _notes[element]
+        })
+}
+
+exports.getNoteChord = getNoteChord
+
+
+},{}],4:[function(require,module,exports){
 function getNoteId(value) {
     return Object
         .keys(_notes)
@@ -100,7 +114,7 @@ function getNoteId(value) {
 }
 module.exports = getNoteId
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 const getInterval = require('./getInterval').getInterval
 const getNoteId = require('./getNoteId')
 
@@ -127,7 +141,7 @@ function getUserIntervals(userChord) {
 
 module.exports = getUserIntervals
 
-},{"./getInterval":2,"./getNoteId":3}],5:[function(require,module,exports){
+},{"./getInterval":2,"./getNoteId":4}],6:[function(require,module,exports){
 // DOM Events Handlers
 'use strict'
 //console.clear()
@@ -154,11 +168,35 @@ $("html").keypress(function (element) {
 	console.log(noteCode)
 })
 
-},{"./processDOMChord.js":6}],6:[function(require,module,exports){
+},{"./processDOMChord.js":7}],7:[function(require,module,exports){
 const sound = require('./sound.js')
+const getNoteChord = require('./getNoteChord.js').getNoteChord
+const getNoteId = require('./getNoteId.js').getNoteId
 const updateChord = require('./updateChord.js')
 
+
+
+function preload() {
+    let notes = []
+    //new Howl();
+    //preloading notes files
+    for (i = 0; i < 12; i++) {
+        notes[i] = new Howl({
+            src: [
+                'src/sound/mp3/' + i + '.mp3',
+                'src/sound/wav/' + i + '.wav'
+            ],
+            loop: false,
+            preload: true
+        });
+        //console.log('notes:' + notes[0])
+    }
+    return notes
+}
+
 function processDOMChord(newNoteId, userChordIds) {
+
+    let notes = preload()
 
     // define bool for testing duplicate note entries
     // when key is clicked, save note in newNote
@@ -175,7 +213,7 @@ function processDOMChord(newNoteId, userChordIds) {
     // push to array if no duplicate found
     if (isDuplicate === false) {
         // play the audio
-        sound.playNote(newNoteId)
+        sound.playNote(newNoteId, notes)
 
         //push the note into the array
         userChordIds.push(newNoteId)
@@ -197,31 +235,15 @@ function processDOMChord(newNoteId, userChordIds) {
 }
 
 module.exports = processDOMChord
-},{"./sound.js":7,"./updateChord.js":8}],7:[function(require,module,exports){
+},{"./getNoteChord.js":3,"./getNoteId.js":4,"./sound.js":8,"./updateChord.js":9}],8:[function(require,module,exports){
 // const Howl = require('Howl')
 //let Howl = require('./external/Howler.min').Howl
 
-let preloaded = false
+let preloaded = true
 
-preload()
 
-function preload() {
-    
-    //new Howl();
-    //preloading notes files
-    for (i = 0; i < 12; i++) {
-        notes[i] = new Howl({
-            src: [
-                'src/sound/mp3/' + i + '.mp3',
-                'src/sound/wav/' + i + '.wav'
-            ],
-            loop: false,
-            preload: true
-        });
-        //console.log('notes:' + notes[0])
-    }
-    return true
-}
+
+
 
 //plays note when pressed/clicked
 function playNote(NoteId, notes) {
@@ -241,7 +263,7 @@ function playNote(NoteId, notes) {
 
 exports.playNote = playNote
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 const getUserIntervals = require('./getUserIntervals.js')
 const getChord = require('./getChord.js')
 
@@ -257,4 +279,4 @@ function updateChord(newChord) {
 
 module.exports = updateChord
 
-},{"./getChord.js":1,"./getUserIntervals.js":4}]},{},[5]);
+},{"./getChord.js":1,"./getUserIntervals.js":5}]},{},[6]);
