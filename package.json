@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node env",
     "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
-    "test-cov": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "jest": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
   },
   "jest": {
     "globals": {
+      "notes": [],
       "_alphabet": [
         [
           "C",
@@ -286,8 +287,8 @@
   },
   "dependencies": {
     "env2": "^2.2.2",
+    "howler": "^2.0.14",
     "http": "0.0.0",
-    "require": "^2.4.20",
-    "requirejs": "^2.3.5"
+    "require": "^2.4.20"
   }
 }
