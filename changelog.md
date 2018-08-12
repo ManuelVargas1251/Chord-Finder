@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.8.0] 🍉 - 2018-12-08
 
 ## [0.7.0] 🍍 - 2018-25-06
 ## new
@@ -130,6 +131,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Commits exist before 0.5.5 but I wasn't keeping count.
 
+[0.8.0]: #
 [0.7.0]: #
 [0.6.7]: https://github.com/ManuelVargas1251/Chord-Finder/commit/c0a43cc386802942ad3348cd603830a154b2cf36
 [0.6.6]: https://github.com/ManuelVargas1251/Chord-Finder/commit/2aee0a47cf887c99843350d7ac40b4b371c14bed
