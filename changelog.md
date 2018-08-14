@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.7.42] 🍉 - 2018-14-08
+## [0.7.42] 🍍 - 2018-14-08
 Releasing this before 0.8 as code is stable now and tests are not part of the functionality.
 ## new
 - added browserify to combine all js files to `bundle.js`
