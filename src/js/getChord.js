@@ -63,7 +63,7 @@ function getChord(userChord, userIntervals) {
 					break;
 				case 4:
 					output = root_note + ' ' + _intervals.four.find(findIntervals).name;
-					break;
+					// break;
 				default:
 					console.warn('--warning: chord not defined yet--')
 					break;
@@ -82,4 +82,4 @@ function getChord(userChord, userIntervals) {
 	//return userChord[0] + " " + output.name
 	return output
 }
-module.exports = getChord
+exports.getChord = getChord

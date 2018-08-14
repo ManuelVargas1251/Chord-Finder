@@ -1,5 +1,5 @@
 const getUserIntervals = require('./getUserIntervals.js')
-const getChord = require('./getChord.js')
+const getChord = require('./getChord.js').getChord
 
 // main function in the program
 function updateChord(newChord) {
@@ -11,4 +11,4 @@ function updateChord(newChord) {
 	return getChord(newChord, userIntervals)
 }
 
-module.exports = updateChord
+exports.updateChord = updateChord
