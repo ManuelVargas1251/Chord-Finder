@@ -1,5 +1,4 @@
-const getUserIntervals = require('./src/js/getUserIntervals')
-const getInterval = require('./src/js/getInterval')
+const getUserIntervals = require('./getUserIntervals')
 
 test('return chord name from chord notes', () => {
     expect(getUserIntervals(['E', 'G#', 'B'], _alphabet))

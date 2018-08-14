@@ -6,7 +6,8 @@
   "scripts": {
     "build": "node env",
     "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
-    "test-cov": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "jest-watch": "jest --watchAll --coverage",
+    "jest": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   },
   "jest": {
     "globals": {
+      "notes": [],
       "_alphabet": [
         [
           "C",
@@ -280,14 +282,25 @@
             ],
             "name": "3rd Inversion"
           }
+        ],
+        "four": [
+          {
+            "interval": [
+              5,
+              4,
+              5,
+              4
+            ],
+            "name": "Major 9"
+          }
         ]
       }
     }
   },
   "dependencies": {
     "env2": "^2.2.2",
+    "howler": "^2.0.14",
     "http": "0.0.0",
-    "require": "^2.4.20",
-    "requirejs": "^2.3.5"
+    "require": "^2.4.20"
   }
 }

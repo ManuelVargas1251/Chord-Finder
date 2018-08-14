@@ -1,7 +1,7 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.7.20-brightgreen.svg)
-[![Build Status - enhancement/coverage](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=enhancement%2Fcoverage)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
+![Version](https://img.shields.io/badge/Version-0.7.42-brightgreen.svg)
+[![Build Status - enhancement/coverage](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=master)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
 [![Coverage Status - enhancement/coverage](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=enhancement%2Fcoverage)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=enhancement%2Fcoverage)
 [![Jest Unit Tests](https://facebook.github.io/jest/img/jest-badge.svg)](https://github.com/facebook/jest)
 
@@ -46,11 +46,6 @@ By using rawgit.com links I was able to get working lower environments to test c
 
 [![Build Status - Development](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=development)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
 [![Coverage Status - Development](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=development)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=development)
-
-[Enhancement/Coverage](https://cdn.rawgit.com/ManuelVargas1251/Chord-Finder/enhancement/coverage/index.html)
-
-[![Build Status - Enhancement/ Coverage](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=enhancement%2Fcoverage)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
-[![Coverage Status - enhancement/coverage](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=enhancement%2Fcoverage)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=enhancement%2Fcoverage)
 
 # Reference
 
