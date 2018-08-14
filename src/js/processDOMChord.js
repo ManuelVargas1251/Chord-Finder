@@ -1,7 +1,7 @@
 const sound = require('./sound.js')
 const getNoteChord = require('./getNoteChord.js').getNoteChord
 const getNoteId = require('./getNoteId.js').getNoteId
-const updateChord = require('./updateChord.js')
+const updateChord = require('./updateChord.js').updateChord
 
 function processDOMChord(newNoteId, userChordIds) {
 

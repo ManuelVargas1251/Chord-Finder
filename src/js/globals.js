@@ -181,6 +181,14 @@ const _intervals = Object.freeze({
 		{
 			interval: [2, 5, 4],
 			name: "3rd Inversion"
-		}]
+		}
+	],
+
+	four: [
+		{
+			interval: [5, 4, 5, 4],
+			name: "Major 9"
+		}
+	]
 
 })
