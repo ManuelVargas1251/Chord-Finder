@@ -1,4 +1,4 @@
-const updateChord = require('./updateChord')
+const updateChord = require('./updateChord').updateChord
 
 test('return chord name from chord notes', () => {
   expect(updateChord(['C', 'E', 'G', 'B']))

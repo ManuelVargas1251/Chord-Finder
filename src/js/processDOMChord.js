@@ -3,29 +3,9 @@ const getNoteChord = require('./getNoteChord.js').getNoteChord
 const getNoteId = require('./getNoteId.js').getNoteId
 const updateChord = require('./updateChord.js')
 
-
-
-function preload() {
-    let notes = []
-    //new Howl();
-    //preloading notes files
-    for (i = 0; i < 12; i++) {
-        notes[i] = new Howl({
-            src: [
-                'src/sound/mp3/' + i + '.mp3',
-                'src/sound/wav/' + i + '.wav'
-            ],
-            loop: false,
-            preload: true
-        });
-        //console.log('notes:' + notes[0])
-    }
-    return notes
-}
-
 function processDOMChord(newNoteId, userChordIds) {
 
-    let notes = preload()
+    let notes = sound.preload()
 
     // define bool for testing duplicate note entries
     // when key is clicked, save note in newNote

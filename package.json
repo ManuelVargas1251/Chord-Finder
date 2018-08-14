@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node env",
     "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
-    "jest": "jest --coverage"
+    "jest": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
