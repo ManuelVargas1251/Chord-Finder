@@ -1,7 +1,8 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.7.42-brightgreen.svg)
-[![Build Status - master](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=master)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
+![Version](https://img.shields.io/badge/Version-0.7.43-brightgreen.svg)
+[![Build Status - enhancement/coverage](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=master)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
+[![Coverage Status - enhancement/coverage](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=enhancement%2Fcoverage)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=enhancement%2Fcoverage)
 [![Jest Unit Tests](https://facebook.github.io/jest/img/jest-badge.svg)](https://github.com/facebook/jest)
 
 # Chord Finder 🎹
@@ -15,7 +16,7 @@ I started by rewriting my previous C++ chord finder [console application](https:
 ![](src/demo.gif)
 
 ## Console Usage
-You can use the [Chrome Console](https://developers.google.com/web/tools/chrome-devtools/console/) to use the functions directly or use them in your own project.
+You can use the [browser console](https://developers.google.com/web/tools/chrome-devtools/console/) to use the functions directly or use them in your own project.
 
 To find a chord name, use the `updateChord()` function and pass in an array with the notes you want. 
 
@@ -28,12 +29,19 @@ updateChord(["A", "C#", "E", "G#"])	//  A Major 7
 Using [Facebook's Jest](https://facebook.github.io/jest/) for unit testing. Configured [Travis-CI](https://travis-ci.com/) for continuos integration on every commit and pull request as well as coverage reporting from [Coveralls](https://coveralls.io/)
 
 Install the npm modules to test
-```npm
+```
+// download node modules
 npm install
+
+// to test
 npm test
+
+// to build
+cd app
+browserify index.js > bundle.js
 ```
 ## Environments
-By using rawgit.com links I was able to get working lower environments to test code in any committed branch. I was also able to provide test statuses for every branch through Travis CI and Coveralls. I may add more branches to this list when they become important.
+By using rawgit.com links I was able to get working lower environments to test code in any committed branch. I was also able to provide test statuses for every branch through Travis CI and Coveralls.
 
 
 [Production](https://mnl.space/Chord-Finder/)
