@@ -299,7 +299,7 @@
   },
   "dependencies": {
     "env2": "^2.2.2",
-    "howler": "^2.0.14",
+    "howler": "^2.1.1",
     "http": "0.0.0",
     "require": "^2.4.20"
   }
