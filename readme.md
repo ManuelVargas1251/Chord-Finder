@@ -30,14 +30,17 @@ Using [Facebook's Jest](https://facebook.github.io/jest/) for unit testing. Conf
 
 Install the npm modules to test
 ```
-// download node modules
+// install browserify globally
+npm install -g browserify
+
+// download node modules locally
 npm install
 
-// to test
+// run tests
 npm test
 
 // to build
-cd app
+cd src
 browserify index.js > bundle.js
 ```
 ## Environments
