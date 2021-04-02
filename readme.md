@@ -30,7 +30,7 @@ Using [Facebook's Jest](https://facebook.github.io/jest/) for unit testing. Conf
 
 ## Development
 
-```
+```node
 // clone the repo locally from github
 
 // install browserify globally
