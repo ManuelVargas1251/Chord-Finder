@@ -26,22 +26,27 @@ updateChord(["A", "C#", "E", "G#"])	//  A Major 7
 
 ## Unit Testing & Coverage
 
-Using [Facebook's Jest](https://facebook.github.io/jest/) for unit testing. Configured [Travis-CI](https://travis-ci.com/) for continuos integration on every commit and pull request as well as coverage reporting from [Coveralls](https://coveralls.io/)
+Using [Facebook's Jest](https://facebook.github.io/jest/) for unit testing. Configured [Travis-CI](https://travis-ci.com/github/ManuelVargas1251/Chord-Finder) for continuos integration on every commit and pull request as well as coverage reporting from [Coveralls](https://coveralls.io/github/ManuelVargas1251/Chord-Finder)
 
-Install the npm modules to test
+## Development
+
 ```
-// download node modules
+// clone the repo locally from github
+
+// install browserify globally
+npm install -g browserify
+
+// download node modules locally
 npm install
 
-// to test
+// run js tests
 npm test
 
-// to build
-cd app
-browserify index.js > bundle.js
+// build new bundle
+browserify src/js/index.js > bundle.js
 ```
 ## Environments
-By using rawgit.com links I was able to get working lower environments to test code in any committed branch. I was also able to provide test statuses for every branch through Travis CI and Coveralls.
+By using https://raw.githack.com/ I created a working lower environments to test code in any committed branch. I was also able to provide test statuses for every branch through Travis CI and Coveralls.
 
 
 [Production](https://mnl.space/Chord-Finder/)
@@ -49,7 +54,7 @@ By using rawgit.com links I was able to get working lower environments to test c
 [![Build Status - Master](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=master)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
 [![Coverage Status - Master](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=master)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=master)
 
-[Development](https://cdn.rawgit.com/ManuelVargas1251/Chord-Finder/development/index.html)
+[Development](https://raw.githack.com/ManuelVargas1251/Chord-Finder/development/index.html)
 
 [![Build Status - Development](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=development)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
 [![Coverage Status - Development](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=development)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=development)
