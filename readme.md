@@ -1,8 +1,8 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
 ![Version](https://img.shields.io/badge/Version-0.7.43-brightgreen.svg)
-[![Build Status - enhancement/coverage](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=master)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
-[![Coverage Status - enhancement/coverage](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=enhancement%2Fcoverage)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=enhancement%2Fcoverage)
+[![Build Status - enhancement/coverage](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=development)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
+[![Coverage Status](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=development)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=development)
 [![Jest Unit Tests](https://facebook.github.io/jest/img/jest-badge.svg)](https://github.com/facebook/jest)
 
 # Chord Finder 🎹
@@ -15,23 +15,60 @@ I started by rewriting my previous C++ chord finder [console application](https:
 
 ![](src/demo.gif)
 
-## Console Usage
-You can use the [browser console](https://developers.google.com/web/tools/chrome-devtools/console/) to use the functions directly or use them in your own project.
 
-To find a chord name, use the `updateChord()` function and pass in an array with the notes you want. 
+## Event Handlers
 
+Code is triggered by clicking or keypressing on the keyboard UI.
+Also using [Automatic Semicolon Insertion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion).
 ```javascript
-updateChord(["A", "C#", "E", "G#"])	//  A Major 7
+// mouse click event
+$(".key").click(function () {
+	//toggle key color key when pressed
+	//pass note id to add to chord
+	$(this).toggleClass("pressed")
+	processDOMChord($(this).attr('id'), userChordIds)
+})
+
+// keyboard event
+$("html").keypress(function (element) {
+	let noteCode = keyMapping[element.which]
+	$("#" + noteCode).toggleClass("pressed")
+	processDOMChord(noteCode, userChordIds)
+	console.log(noteCode)
+})
 ```
+
 
 ## Unit Testing & Coverage
 
 Using [Facebook's Jest](https://facebook.github.io/jest/) for unit testing. Configured [Travis-CI](https://travis-ci.com/github/ManuelVargas1251/Chord-Finder) for continuos integration on every commit and pull request as well as coverage reporting from [Coveralls](https://coveralls.io/github/ManuelVargas1251/Chord-Finder)
 
+
+### Test Configuration in `package.json`
+```package
+{
+	"build": "node env",
+	"test": "jest --coverage --coverageReporters=text-lcov | coveralls",
+	"jest-watch": "jest --watchAll --coverage",
+	"jest": "jest --coverage --coverageReporters=text-lcov | coveralls"
+}
+```
+### For local testing, remove the coveralls flag, else err response 422
+```package
+{
+	"build": "node env",
+	"test": "jest --coverage --coverageReporters=text-lcov",
+	"jest-watch": "jest --watchAll --coverage",
+	"jest": "jest --coverage --coverageReporters=text-lcov"
+}
+```
+
 ## Development
 
-```node
-// clone the repo locally from github
+```bash
+// download the repo locally from github and cd into the folder
+gh repo clone ManuelVargas1251/Chord-Finder
+cd Chord-Finder
 
 // install browserify globally
 npm install -g browserify
@@ -45,6 +82,8 @@ npm test
 // build new bundle
 browserify src/js/index.js > bundle.js
 ```
+
+
 ## Environments
 By using https://raw.githack.com/ I created a working lower environments to test code in any committed branch. I was also able to provide test statuses for every branch through Travis CI and Coveralls.
 
@@ -58,6 +97,8 @@ By using https://raw.githack.com/ I created a working lower environments to test
 
 [![Build Status - Development](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=development)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
 [![Coverage Status - Development](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=development)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=development)
+
+
 
 # Reference
 
