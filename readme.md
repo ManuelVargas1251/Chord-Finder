@@ -65,7 +65,7 @@ Using [Facebook's Jest](https://facebook.github.io/jest/) for unit testing. Conf
 
 ## Development
 
-```properties
+```bash
 // download the repo locally from github and cd into the folder
 gh repo clone ManuelVargas1251/Chord-Finder
 cd Chord-Finder
