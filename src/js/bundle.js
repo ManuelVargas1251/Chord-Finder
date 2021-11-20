@@ -173,6 +173,7 @@ $(".reset").click(function (){
 	userChordIds = []
 	processDOMChord(undefined, userChordIds)
 })
+
 },{"./processDOMChord.js":7}],7:[function(require,module,exports){
 const sound = require('./sound.js')
 const getNoteChord = require('./getNoteChord.js').getNoteChord
