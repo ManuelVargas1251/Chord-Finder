@@ -23,9 +23,9 @@ $("html").keypress(function (element) {
 	processDOMChord(noteCode, userChordIds)
 })
 
-// reset button eveent
+// reset button event
 $(".reset").click(function (){
-	userChordIds.forEach((v)=>$("#" + v).toggleClass("pressed"))
 	userChordIds = []
+	userChordIds.forEach((v)=>$("#" + v).toggleClass("pressed"))
 	processDOMChord(undefined, userChordIds)
 })
