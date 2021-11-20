@@ -1,11 +1,11 @@
 # Node
 node_modules
 .env
+.env.dev
 
-# Travis CI - coverage builds locally; yml file only needed to run locally
+# Travis CI/ Coveralls
+#coverage builds locally; yml file only needed to run locally
 coverage
-
-# Coveralls
 .coveralls.yml
 
 # VS Code
