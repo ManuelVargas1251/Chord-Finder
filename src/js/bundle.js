@@ -170,10 +170,10 @@ $("html").keypress(function (element) {
 })
 
 // reset button event
-$(".reset").click(function (){
-	userChordIds.forEach((v)=>$("#" + v).toggleClass("pressed"))
+$(".reset").click(function () {
+	userChordIds.forEach((v) => $("#" + v).toggleClass("pressed"))
 	userChordIds = []
-	processDOMChord(undefined, userChordIds)
+	processDOMChord(undefined, userChordIds, notes)
 })
 
 },{"./processDOMChord.js":7,"./sound.js":8}],7:[function(require,module,exports){
@@ -182,9 +182,9 @@ const getNoteChord = require('./getNoteChord.js').getNoteChord
 const getNoteId = require('./getNoteId.js').getNoteId
 const updateChord = require('./updateChord.js').updateChord
 
-function processDOMChord(newNoteId, userChordIds) {
+function processDOMChord(newNoteId, userChordIds, notes) {
     if (newNoteId && userChordIds) {
-        
+
         // define bool for testing duplicate note entries
         // when key is clicked, save note in newNote
         let isDuplicate = false

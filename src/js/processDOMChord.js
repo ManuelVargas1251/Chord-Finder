@@ -3,9 +3,9 @@ const getNoteChord = require('./getNoteChord.js').getNoteChord
 const getNoteId = require('./getNoteId.js').getNoteId
 const updateChord = require('./updateChord.js').updateChord
 
-function processDOMChord(newNoteId, userChordIds) {
+function processDOMChord(newNoteId, userChordIds, notes) {
     if (newNoteId && userChordIds) {
-        
+
         // define bool for testing duplicate note entries
         // when key is clicked, save note in newNote
         let isDuplicate = false
