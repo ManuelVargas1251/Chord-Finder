@@ -7,8 +7,8 @@ const sound = require('./sound.js')
 
 // two global arrays, one storing chord ids, the other storing chord note names
 let userChordIds = [],
-	userChord = [],
-	notes = sound.preload()
+	userChord = []
+var notes = sound.preload()
 
 // mouse click on piano key event
 $(".key").click(function () {

@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/ManuelVargas1251/Chord-Finder#readme",
   "devDependencies": {
-    "coveralls": "^3.1.0",
-    "jest": "^26.6.3"
+    "coveralls": "^2.11.4",
+    "jest": "^27.3.1"
   },
   "jest": {
     "globals": {
@@ -300,7 +300,7 @@
   "dependencies": {
     "env2": "^2.2.2",
     "howler": "^2.2.1",
-    "http": "0.0.0",
-    "require": "^2.4.20"
+    "http": "^0.0.1-security",
+    "require": "^0.4.4"
   }
 }
