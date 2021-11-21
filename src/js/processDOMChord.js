@@ -5,8 +5,7 @@ const updateChord = require('./updateChord.js').updateChord
 
 function processDOMChord(newNoteId, userChordIds) {
     if (newNoteId && userChordIds) {
-        let notes = sound.preload()
-
+        
         // define bool for testing duplicate note entries
         // when key is clicked, save note in newNote
         let isDuplicate = false

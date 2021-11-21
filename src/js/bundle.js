@@ -147,10 +147,12 @@ module.exports = getUserIntervals
 //console.clear()
 
 const processDOMChord = require('./processDOMChord.js')
+const sound = require('./sound.js')
 
 // two global arrays, one storing chord ids, the other storing chord note names
 let userChordIds = [],
-	userChord = []
+	userChord = [],
+	notes = sound.preload()
 
 // mouse click on piano key event
 $(".key").click(function () {
@@ -167,14 +169,14 @@ $("html").keypress(function (element) {
 	processDOMChord(noteCode, userChordIds)
 })
 
-// reset button eveent
+// reset button event
 $(".reset").click(function (){
 	userChordIds.forEach((v)=>$("#" + v).toggleClass("pressed"))
 	userChordIds = []
 	processDOMChord(undefined, userChordIds)
 })
 
-},{"./processDOMChord.js":7}],7:[function(require,module,exports){
+},{"./processDOMChord.js":7,"./sound.js":8}],7:[function(require,module,exports){
 const sound = require('./sound.js')
 const getNoteChord = require('./getNoteChord.js').getNoteChord
 const getNoteId = require('./getNoteId.js').getNoteId
@@ -182,8 +184,7 @@ const updateChord = require('./updateChord.js').updateChord
 
 function processDOMChord(newNoteId, userChordIds) {
     if (newNoteId && userChordIds) {
-        let notes = sound.preload()
-
+        
         // define bool for testing duplicate note entries
         // when key is clicked, save note in newNote
         let isDuplicate = false
