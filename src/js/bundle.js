@@ -147,71 +147,83 @@ module.exports = getUserIntervals
 //console.clear()
 
 const processDOMChord = require('./processDOMChord.js')
+const sound = require('./sound.js')
 
 // two global arrays, one storing chord ids, the other storing chord note names
 let userChordIds = [],
-	userChord = []
+	userChord = [],
+	notes = sound.preload()
 
-// mouse click event
+// mouse click on piano key event
 $(".key").click(function () {
-	//toggle key color key when pressed
 	//pass note id to add to chord
-	$(this).toggleClass("pressed")
-	processDOMChord($(this).attr('id'), userChordIds)
+	let noteCode = $(this).attr('id')
+	$(this).toggleClass("pressed")	//toggle key color key when pressed
+	processDOMChord(noteCode, userChordIds)
 })
 
-// keyboard event
+// keyboard keypress event
 $("html").keypress(function (element) {
 	let noteCode = keyMapping[element.which]
 	$("#" + noteCode).toggleClass("pressed")
 	processDOMChord(noteCode, userChordIds)
-	console.log(noteCode)
 })
 
-},{"./processDOMChord.js":7}],7:[function(require,module,exports){
+// reset button event
+$(".reset").click(function (){
+	userChordIds.forEach((v)=>$("#" + v).toggleClass("pressed"))
+	userChordIds = []
+	processDOMChord(undefined, userChordIds)
+})
+
+},{"./processDOMChord.js":7,"./sound.js":8}],7:[function(require,module,exports){
 const sound = require('./sound.js')
 const getNoteChord = require('./getNoteChord.js').getNoteChord
 const getNoteId = require('./getNoteId.js').getNoteId
 const updateChord = require('./updateChord.js').updateChord
 
 function processDOMChord(newNoteId, userChordIds) {
+    if (newNoteId && userChordIds) {
+        
+        // define bool for testing duplicate note entries
+        // when key is clicked, save note in newNote
+        let isDuplicate = false
 
-    let notes = sound.preload()
+        // if newNote is in the array, remove note
+        userChordIds.forEach((element, i) => {
+            if (newNoteId === element) {
+                isDuplicate = true
+                userChordIds.splice(i, 1)
+            }
+        })
 
-    // define bool for testing duplicate note entries
-    // when key is clicked, save note in newNote
-    let isDuplicate = false
+        // push to array if no duplicate found
+        if (isDuplicate === false) {
+            // play the audio
+            sound.playNote(newNoteId, notes)
 
-    // if newNote is already in the array, remove both
-    userChordIds.forEach((element, i) => {
-        if (newNoteId === element) {
-            isDuplicate = true
-            userChordIds.splice(i, 1)
+            //push the note into the array
+            userChordIds.push(newNoteId)
         }
-    })
+        console.log('new note: ' + userChordIds)
 
-    // push to array if no duplicate found
-    if (isDuplicate === false) {
-        // play the audio
-        sound.playNote(newNoteId, notes)
+        // sort and update array
+        // explicit sort bc default implementation does not sort double digits correctly
+        userChordIds.sort((a, b) => {
+            return a - b
+        })
 
-        //push the note into the array
-        userChordIds.push(newNoteId)
+        //convert note ids to note names
+        userChord = getNoteChord(userChordIds)
+        console.log('userChord: ' + userChord)
+
+        // run the chord update
+        $('.chord').text(updateChord(userChord, getNoteId))
+
+    } else {
+        // reset chord name
+        $('.chord').text(updateChord([], undefined))
     }
-    console.log('new note: ' + userChordIds)
-
-    // sort and update array
-    // explicit sort bc default implementation does not sort double digits correctly
-    userChordIds.sort((a, b) => {
-        return a - b
-    })
-
-    //convert note ids to note names
-    userChord = getNoteChord(userChordIds)
-    console.log('userChord: ' + userChord)
-
-    // run the chord update
-    $('.chord').text(updateChord(userChord, getNoteId))
 }
 
 module.exports = processDOMChord

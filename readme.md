@@ -21,20 +21,26 @@ I started by rewriting my previous C++ chord finder [console application](https:
 Code is triggered by clicking or keypressing on the keyboard UI.
 Also using [Automatic Semicolon Insertion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion).
 ```javascript
-// mouse click event
+// mouse click on piano key event
 $(".key").click(function () {
-	//toggle key color key when pressed
 	//pass note id to add to chord
-	$(this).toggleClass("pressed")
-	processDOMChord($(this).attr('id'), userChordIds)
+	let noteCode = $(this).attr('id')
+	$(this).toggleClass("pressed")	//toggle key color key when pressed
+	processDOMChord(noteCode, userChordIds)
 })
 
-// keyboard event
+// keyboard keypress event
 $("html").keypress(function (element) {
 	let noteCode = keyMapping[element.which]
 	$("#" + noteCode).toggleClass("pressed")
 	processDOMChord(noteCode, userChordIds)
-	console.log(noteCode)
+})
+
+// reset button event
+$(".reset").click(function (){
+	userChordIds.forEach((v)=>$("#" + v).toggleClass("pressed"))
+	userChordIds = []
+	processDOMChord(undefined, userChordIds)
 })
 ```
 
@@ -43,6 +49,14 @@ $("html").keypress(function (element) {
 
 Using [Facebook's Jest](https://facebook.github.io/jest/) for unit testing. Configured [Travis-CI](https://travis-ci.com/github/ManuelVargas1251/Chord-Finder) for continuos integration on every commit and pull request as well as coverage reporting from [Coveralls](https://coveralls.io/github/ManuelVargas1251/Chord-Finder)
 
+
+```bash
+// download node modules locally
+npm install
+
+// run js tests
+npm test
+```
 
 ### Test Configuration in `package.json`
 ```package
@@ -63,7 +77,7 @@ Using [Facebook's Jest](https://facebook.github.io/jest/) for unit testing. Conf
 }
 ```
 
-## Development
+## Development Setup
 
 ```bash
 // download the repo locally from github and cd into the folder
@@ -73,16 +87,12 @@ cd Chord-Finder
 // install browserify globally
 npm install -g browserify
 
-// download node modules locally
-npm install
-
-// run js tests
-npm test
-
-// build new bundle
-browserify src/js/index.js > bundle.js
+// build new bundle to view your changes
+browserify src/js/index.js > src/js/bundle.js
 ```
+## Design Development 
 
+![image](https://user-images.githubusercontent.com/10030407/142744157-6143014a-22c9-4e17-9dd2-eaeddc61aa4d.png)
 
 ## Environments
 By using https://raw.githack.com/ I created a working lower environments to test code in any committed branch. I was also able to provide test statuses for every branch through Travis CI and Coveralls.

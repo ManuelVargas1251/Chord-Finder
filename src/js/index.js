@@ -3,23 +3,31 @@
 //console.clear()
 
 const processDOMChord = require('./processDOMChord.js')
+const sound = require('./sound.js')
 
 // two global arrays, one storing chord ids, the other storing chord note names
 let userChordIds = [],
-	userChord = []
+	userChord = [],
+	notes = sound.preload()
 
-// mouse click event
+// mouse click on piano key event
 $(".key").click(function () {
-	//toggle key color key when pressed
 	//pass note id to add to chord
-	$(this).toggleClass("pressed")
-	processDOMChord($(this).attr('id'), userChordIds)
+	let noteCode = $(this).attr('id')
+	$(this).toggleClass("pressed")	//toggle key color key when pressed
+	processDOMChord(noteCode, userChordIds)
 })
 
-// keyboard event
+// keyboard keypress event
 $("html").keypress(function (element) {
 	let noteCode = keyMapping[element.which]
 	$("#" + noteCode).toggleClass("pressed")
 	processDOMChord(noteCode, userChordIds)
-	console.log(noteCode)
+})
+
+// reset button event
+$(".reset").click(function (){
+	userChordIds.forEach((v)=>$("#" + v).toggleClass("pressed"))
+	userChordIds = []
+	processDOMChord(undefined, userChordIds)
 })
