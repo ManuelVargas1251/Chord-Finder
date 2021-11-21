@@ -94,6 +94,16 @@ browserify src/js/index.js > src/js/bundle.js
 
 ![image](https://user-images.githubusercontent.com/10030407/142744157-6143014a-22c9-4e17-9dd2-eaeddc61aa4d.png)
 
+## Sound Development
+
+When testing sound locally I get CORS errors which prevent the sound from playing for security reasons. As a work around, run a local server from root:
+
+```bash
+npm install --global http-server
+
+npm http-server ./
+```
+
 ## Environments
 By using https://raw.githack.com/ I created a working lower environments to test code in any committed branch. I was also able to provide test statuses for every branch through Travis CI and Coveralls.
 
