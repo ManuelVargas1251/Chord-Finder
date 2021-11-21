@@ -30,7 +30,7 @@ function getChord(userChord, userIntervals) {
 		root_note = userChord[0]
 	}
 	else {
-		console.log('inversion')
+		//console.log('inversion')
 		if (userIntervals[0] > 5) {
 			root_note = userChord[1]
 		}
