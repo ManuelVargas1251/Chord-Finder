@@ -149,31 +149,30 @@ module.exports = getUserIntervals
 const processDOMChord = require('./processDOMChord.js')
 const sound = require('./sound.js')
 
-// two global arrays, one storing chord ids, the other storing chord note names
+// storing chord ids
 let userChordIds = [],
-	userChord = []
-var notes = sound.preload()
+	notes = sound.preload()	// preloading sound
 
 // mouse click on piano key event
 $(".key").click(function () {
 	//pass note id to add to chord
 	let noteCode = $(this).attr('id')
 	$(this).toggleClass("pressed")	//toggle key color key when pressed
-	processDOMChord(noteCode, userChordIds)
+	processDOMChord(noteCode, userChordIds, notes)
 })
 
 // keyboard keypress event
 $("html").keypress(function (element) {
 	let noteCode = keyMapping[element.which]
 	$("#" + noteCode).toggleClass("pressed")
-	processDOMChord(noteCode, userChordIds)
+	processDOMChord(noteCode, userChordIds, notes)
 })
 
 // reset button event
 $(".reset").click(function () {
 	userChordIds.forEach((v) => $("#" + v).toggleClass("pressed"))
 	userChordIds = []
-	processDOMChord(undefined, userChordIds, notes)
+	processDOMChord(undefined, userChordIds)
 })
 
 },{"./processDOMChord.js":7,"./sound.js":8}],7:[function(require,module,exports){
