@@ -101,7 +101,7 @@ When testing sound locally I get CORS errors which prevent the sound from playin
 ```bash
 npm install --global http-server
 
-npm http-server ./
+http-server ./
 ```
 
 ## Environments
