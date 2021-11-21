@@ -25,15 +25,13 @@ function processDOMChord(newNoteId, userChordIds, notes) {
 
             //push the note into the array
             userChordIds.push(newNoteId)
+            console.log('new note: ' + userChordIds)
+
+            // sort and update array
+            // explicit sort bc default implementation does not sort double digits correctly
+            userChordIds.sort((a, b) => {return a - b})
         }
-        console.log('new note: ' + userChordIds)
-
-        // sort and update array
-        // explicit sort bc default implementation does not sort double digits correctly
-        userChordIds.sort((a, b) => {
-            return a - b
-        })
-
+        
         //convert note ids to note names
         userChord = getNoteChord(userChordIds)
         console.log('userChord: ' + userChord)

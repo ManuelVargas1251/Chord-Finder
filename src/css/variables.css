@@ -1,20 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
-/* 	The variables below can be used for anything
-	use var(YOUR_VARIABLE_NAME_HERE)
-
-Example:
-BEFORE
-.key:hover{
-	background-color: red;
-}
-
-AFTER
-.key:hover{
-	background-color: var(--piano-hover);
-}
-*/
-
 :root{
 	--piano-black: #363636;
 	--piano-white: #f9fffc;
