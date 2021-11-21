@@ -23,16 +23,22 @@ function getChord(userChord, userIntervals) {
 
 	// if the root counter is equal to the num of intervals
 	// then the chord is in root position so return the first key
+	// console.log('root: ' + root)
+	// console.log('inversions: ' + inversions)
+	// console.log('userChord: ' + userChord)
 	if (userIntervals.length == root) {
 		root_note = userChord[0]
 	}
 	else {
-		//console.warn('inversion')
+		console.log('inversion')
 		if (userIntervals[0] > 5) {
 			root_note = userChord[1]
 		}
 		if (userIntervals[1] == 6) {
 			root_note = userChord[2]
+		}
+		if (userIntervals[0] == 8) {
+			root_note = userChord[0]
 		}
 	}
 
@@ -45,7 +51,8 @@ function getChord(userChord, userIntervals) {
 
 	// finding the correct array by only sending the interval to be found in the object where the length matches means that searching will take a lot less time because it only has to search through a smaller section of the object library; this will be important for when the object libraries become larger.
 
-	//console.log('num of intervals: ' + userIntervals.length)
+	// console.log('userIntervals: ' + userIntervals)
+	// console.log('num of intervals: ' + userIntervals.length)
 	if (userChord.length != 0) {
 		try {
 			// searches interval library depending on how many intervals the chord has
