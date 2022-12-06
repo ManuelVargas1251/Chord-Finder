@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/ManuelVargas1251/Chord-Finder#readme",
   "devDependencies": {
-    "coveralls": "^2.11.4",
+    "coveralls": "^2.13.3",
     "jest": "^27.3.1"
   },
   "jest": {
