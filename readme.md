@@ -87,7 +87,7 @@ cd Chord-Finder
 // install browserify globally
 npm install -g browserify
 
-// build new bundle to view your changes
+# build new bundle to view your changes
 browserify src/js/index.js > src/js/bundle.js
 ```
 ## Design Development 
