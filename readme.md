@@ -51,15 +51,15 @@ Using [Facebook's Jest](https://facebook.github.io/jest/) for unit testing. Conf
 
 
 ```bash
-// download node modules locally
+# download node modules locally
 npm install
 
-// run js tests
+# run js tests
 npm test
 ```
 
 ### Test Configuration in `package.json`
-```package
+```json
 {
 	"build": "node env",
 	"test": "jest --coverage --coverageReporters=text-lcov | coveralls",
@@ -68,7 +68,7 @@ npm test
 }
 ```
 ### For local testing, remove the coveralls flag, else err response 422
-```package
+```json
 {
 	"build": "node env",
 	"test": "jest --coverage --coverageReporters=text-lcov",
@@ -80,15 +80,15 @@ npm test
 ## Development Setup
 
 ```bash
-// download the repo locally from github and cd into the folder
+# download the repo locally from github and cd into the folder
 gh repo clone ManuelVargas1251/Chord-Finder
 cd Chord-Finder
 
-// install browserify globally
-npm install -g browserify
+# install dev node modules (includes browserify)
+npm install
 
-// build new bundle to view your changes
-browserify src/js/index.js > src/js/bundle.js
+# build new bundle to view your changes
+node_modules/.bin/browserify src/js/index.js > src/js/bundle.js
 ```
 ## Design Development 
 
@@ -98,9 +98,8 @@ browserify src/js/index.js > src/js/bundle.js
 
 When testing sound locally I get CORS errors which prevent the sound from playing for security reasons. As a work around, run a local server from root:
 
-```bash
+```node
 npm install --global http-server
-
 http-server ./
 ```
 
