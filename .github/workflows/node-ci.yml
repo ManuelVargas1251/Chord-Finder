@@ -49,11 +49,20 @@ jobs:
           script: |
             const fs = require('fs')
             const summary = JSON.parse(fs.readFileSync('coverage/coverage-summary.json', 'utf8'))
+            const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
             const totals = summary.total
+            const thresholds = packageJson.jest.coverageThreshold.global
+            const passed = Object.entries(thresholds).every(([metric, threshold]) =>
+              totals[metric].pct >= threshold
+            )
+            const status = passed ? 'passing' : 'failing'
+            const badgeColor = passed ? 'brightgreen' : 'red'
+            const badge = `![Coverage ${status}](https://img.shields.io/badge/coverage-${status}-${badgeColor})`
             const format = metric => `${metric.pct}%`
             const marker = '<!-- chord-finder-coverage -->'
             const body = `${marker}
             ## Coverage Report 📊
+            ${badge}
 
             | Metric 📏 | Coverage 📈 |
             | --- | ---: |
