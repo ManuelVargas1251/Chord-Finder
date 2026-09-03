@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "browserify src/js/index.js > src/js/bundle.js | node env",
-    "test": "jest --coverage --coverageReporters=text --coverageReporters=lcov",
+    "test": "jest --coverage --coverageReporters=text --coverageReporters=lcov --coverageReporters=json-summary",
     "jest-watch": "jest --watchAll --coverage",
-    "jest": "jest --coverage --coverageReporters=text --coverageReporters=lcov"
+    "jest": "jest --coverage --coverageReporters=text --coverageReporters=lcov --coverageReporters=json-summary"
   },
   "repository": {
     "type": "git",
