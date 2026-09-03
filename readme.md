@@ -78,7 +78,7 @@ npm test
 ```
 
 ## Development Setup
-
+Using a server avoids CORS errors when testing sound locally. Also using browserify to bundle js files into one  file. Using VSCode + live server.
 ```bash
 # download the repo locally from github and cd into the folder
 gh repo clone ManuelVargas1251/Chord-Finder
@@ -89,19 +89,15 @@ npm install
 
 # build new bundle to view your changes
 node_modules/.bin/browserify src/js/index.js > src/js/bundle.js
+
+# if you install browserify globally you can use this command instead
+npm run build
 ```
+
 ## Design Development 
 
 ![image](https://user-images.githubusercontent.com/10030407/142744157-6143014a-22c9-4e17-9dd2-eaeddc61aa4d.png)
 
-## Sound Development
-
-When testing sound locally I get CORS errors which prevent the sound from playing for security reasons. As a work around, run a local server from root:
-
-```node
-npm install --global http-server
-http-server ./
-```
 
 ## Environments
 By using https://raw.githack.com/ I created a working lower environments to test code in any committed branch. I was also able to provide test statuses for every branch through Travis CI and Coveralls.
@@ -124,4 +120,8 @@ By using https://raw.githack.com/ I created a working lower environments to test
 [Musical Chord Wiki](https://en.wikipedia.org/wiki/Chord_(music))
 
 [Musical Interval Wiki](https://en.wikipedia.org/wiki/Interval_(music))
+
+[Eleventh Interval Wiki](https://en.wikipedia.org/wiki/Eleventh)
+
+[Octave Interval Wiki](https://en.wikipedia.org/wiki/Octave)
 

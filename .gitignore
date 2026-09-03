@@ -11,6 +11,9 @@ coverage
 # VS Code
 .vscode
 launch.json
+notes/
+pull_requests/
+.github/
 
 # Windows image file caches
 Thumbs.db

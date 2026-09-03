@@ -9,4 +9,3 @@ function getNoteChord(idChord) {
 }
 
 exports.getNoteChord = getNoteChord
-

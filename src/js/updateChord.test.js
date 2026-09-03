@@ -1,3 +1,4 @@
+require('es6-shim')
 const updateChord = require('./updateChord').updateChord
 
 test('return chord name from chord notes', () => {
@@ -14,10 +15,10 @@ test('return chord name from chord notes', () => {
     .toEqual('F 2nd Inversion')
 
   expect(updateChord(['C', 'D#']))
-    .toEqual('Minor 3rd')
+    .toEqual('C Minor 3rd')
 
   expect(updateChord(['C', 'G', 'B']))
-    .toEqual('')
+    .toEqual('C Omit 3')
 
   expect(updateChord(['C', 'A', 'D']))
     .toEqual('')
