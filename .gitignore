@@ -13,7 +13,7 @@ coverage
 launch.json
 notes/
 pull_requests/
-.github/
+.github/skills/
 
 # Windows image file caches
 Thumbs.db
