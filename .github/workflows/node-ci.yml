@@ -61,17 +61,28 @@ jobs:
             const badgeColor = passed ? 'brightgreen' : 'red'
             const badge = `![Coverage ${status}](https://img.shields.io/badge/coverage-${status}-${badgeColor})`
             const format = metric => `${metric.pct}%`
+            const metrics = [
+              ['Statements', 'statements'],
+              ['Branches', 'branches'],
+              ['Functions', 'functions'],
+              ['Lines', 'lines']
+            ]
+            const coverageRows = metrics.map(([label, metric]) => {
+              const result = totals[metric]
+              const metricStatus = result.pct >= thresholds[metric] ? 'Pass' : 'Fail'
+              return `| ${label} | ${format(result)} | ${result.covered} / ${result.total} | ${thresholds[metric]}% | ${metricStatus} |`
+            }).join('\n')
+            const artifactsUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}/artifacts`
             const marker = '<!-- chord-finder-coverage -->'
             const body = `${marker}
             ## Coverage Report 📊
             ${badge}
 
-            | Metric 📏 | Coverage 📈 |
-            | --- | ---: |
-            | Statements | ${format(totals.statements)} |
-            | Branches | ${format(totals.branches)} |
-            | Functions | ${format(totals.functions)} |
-            | Lines | ${format(totals.lines)} |
+            | Metric 📏 | Coverage 📈 | Covered 🔢 | Threshold 🎯 | Status ✅ |
+            | --- | ---: | ---: | ---: | --- |
+            ${coverageRows}
+
+            [Download the full coverage report](<${artifactsUrl}>)
 
             \`\`\`mermaid
             flowchart LR
