@@ -45,7 +45,7 @@ jobs:
           cp -R src site/
 
       - name: Deploy production site
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.9.0
         with:
           branch: gh-pages
           folder: site
