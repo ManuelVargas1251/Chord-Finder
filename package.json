@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "browserify src/js/index.js > src/js/bundle.js | node env",
-    "test": "jest --coverage --coverageReporters=text-lcov",
+    "test": "jest --coverage --coverageReporters=text --coverageReporters=lcov --coverageReporters=json-summary",
     "jest-watch": "jest --watchAll --coverage",
-    "jest": "jest --coverage --coverageReporters=text-lcov"
+    "jest": "jest --coverage --coverageReporters=text --coverageReporters=lcov --coverageReporters=json-summary"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,6 @@
   "devDependencies": {
     "babel-jest": "^29.7.0",
     "browserify": "^17.0.0",
-    "coveralls": "^3.1.1",
     "env2": "^2.2.2",
     "es6-shim": "^0.35.8",
     "http": "^0.0.1-security",
@@ -36,6 +35,14 @@
     ],
     "transform": {
       "^.+\\.(js|jsx|mjs)?$": "babel-jest"
+    },
+    "coverageThreshold": {
+      "global": {
+        "branches": 95,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
     }
   }
 }
