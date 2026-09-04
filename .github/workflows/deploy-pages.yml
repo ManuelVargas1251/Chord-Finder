@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: github-pages-production
+  group: github-pages-deployment
   cancel-in-progress: false
 
 jobs:
