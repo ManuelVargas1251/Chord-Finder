@@ -16,8 +16,8 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: github-pages-preview-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
+  group: github-pages-deployment
+  cancel-in-progress: false
 
 jobs:
   deploy-preview:
@@ -29,6 +29,12 @@ jobs:
       - name: Check out repository
         if: github.event.action != 'closed'
         uses: actions/checkout@v5
+
+      - name: Check out repository for cleanup
+        if: github.event.action == 'closed'
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
 
       - name: Set up Node.js
         if: github.event.action != 'closed'
