@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Chord Finder</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+	<link rel="stylesheet" href="src/css/variables.css">
+	<link rel="stylesheet" href="src/css/index.css">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<button class="reset">Reset</button>
+
+	<div id="keyboard" onload="load()">
+		<div id="0" class="key white left-corner"></div>
+		<div id="1" class="key black"></div>
+		<div id="2" class="key white"></div>
+		<div id="3" class="key black"></div>
+		<div id="4" class="key white"></div>
+		<div id="5" class="key white"></div>
+		<div id="6" class="key black"></div>
+		<div id="7" class="key white"></div>
+		<div id="8" class="key black"></div>
+		<div id="9" class="key white"></div>
+		<div id="10" class="key black"></div>
+		<div id="11" class="key white right-corner"></div>
+	</div>
+	<!-- chord -->
+	<div class="chord">
+	</div>
+</body>
+
+<!-- methods -->
+<script>var exports = {};</script>
+<script>var notes = [];</script>
+<script src="src/js/globals.js"></script>
+<script src="src/js/external/howler.min.js"></script>
+<script src="src/js/bundle.js" async></script>
+
+</html>
