@@ -11,7 +11,9 @@ coverage
 launch.json
 notes/
 pull_requests/
-.github/skills/
+.github/*
+!.github/workflows/
+!.github/workflows/**
 
 # Windows image file caches
 Thumbs.db
