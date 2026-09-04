@@ -68,6 +68,18 @@ npm test
 }
 ```
 
+## Deployments
+
+The production site is available at [mnl.space/Chord-Finder](https://www.mnl.space/Chord-Finder/).
+
+Pull requests targeting `development` or `master` receive a preview deployment at:
+
+```text
+https://www.mnl.space/Chord-Finder/pr-preview/pr-<number>/
+```
+
+The preview link is added to the pull request and the preview is removed when the pull request closes. For example, pull request 84 is available at [mnl.space/Chord-Finder/pr-preview/pr-84](https://www.mnl.space/Chord-Finder/pr-preview/pr-84/). Preview deployments are available for pull requests from this repository; forked pull requests are not deployed.
+
 ## Development Setup
 Using a server avoids CORS errors when testing sound locally. Also using browserify to bundle js files into one  file. Using VSCode + live server.
 ```bash
