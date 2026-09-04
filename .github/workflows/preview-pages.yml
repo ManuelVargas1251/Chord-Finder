@@ -1,0 +1,64 @@
+name: Deploy PR Preview
+
+on:
+  pull_request:
+    branches:
+      - development
+      - master
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: github-pages-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  deploy-preview:
+    name: Deploy pull request preview
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        if: github.event.action != 'closed'
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        if: github.event.action != 'closed'
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        if: github.event.action != 'closed'
+        run: npm ci
+
+      - name: Build bundle
+        if: github.event.action != 'closed'
+        run: npm run build
+
+      - name: Prepare Pages site
+        if: github.event.action != 'closed'
+        run: |
+          rm -rf site
+          mkdir site
+          cp index.html site/
+          cp -R src site/
+
+      - name: Deploy or remove preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: site
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          pages-base-url: https://www.mnl.space/Chord-Finder
+          wait-for-pages-deployment: true
+          qr-code: false
