@@ -29,6 +29,12 @@ updateFile(
   badgeVersion
 );
 
+updateFile(
+  'index.html',
+  /Version [0-9A-Za-z.-]+(?=<\/footer>)/,
+  `Version ${version}`
+);
+
 packageJson.description = packageJson.description.replace(
   /Version-[0-9A-Za-z.-]+-brightgreen\.svg/,
   badgeVersion
