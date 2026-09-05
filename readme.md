@@ -1,6 +1,6 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.7.43-brightgreen.svg)
+![Version](https://img.shields.io/badge/Version-0.8.0-brightgreen.svg)
 [![CI - master](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml/badge.svg?branch=master)](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml?query=branch%3Amaster)
 [![CI - development](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml/badge.svg?branch=development)](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml?query=branch%3Adevelopment)
 [![Tested with Jest](https://img.shields.io/badge/tested%20with-Jest-99424f.svg)](https://jestjs.io/)
@@ -61,7 +61,7 @@ npm test
 ### Test Configuration in `package.json`
 ```json
 {
-	"build": "browserify src/js/index.js > src/js/bundle.js | node env",
+	"build": "browserify src/js/index.js > src/js/bundle.js",
 	"test": "jest --coverage --coverageReporters=text --coverageReporters=lcov --coverageReporters=json-summary",
 	"jest-watch": "jest --watchAll --coverage",
 	"jest": "jest --coverage --coverageReporters=text --coverageReporters=lcov --coverageReporters=json-summary"
