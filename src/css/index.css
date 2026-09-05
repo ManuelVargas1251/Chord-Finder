@@ -23,6 +23,15 @@ body{
 	text-align: center;
 }
 
+.version{
+	color: var(--piano-white);
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 20px;
+	text-align: center;
+	opacity: 0.85;
+}
+
 #keyboard{
 	text-align: center;
     display: flex;
