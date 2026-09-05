@@ -1,9 +1,9 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.7.43-brightgreen.svg)
-[![Build Status - enhancement/coverage](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=master)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
-[![Coverage Status](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=master)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=master)
-[![Jest Unit Tests](https://facebook.github.io/jest/img/jest-badge.svg)](https://github.com/facebook/jest)
+![Version](https://img.shields.io/badge/Version-0.8.0-brightgreen.svg)
+[![CI - master](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml/badge.svg?branch=master)](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml?query=branch%3Amaster)
+[![CI - development](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml/badge.svg?branch=development)](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml?query=branch%3Adevelopment)
+[![Tested with Jest](https://img.shields.io/badge/tested%20with-Jest-99424f.svg)](https://jestjs.io/)
 
 # Chord Finder 🎹
 
@@ -47,7 +47,7 @@ $(".reset").click(function (){
 
 ## Unit Testing & Coverage
 
-Using [Facebook's Jest](https://facebook.github.io/jest/) for unit testing. Configured [Travis-CI](https://travis-ci.com/github/ManuelVargas1251/Chord-Finder) for continuos integration on every commit and pull request as well as coverage reporting from [Coveralls](https://coveralls.io/github/ManuelVargas1251/Chord-Finder)
+Using [Facebook's Jest](https://facebook.github.io/jest/) for unit testing. GitHub Actions runs the tests and Browserify build for pushes and pull requests targeting `master` or `development`. Coverage thresholds are enforced at 100% statements, 95% branches, 100% functions, and 100% lines. Pull requests in this repository receive a coverage summary comment, and the full report is uploaded as a workflow artifact.
 
 
 ```bash
@@ -61,24 +61,27 @@ npm test
 ### Test Configuration in `package.json`
 ```json
 {
-	"build": "node env",
-	"test": "jest --coverage --coverageReporters=text-lcov | coveralls",
+	"build": "browserify src/js/index.js > src/js/bundle.js",
+	"test": "jest --coverage --coverageReporters=text --coverageReporters=lcov --coverageReporters=json-summary",
 	"jest-watch": "jest --watchAll --coverage",
-	"jest": "jest --coverage --coverageReporters=text-lcov | coveralls"
+	"jest": "jest --coverage --coverageReporters=text --coverageReporters=lcov --coverageReporters=json-summary"
 }
 ```
-### For local testing, remove the coveralls flag, else err response 422
-```json
-{
-	"build": "node env",
-	"test": "jest --coverage --coverageReporters=text-lcov",
-	"jest-watch": "jest --watchAll --coverage",
-	"jest": "jest --coverage --coverageReporters=text-lcov"
-}
+
+## Deployments
+
+The production site is available at [mnl.space/Chord-Finder](https://www.mnl.space/Chord-Finder/).
+
+Pull requests targeting `development` or `master` receive a preview deployment at:
+
+```text
+https://www.mnl.space/Chord-Finder/pr-preview/pr-<number>/
 ```
+
+The preview link is added to the pull request and the preview is removed when the pull request closes. For example, pull request 84 is available at [mnl.space/Chord-Finder/pr-preview/pr-84](https://www.mnl.space/Chord-Finder/pr-preview/pr-84/). Preview deployments are available for pull requests from this repository; forked pull requests are not deployed.
 
 ## Development Setup
-
+Using a server avoids CORS errors when testing sound locally. Also using browserify to bundle js files into one  file. Using VSCode + live server.
 ```bash
 # download the repo locally from github and cd into the folder
 gh repo clone ManuelVargas1251/Chord-Finder
@@ -89,33 +92,25 @@ npm install
 
 # build new bundle to view your changes
 node_modules/.bin/browserify src/js/index.js > src/js/bundle.js
+
+# if you install browserify globally you can use this command instead
+npm run build
 ```
+
 ## Design Development 
 
 ![image](https://user-images.githubusercontent.com/10030407/142744157-6143014a-22c9-4e17-9dd2-eaeddc61aa4d.png)
 
-## Sound Development
-
-When testing sound locally I get CORS errors which prevent the sound from playing for security reasons. As a work around, run a local server from root:
-
-```node
-npm install --global http-server
-http-server ./
-```
 
 ## Environments
-By using https://raw.githack.com/ I created a working lower environments to test code in any committed branch. I was also able to provide test statuses for every branch through Travis CI and Coveralls.
+By using https://raw.githack.com/ I created working lower environments to test code in any committed branch. The CI badges above report the latest GitHub Actions status separately for `master` and `development`.
 
 
 [Production](https://mnl.space/Chord-Finder/)
 
-[![Build Status - Master](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=master)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
-[![Coverage Status - Master](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=master)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=master)
 
 [Development](https://raw.githack.com/ManuelVargas1251/Chord-Finder/development/index.html)
 
-[![Build Status - Development](https://travis-ci.com/ManuelVargas1251/Chord-Finder.svg?branch=development)](https://travis-ci.com/ManuelVargas1251/Chord-Finder)
-[![Coverage Status - Development](https://coveralls.io/repos/github/ManuelVargas1251/Chord-Finder/badge.svg?branch=development)](https://coveralls.io/github/ManuelVargas1251/Chord-Finder?branch=development)
 
 
 
@@ -124,4 +119,8 @@ By using https://raw.githack.com/ I created a working lower environments to test
 [Musical Chord Wiki](https://en.wikipedia.org/wiki/Chord_(music))
 
 [Musical Interval Wiki](https://en.wikipedia.org/wiki/Interval_(music))
+
+[Eleventh Interval Wiki](https://en.wikipedia.org/wiki/Eleventh)
+
+[Octave Interval Wiki](https://en.wikipedia.org/wiki/Octave)
 
