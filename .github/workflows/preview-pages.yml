@@ -1,0 +1,101 @@
+name: Deploy PR Preview
+
+on:
+  pull_request:
+    branches:
+      - development
+      - master
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: github-pages-deployment
+  cancel-in-progress: false
+
+jobs:
+  deploy-preview:
+    name: Deploy pull request preview
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        if: github.event.action != 'closed'
+        uses: actions/checkout@v5
+
+      - name: Check out repository for cleanup
+        if: github.event.action == 'closed'
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+
+      - name: Set up Node.js
+        if: github.event.action != 'closed'
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        if: github.event.action != 'closed'
+        run: npm ci
+
+      - name: Build bundle
+        if: github.event.action != 'closed'
+        run: npm run build
+
+      - name: Prepare Pages site
+        if: github.event.action != 'closed'
+        run: |
+          rm -rf site
+          mkdir site
+          cp index.html site/
+          cp -R src site/
+
+      - name: Prepare empty Pages site for removal
+        if: github.event.action == 'closed'
+        run: |
+          rm -rf site
+          mkdir site
+
+      - name: Deploy preview
+        if: github.event.action != 'closed'
+        uses: JamesIves/github-pages-deploy-action@v4.9.0
+        id: deploy-preview
+        with:
+          branch: gh-pages
+          folder: site
+          target-folder: pr-preview/pr-${{ github.event.number }}
+          force: false
+
+      - name: Add preview comment
+        if: github.event.action != 'closed' && steps.deploy-preview.outcome == 'success'
+        uses: marocchino/sticky-pull-request-comment@v3.0.5
+        with:
+          header: pr-preview
+          message: |
+            🚀 [View preview](https://www.mnl.space/Chord-Finder/pr-preview/pr-${{ github.event.number }}/)
+
+      - name: Remove preview
+        if: github.event.action == 'closed'
+        uses: JamesIves/github-pages-deploy-action@v4.9.0
+        id: remove-preview
+        with:
+          branch: gh-pages
+          folder: site
+          target-folder: pr-preview/pr-${{ github.event.number }}
+          force: false
+
+      - name: Remove preview comment
+        if: github.event.action == 'closed' && steps.remove-preview.outcome == 'success'
+        uses: marocchino/sticky-pull-request-comment@v3.0.5
+        with:
+          header: pr-preview
+          delete: true

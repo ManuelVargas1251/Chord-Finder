@@ -3,14 +3,17 @@ node_modules
 .env
 .env.dev
 
-# Travis CI/ Coveralls
-#coverage builds locally; yml file only needed to run locally
+# Jest coverage output
 coverage
-.coveralls.yml
 
 # VS Code
 .vscode
 launch.json
+notes/
+pull_requests/
+.github/*
+!.github/workflows/
+!.github/workflows/**
 
 # Windows image file caches
 Thumbs.db
