@@ -8,26 +8,36 @@ html{
 
 body{
 	margin: auto;
-    width: 50%;
+	width: min(500px, calc(100% - 20px));
 	padding: 10px;
 	margin-top: 25px;
+	box-sizing: border-box;
 }
 
 .chord{
 	color: var(--piano-white);
 	font-weight: bold;
-	text-align: center;
 	font-size: 50px;
-	height: 20%;
+	height: clamp(96px, 20vh, 140px);
+	min-height: 96px;
 	width: 100%;
 	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1.1;
+	overflow-wrap: anywhere;
+	padding: 0 8px;
+	box-sizing: border-box;
 }
 
 .version{
 	color: var(--piano-white);
 	font-size: 16px;
 	font-weight: bold;
-	margin-top: 20px;
+	line-height: 24px;
+	min-height: 24px;
+	margin: 0;
 	text-align: center;
 	opacity: 0.85;
 }
@@ -35,7 +45,7 @@ body{
 #keyboard{
 	text-align: center;
     display: flex;
-	width: 400px;
+	width: min(400px, 100%);
 	position: relative;
 	margin: auto;
 }
@@ -90,4 +100,30 @@ body{
 
 .right-corner{
 	border-radius: 0 10px 7px 7px;
+}
+
+@media (max-height: 480px){
+	body{
+		margin-top: 0;
+	}
+
+	.chord{
+		height: 64px;
+		min-height: 64px;
+		font-size: clamp(36px, 12vw, 50px);
+	}
+
+	.key.white{
+		height: 130px;
+	}
+
+	.key.black{
+		height: 72px;
+	}
+
+	.version{
+		font-size: 13px;
+		line-height: 20px;
+		min-height: 20px;
+	}
 }
