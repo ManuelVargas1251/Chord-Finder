@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.8.0] 🥨🐈 - 2026-09-07
+### Added
+- GitHub Actions workflows for Node.js testing, coverage reporting, Browserify builds, GitHub Pages deployment, and pull request previews.
+- Version display in the application footer, synchronized from `package.json`.
+- Responsive layout improvements for the chord result, version footer, and narrow screens.
+- Mermaid documentation for the CI workflows and application architecture, with static image fallbacks.
+
+### Changed
+- Refactored chord processing, interval lookup, note mapping, and sound preloading.
+- Updated tests and coverage configuration for the modernized JavaScript modules.
+- Replaced legacy development and deployment documentation with current Node.js 24, npm, and GitHub Actions instructions.
+
+### Removed
+- Legacy Travis CI, Coveralls, and obsolete version-management configuration.
+
 ## [0.7.42] 🍍 - 2018-14-08
 Releasing this before 0.8 as code is stable now and tests are not part of the functionality.
 ## new
