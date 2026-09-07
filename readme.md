@@ -1,39 +1,39 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
 ![Version](https://img.shields.io/badge/Version-0.8.0-brightgreen.svg)
-[![CI - master](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml/badge.svg?branch=master)](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml?query=branch%3Amaster)
-[![CI - development](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml/badge.svg?branch=development)](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml?query=branch%3Adevelopment)
+[![CI - production](https://img.shields.io/github/actions/workflow/status/ManuelVargas1251/Chord-Finder/node-ci.yml?branch=master&label=CI%20Production)](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml?query=branch%3Amaster)
+[![CI - development](https://img.shields.io/github/actions/workflow/status/ManuelVargas1251/Chord-Finder/node-ci.yml?branch=development&label=CI%20Development)](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml?query=branch%3Adevelopment)
 [![Tested with Jest](https://img.shields.io/badge/tested%20with-Jest-99424f.svg)](https://jestjs.io/)
 
 # Chord Finder 🎹
 
-This is a js web application that tells you what chord you are playing on the piano in any inversion. Click or keypress the notes to build your chord! If you select two notes it will tell you what the interval is between those two notes. 
+Chord Finder is a JavaScript web application that identifies the chord you are playing on the piano, including inversions. Click the piano keys or use the mapped computer-keyboard controls to build a chord. Select two notes to identify the interval between them.
 
-I started by rewriting my previous C++ chord finder [console application](https://github.com/ManuelVargas1251/ChordFinder) in javascript and added the web interface as I went.
+I started by rewriting my previous C++ chord finder [console application](https://github.com/ManuelVargas1251/ChordFinder) in JavaScript and added the web interface as I went.
 
-[[View Web Application](https://mnl.space/Chord-Finder/)]
+[View Web Application](https://mnl.space/Chord-Finder/)
 
-![](src/demo.gif)
+![Chord Finder app demo](src/demo.gif)
 
 
 ## Event Handlers
 
-Code is triggered by clicking or keypressing on the keyboard UI.
-Also using [Automatic Semicolon Insertion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion).
+Code is triggered by clicking or pressing keys on the keyboard UI.
+The example assumes `index.js` has already initialized `userChordIds` and preloaded the note audio with `notes = sound.preload()`.
 ```javascript
 // mouse click on piano key event
 $(".key").click(function () {
 	//pass note id to add to chord
 	let noteCode = $(this).attr('id')
 	$(this).toggleClass("pressed")	//toggle key color key when pressed
-	processDOMChord(noteCode, userChordIds)
+	processDOMChord(noteCode, userChordIds, notes)
 })
 
 // keyboard keypress event
 $("html").keypress(function (element) {
-	let noteCode = keyMapping[element.which]
+	let noteCode = _computerKeyboardMap.get(element.which)
 	$("#" + noteCode).toggleClass("pressed")
-	processDOMChord(noteCode, userChordIds)
+	processDOMChord(noteCode, userChordIds, notes)
 })
 
 // reset button event
@@ -47,30 +47,25 @@ $(".reset").click(function (){
 
 ## Unit Testing & Coverage
 
-Using [Facebook's Jest](https://facebook.github.io/jest/) for unit testing. GitHub Actions runs the tests and Browserify build for pushes and pull requests targeting `master` or `development`. Coverage thresholds are enforced at 100% statements, 95% branches, 100% functions, and 100% lines. Pull requests in this repository receive a coverage summary comment, and the full report is uploaded as a workflow artifact.
+Using [Jest](https://jestjs.io/) for unit testing. GitHub Actions runs on pushes to, and pull requests targeting, `master` or `development`. The workflow uses Node.js 24, runs the tests with coverage, uploads the full coverage report as an artifact, and builds the Browserify bundle. Same-repository pull requests also receive a coverage summary comment.
 
 
 ```bash
-# download node modules locally
-npm install
+# clean install the locked dependency versions
+npm ci
 
-# run js tests
+# run tests with coverage
 npm test
+
+# rebuild the browser bundle.js
+npm run build
 ```
 
-### Test Configuration in `package.json`
-```json
-{
-	"build": "browserify src/js/index.js > src/js/bundle.js",
-	"test": "jest --coverage --coverageReporters=text --coverageReporters=lcov --coverageReporters=json-summary",
-	"jest-watch": "jest --watchAll --coverage",
-	"jest": "jest --coverage --coverageReporters=text --coverageReporters=lcov --coverageReporters=json-summary"
-}
-```
+Coverage thresholds are 100% for statements, functions, and lines, with 95% branch coverage. Use `npm run jest-watch` for an interactive test watcher.
 
 ## Deployments
 
-The production site is available at [mnl.space/Chord-Finder](https://www.mnl.space/Chord-Finder/).
+The production site is available at [mnl.space/Chord-Finder](https://www.mnl.space/Chord-Finder/). The production workflow rebuilds the bundle and publishes the `master` branch contents to GitHub Pages.
 
 Pull requests targeting `development` or `master` receive a preview deployment at:
 
@@ -78,28 +73,71 @@ Pull requests targeting `development` or `master` receive a preview deployment a
 https://www.mnl.space/Chord-Finder/pr-preview/pr-<number>/
 ```
 
-The preview link is added to the pull request and the preview is removed when the pull request closes. For example, pull request 84 is available at [mnl.space/Chord-Finder/pr-preview/pr-84](https://www.mnl.space/Chord-Finder/pr-preview/pr-84/). Preview deployments are available for pull requests from this repository; forked pull requests are not deployed.
+The preview workflow runs when a pull request is opened, reopened, updated, or closed. The preview link is added to the pull request using the URL pattern above, and the preview is removed when the pull request closes. Preview deployments are available for pull requests from this repository; forked pull requests are not deployed.
 
 ## Development Setup
-Using a server avoids CORS errors when testing sound locally. Also using browserify to bundle js files into one  file. Using VSCode + live server.
+Use a local server to avoid CORS errors when testing sound. The project uses Browserify to bundle the JavaScript files into `src/js/bundle.js`; VS Code Live Server is one option for serving the project locally.
+
+Use Node.js 24 and npm to match the CI environment. The repository's lockfile keeps dependency versions consistent, so install dependencies with `npm ci` rather than relying on a globally installed tool or an unpinned `npx` package.
 ```bash
 # download the repo locally from github and cd into the folder
 gh repo clone ManuelVargas1251/Chord-Finder
 cd Chord-Finder
 
-# install dev node modules (includes browserify)
-npm install
+# install the locked dependencies, including Browserify
+npm ci
 
-# build new bundle to view your changes
-node_modules/.bin/browserify src/js/index.js > src/js/bundle.js
-
-# if you install browserify globally you can use this command instead
+# rebuild the bundle after changing JavaScript files
 npm run build
 ```
 
-## Design Development 
+## Application Architecture
 
-![image](https://user-images.githubusercontent.com/10030407/142744157-6143014a-22c9-4e17-9dd2-eaeddc61aa4d.png)
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '12px', 'primaryTextColor': '#172033', 'lineColor': '#64748b'}, 'flowchart': {'nodeSpacing': 24, 'rankSpacing': 30, 'padding': 8}}}%%
+flowchart TB
+	user((User)) --> events["index.js<br/>Keyboard and click handlers"]
+	events --> process["processDOMChord.js<br/>Validate, toggle, and sort notes"]
+
+	subgraph inputWork["Input processing"]
+		direction TB
+		process -->|valid note| sound["sound.js<br/>Preload and play note"]
+		process --> noteNames["getNoteChord.js<br/>Convert note IDs to names"]
+	end
+
+	process --> update["updateChord.js<br/>Build chord result"]
+	process -->|reset| update
+
+	subgraph analysis["Chord analysis"]
+		direction TB
+		update --> intervals["getUserIntervals.js<br/>Calculate adjacent intervals"]
+		intervals --> interval["getInterval.js<br/>Measure distance between notes"]
+		intervals --> noteId["getNoteId.js<br/>Resolve note names to IDs"]
+		intervals --> chord["getChord.js<br/>Match intervals to a chord"]
+	end
+
+	noteNames --> update
+	chord --> display[".chord element<br/>Display chord name"]
+	update --> display
+
+	classDef inputStyle fill:#fff7ed,stroke:#ea580c,color:#172033
+	classDef analysisStyle fill:#e8f1ff,stroke:#2563eb,color:#172033
+	classDef outputStyle fill:#ecfdf5,stroke:#16a34a,color:#172033
+	class user,events,process,sound,noteNames inputStyle
+	class update,intervals,interval,noteId,chord analysisStyle
+	class display outputStyle
+	style inputWork fill:#fffbeb,stroke:#d97706,color:#172033
+	style analysis fill:#eff6ff,stroke:#2563eb,color:#172033
+```
+
+The [canonical Mermaid source](docs/app-architecture.mmd) is also available separately. The static image is available as a fallback for clients that do not render Mermaid diagrams.
+
+<details>
+<summary>View static chart fallback</summary>
+
+![Chord Finder application architecture](docs/app-architecture.png)
+
+</details>
 
 
 ## Environments
