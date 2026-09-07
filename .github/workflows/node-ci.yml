@@ -99,8 +99,8 @@ jobs:
                 build["npm run build"]
               end
               test --> coverage
-              test --> comment
-              test --> build
+              coverage --> comment
+              comment --> build
 
               classDef setupStyle fill:#e8f1ff,stroke:#2563eb,color:#172033
               classDef testStyle fill:#fff7ed,stroke:#ea580c,color:#172033
