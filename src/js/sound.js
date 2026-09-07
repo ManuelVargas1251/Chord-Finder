@@ -1,39 +1,21 @@
-// const Howl = require('Howl')
-// let Howl = require('./external/Howler.min').Howl
-
-let preloaded = true
+// let preloaded = true
 
 function preload() {
     let notes = []
-    //new Howl();
-    //preloading notes files
-    for (i = 0; i < 12; i++) {
-        notes[i] = new Howl({
-            src: [
-                'src/sound/mp3/' + i + '.mp3',
-                'src/sound/wav/' + i + '.wav'
-            ],
-            loop: false,
-            preload: true
-        });
-        //console.log('notes:' + notes[0])
-    }
+    _notes.forEach((element, index) => {
+        notes[index] = new Audio('src/sound/mp3/' + index + '.mp3')
+        notes[index].preload = true
+    })
     return notes
 }
 
-
 //plays note when pressed/clicked
-function playNote(NoteId, notes) {
-    if (preloaded != undefined) {
-        try {
-            notes[NoteId].play()
-        }
-        catch (error) {
-            console.error(error);
-        }
+function playNote(noteId, notes) {
+    try {
+        notes[noteId].play()
     }
-    else {
-        console.log('not preloaded')
+    catch (error) {
+        console.error(error)
     }
     return notes
 }

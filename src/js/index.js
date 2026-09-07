@@ -1,13 +1,17 @@
 // DOM Events Handlers
 'use strict'
 //console.clear()
+const log = console.log
+const info = console.info
+const warn = console.warn
+const error = console.error
 
 const processDOMChord = require('./processDOMChord.js')
 const sound = require('./sound.js')
 
 // storing chord ids
 let userChordIds = [],
-	notes = sound.preload()	// preloading sound
+	notes = sound.preload()	// preload sound
 
 // mouse click on piano key event
 $(".key").click(function () {
@@ -19,7 +23,7 @@ $(".key").click(function () {
 
 // keyboard keypress event
 $("html").keypress(function (element) {
-	let noteCode = keyMapping[element.which]
+	let noteCode = _computerKeyboardMap.get(element.which)
 	$("#" + noteCode).toggleClass("pressed")
 	processDOMChord(noteCode, userChordIds, notes)
 })

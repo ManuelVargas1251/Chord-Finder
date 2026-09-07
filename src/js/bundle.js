@@ -2,11 +2,11 @@
 // searches the interval library to match the user's chord's intervals
 // better searching method using .find()
 function getChord(userChord, userIntervals) {
-	
+
 	// finding root note
 	let root_note = '',
 		root = 0,
-		inversions = 0;
+		inversions = 0
 
 	// checks all user intervals if they are a major or minor third
 	// if not, if the interval is greater than 5, the chord is an inversion
@@ -19,7 +19,7 @@ function getChord(userChord, userIntervals) {
 		else if (interval > 5) {
 			inversions++
 		}
-	});
+	})
 
 	// if the root counter is equal to the num of intervals
 	// then the chord is in root position so return the first key
@@ -50,38 +50,30 @@ function getChord(userChord, userIntervals) {
 	}
 
 	// finding the correct array by only sending the interval to be found in the object where the length matches means that searching will take a lot less time because it only has to search through a smaller section of the object library; this will be important for when the object libraries become larger.
-
 	// console.log('userIntervals: ' + userIntervals)
-	// console.log('num of intervals: ' + userIntervals.length)
-	if (userChord.length != 0) {
-		try {
-			// searches interval library depending on how many intervals the chord has
-			switch (userIntervals.length) {
-				case 0:
-					output = root_note;
-					break;
-				case 1:
-					output = _intervals.one.find(findIntervals).name;
-					break;
-				case 2:
-					output = root_note + ' ' + _intervals.two.find(findIntervals).name;
-					break;
-				case 3:
-					output = root_note + ' ' + _intervals.three.find(findIntervals).name;
-					break;
-				case 4:
-					output = root_note + ' ' + _intervals.four.find(findIntervals).name;
-					// break;
-				default:
-					console.warn('--warning: chord not defined yet--')
-					break;
-			}
+	console.log('num of intervals: ' + userIntervals.length)
 
+	//print _intervals
+	// console.log('__intervals: ' + JSON.stringify(__intervals))
+	// console.log('__intervals.get: ' + __intervals.get(userIntervals.length).find(findIntervals).name)
+
+	// console.log(':: ::' + _intervals.get([5,4,5].length).find(library => library.interval == [5,4,5].toString()).name)
+	// console.log(':: :: ::' + _intervals.get(userIntervals.length).find(library.interval == userIntervals.toString()).name)
+
+	if (userChord.length != 0) {
+		
+		try {
+			if (userIntervals.length == 0) {
+				output = root_note
+				console.log('root note: ' + output)
+			} else if (userIntervals.length > 0) {
+				console.log('try: ' + userIntervals.length)
+				output = root_note + ' ' + __intervals.get(userIntervals.length).find(findIntervals).name
+			}
 		} catch (e) {
 			output = ''
 			console.warn("no chord defined")
 		}
-
 	}
 	else {
 		// if there are no notes in the chord, return an empty string
@@ -93,7 +85,6 @@ function getChord(userChord, userIntervals) {
 exports.getChord = getChord
 
 },{}],2:[function(require,module,exports){
-
 function getInterval(note_one, note_two) {
 	return Math.abs(note_one - note_two) + 1
 }
@@ -112,12 +103,11 @@ function getNoteChord(idChord) {
 
 exports.getNoteChord = getNoteChord
 
-
 },{}],4:[function(require,module,exports){
 function getNoteId(value) {
     return Object
         .keys(_notes)
-        .find(key => _notes[key] === value);
+        .find(key => _notes[key] === value)
 }
 module.exports = getNoteId
 
@@ -152,13 +142,17 @@ module.exports = getUserIntervals
 // DOM Events Handlers
 'use strict'
 //console.clear()
+const log = console.log
+const info = console.info
+const warn = console.warn
+const error = console.error
 
 const processDOMChord = require('./processDOMChord.js')
 const sound = require('./sound.js')
 
 // storing chord ids
 let userChordIds = [],
-	notes = sound.preload()	// preloading sound
+	notes = sound.preload()	// preload sound
 
 // mouse click on piano key event
 $(".key").click(function () {
@@ -170,7 +164,7 @@ $(".key").click(function () {
 
 // keyboard keypress event
 $("html").keypress(function (element) {
-	let noteCode = keyMapping[element.which]
+	let noteCode = _computerKeyboardMap.get(element.which)
 	$("#" + noteCode).toggleClass("pressed")
 	processDOMChord(noteCode, userChordIds, notes)
 })
@@ -189,17 +183,17 @@ const getNoteId = require('./getNoteId.js').getNoteId
 const updateChord = require('./updateChord.js').updateChord
 
 function processDOMChord(newNoteId, userChordIds, notes) {
-    if (newNoteId && userChordIds) {
 
+    if ((newNoteId >= 0 && newNoteId < _notes.length) && userChordIds) {
         // define bool for testing duplicate note entries
         // when key is clicked, save note in newNote
         let isDuplicate = false
 
         // if newNote is in the array, remove note
-        userChordIds.forEach((element, i) => {
+        userChordIds.forEach((element, index) => {
             if (newNoteId === element) {
                 isDuplicate = true
-                userChordIds.splice(i, 1)
+                userChordIds.splice(index, 1)
             }
         })
 
@@ -210,16 +204,15 @@ function processDOMChord(newNoteId, userChordIds, notes) {
 
             //push the note into the array
             userChordIds.push(newNoteId)
-            console.log('new note: ' + userChordIds)
 
             // sort and update array
             // explicit sort bc default implementation does not sort double digits correctly
-            userChordIds.sort((a, b) => {return a - b})
+            userChordIds.sort((a, b) => { return a - b })
         }
-        
+
         //convert note ids to note names
         userChord = getNoteChord(userChordIds)
-        console.log('userChord: ' + userChord)
+        // console.log('userChord: ' + userChord)
 
         // run the chord update
         $('.chord').text(updateChord(userChord, getNoteId))
@@ -232,42 +225,24 @@ function processDOMChord(newNoteId, userChordIds, notes) {
 
 module.exports = processDOMChord
 },{"./getNoteChord.js":3,"./getNoteId.js":4,"./sound.js":8,"./updateChord.js":9}],8:[function(require,module,exports){
-// const Howl = require('Howl')
-// let Howl = require('./external/Howler.min').Howl
-
-let preloaded = true
+// let preloaded = true
 
 function preload() {
     let notes = []
-    //new Howl();
-    //preloading notes files
-    for (i = 0; i < 12; i++) {
-        notes[i] = new Howl({
-            src: [
-                'src/sound/mp3/' + i + '.mp3',
-                'src/sound/wav/' + i + '.wav'
-            ],
-            loop: false,
-            preload: true
-        });
-        //console.log('notes:' + notes[0])
-    }
+    _notes.forEach((element, index) => {
+        notes[index] = new Audio('src/sound/mp3/' + index + '.mp3')
+        notes[index].preload = true
+    })
     return notes
 }
 
-
 //plays note when pressed/clicked
-function playNote(NoteId, notes) {
-    if (preloaded != undefined) {
-        try {
-            notes[NoteId].play()
-        }
-        catch (error) {
-            console.error(error);
-        }
+function playNote(noteId, notes) {
+    try {
+        notes[noteId].play()
     }
-    else {
-        console.log('not preloaded')
+    catch (error) {
+        console.error(error)
     }
     return notes
 }
@@ -282,8 +257,8 @@ const getChord = require('./getChord.js').getChord
 // main function in the program
 function updateChord(newChord) {
 	// stores array with all intervals of notes
-	// console.log(intervals)
 	let userIntervals = getUserIntervals(newChord)
+	console.info('userIntervals: ' + userIntervals)
 
 	// find chord using the chord letters and interval values
 	return getChord(newChord, userIntervals)
