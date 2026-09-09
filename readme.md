@@ -94,40 +94,110 @@ npm run build
 ## Application Architecture
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '12px', 'primaryTextColor': '#172033', 'lineColor': '#64748b'}, 'flowchart': {'nodeSpacing': 24, 'rankSpacing': 30, 'padding': 8}}}%%
+%%{init: {"theme": "base", "themeVariables": {"fontSize": "12px", "primaryTextColor": "#172033", "lineColor": "#64748b"}, "flowchart": {"nodeSpacing": 12, "rankSpacing": 18, "padding": 8}}}%%
 flowchart TB
-	user((User)) --> events["index.js<br/>Keyboard and click handlers"]
-	events --> process["processDOMChord.js<br/>Validate, toggle, and sort notes"]
 
-	subgraph inputWork["Input processing"]
-		direction TB
-		process -->|valid note| sound["sound.js<br/>Preload and play note"]
-		process --> noteNames["getNoteChord.js<br/>Convert note IDs to names"]
+	subgraph initialization[" "]
+		direction LR
+		initTitle(["Initialization"])
+		globals[("globals.js<br/>Shared data:<br/>_notes, keyboard map,<br/>__intervals")]
+		initComplete(["Ready to load"])
+
+		initTitle -->|define shared data| globals --> initComplete
 	end
 
-	process --> update["updateChord.js<br/>Build chord result"]
-	process -->|reset| update
+	subgraph pageLoad[" "]
+		direction LR
+		pageTitle(["Page load"])
+		bundle["index.html<br/>Load JavaScript bundle"]
+		init["index.js<br/>Initialize userChordIds = []"]
+		preload["sound.js: preload()<br/>Create audio objects"]
+		audio[("Preloaded notes")]
+		register["index.js<br/>Register UI handlers"]
 
-	subgraph analysis["Chord analysis"]
-		direction TB
-		update --> intervals["getUserIntervals.js<br/>Calculate adjacent intervals"]
-		intervals --> interval["getInterval.js<br/>Measure distance between notes"]
-		intervals --> noteId["getNoteId.js<br/>Resolve note names to IDs"]
-		intervals --> chord["getChord.js<br/>Match intervals to a chord"]
+		pageTitle --> bundle --> init
+		init -->|preload once| preload --> audio
+		init --> register
 	end
 
-	noteNames --> update
-	chord --> display[".chord element<br/>Display chord name"]
-	update --> display
+	initComplete -->|load scripts| pageTitle
+	globals -.->|read shared data| init
 
-	classDef inputStyle fill:#fff7ed,stroke:#ea580c,color:#172033
-	classDef analysisStyle fill:#e8f1ff,stroke:#2563eb,color:#172033
-	classDef outputStyle fill:#ecfdf5,stroke:#16a34a,color:#172033
-	class user,events,process,sound,noteNames inputStyle
-	class update,intervals,interval,noteId,chord analysisStyle
-	class display outputStyle
-	style inputWork fill:#fffbeb,stroke:#d97706,color:#172033
-	style analysis fill:#eff6ff,stroke:#2563eb,color:#172033
+	subgraph keyboardInput[" "]
+		direction LR
+		keyboardTitle(["Keyboard input<br/>Repeats"])
+		input(["Piano key click<br/>or keyboard key"])
+		handler["index.js<br/>Read note ID"]
+		process["processDOMChord.js<br/>Validate note ID"]
+		valid{"Valid note ID?"}
+		duplicate{"Duplicate note ID?"}
+		remove["processDOMChord.js<br/>Remove duplicate note ID"]
+		play["sound.js: playNote()<br/>Play selected note"]
+		mutate["processDOMChord.js<br/>Add note ID and sort"]
+		state[("userChordIds<br/>Selected note IDs")]
+		names["getNoteChord.js<br/>Convert note IDs"]
+		update["updateChord.js<br/>Run chord analysis"]
+		intervals["getUserIntervals.js<br/>Calculate intervals"]
+		noteId["getNoteId.js<br/>Resolve note names to IDs"]
+		distance["getInterval.js<br/>Measure note distance"]
+		intervalList[("userIntervals")]
+		chord["getChord.js<br/>Match chord using __intervals"]
+		result["processDOMChord.js<br/>Receive chord name"]
+		display[/"Write result to<br/>.chord element"/]
+		invalid["updateChord.js<br/>updateChord([])"]
+		clear[/"Clear .chord text"/]
+		ready(["Ready for next input"])
+
+		keyboardTitle --> input --> handler --> process --> valid
+		valid -->|no| invalid --> clear --> ready
+		valid -->|yes| duplicate
+		duplicate -->|yes: remove| remove --> state
+		duplicate -->|no: selected note| play --> mutate --> state
+		state --> names --> update
+		update --> intervals --> noteId --> distance --> intervalList
+		intervalList -->|return intervals then call getChord| chord --> result --> display
+		display -->|next input| ready --> input
+	end
+
+	register -->|handle event| input
+	globals -.->|shared data| keyboardTitle
+	audio -.->|audio cache| play
+
+	subgraph reset[" "]
+		direction LR
+		resetTitle(["Reset"])
+		resetButton(["Reset button"])
+		resetHandler["index.js<br/>Clear pressed-key UI"]
+		clearState["index.js<br/>Set userChordIds = []"]
+		resetProcess["processDOMChord.js<br/>processDOMChord(undefined)"]
+		resetUpdate["updateChord.js<br/>updateChord([])"]
+		resetDisplay[/"Clear .chord text"/]
+		resetReady(["Ready for next input"])
+
+		resetTitle --> resetButton --> resetHandler --> clearState
+		clearState -.->|write shared state| state
+		clearState --> resetProcess --> resetUpdate --> resetDisplay --> resetReady
+		resetReady -->|return to loop| input
+	end
+
+	classDef title fill:#172033,stroke:#172033,color:#ffffff
+	classDef event fill:#fff7ed,stroke:#ea580c,color:#172033
+	classDef function fill:#e8f1ff,stroke:#2563eb,color:#172033
+	classDef decision fill:#fef3c7,stroke:#d97706,color:#172033
+	classDef state fill:#f1f5f9,stroke:#64748b,color:#172033
+	classDef output fill:#ecfdf5,stroke:#16a34a,color:#172033
+
+	class initTitle,pageTitle,keyboardTitle,resetTitle title
+	class initComplete,input,ready,resetButton event
+	class bundle,init,preload,register,handler,process,remove,play,mutate,names,update,intervals,noteId,distance,chord,result,invalid,resetHandler,clearState,resetProcess,resetUpdate function
+	class valid,duplicate decision
+	class globals,audio,state,intervalList state
+	class display,clear,resetDisplay output
+
+	style initialization fill:#f8fafc,stroke:#64748b,color:#172033
+	style pageLoad fill:#f5f3ff,stroke:#7c3aed,color:#172033
+	style keyboardInput fill:#fffaf0,stroke:#d97706,color:#172033
+	style reset fill:#f0fdf4,stroke:#16a34a,color:#172033
 ```
 
 The [canonical Mermaid source](docs/app-architecture.mmd) is also available separately. The static image is available as a fallback for clients that do not render Mermaid diagrams.
