@@ -47,7 +47,7 @@ describe('preload', () => {
     expect(global.Audio).toHaveBeenCalledTimes(_notes.length)  // Ensure an audio object was created for each note
     expect(notes).toHaveLength(_notes.length)  // Ensure the returned notes array has the correct length
     expect(audioInstances).toEqual(
-      _notes.map((note, index) => ({
+      _notes.map((_, index) => ({
         source: `src/sound/mp3/${index}.mp3`,
         preload: 'auto'
       }))
