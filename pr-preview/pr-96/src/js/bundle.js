@@ -225,31 +225,27 @@ function processDOMChord(newNoteId, userChordIds, notes) {
 
 module.exports = processDOMChord
 },{"./getNoteChord.js":3,"./getNoteId.js":4,"./sound.js":8,"./updateChord.js":9}],8:[function(require,module,exports){
-// let preloaded = true
-
+// Preloads audio notes and provides functionality to play them
 function preload() {
-    let notes = []
-    _notes.forEach((element, index) => {
-        notes[index] = new Audio('src/sound/mp3/' + index + '.mp3')
-        notes[index].preload = true
+    return _notes.map((_, index) => {
+        const note = new Audio('src/sound/mp3/' + index + '.mp3')
+        note.preload = 'auto'  // Native HTML5 audio preload attribute
+        return note
     })
-    return notes
 }
 
-//plays note when pressed/clicked
+// Plays a specific note from the preloaded notes array
 function playNote(noteId, notes) {
     try {
-        notes[noteId].play()
-    }
-    catch (error) {
-        console.error(error)
+        notes[noteId].play()    // Attempt to play the specified note
+    } catch (error) {
+        console.error(error)    // Log the error if playback fails
     }
     return notes
 }
 
-exports.playNote = playNote
 exports.preload = preload
-
+exports.playNote = playNote
 },{}],9:[function(require,module,exports){
 const getUserIntervals = require('./getUserIntervals.js')
 const getChord = require('./getChord.js').getChord
