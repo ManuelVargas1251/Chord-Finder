@@ -44,12 +44,12 @@ describe('preload', () => {
   test('creates and configures an audio object for each note', () => {
     const notes = sound.preload() 
 
-    expect(global.Audio).toHaveBeenCalledTimes(notes.length)  // Ensure an audio object was created for each note
-    expect(notes).toHaveLength(notes.length)  // Ensure the returned notes array has the correct length
+    expect(global.Audio).toHaveBeenCalledTimes(_notes.length)  // Ensure an audio object was created for each note
+    expect(notes).toHaveLength(_notes.length)  // Ensure the returned notes array has the correct length
     expect(audioInstances).toEqual(
       _notes.map((note, index) => ({
         source: `src/sound/mp3/${index}.mp3`,
-        preload: true
+        preload: 'auto'
       }))
     )
   })
