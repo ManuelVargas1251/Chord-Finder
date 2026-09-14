@@ -37,10 +37,7 @@ function getChord(userChord, userIntervals) {
 
 	// displays how many items it had to search through
 	// prints object and a count of the times it's been called
-	let findIntervals = function (library) {
-		//console.log("this: " + this)	
-		return library.interval == userIntervals.toString()
-	}
+	const findIntervals = library => library.interval.toString() === userIntervals.toString()
 
 	// finding the correct array by only sending the interval to be found in the object where the length matches means that searching will take a lot less time because it only has to search through a smaller section of the object library; this will be important for when the object libraries become larger.
 	// console.log('userIntervals: ' + userIntervals)
