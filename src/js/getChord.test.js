@@ -1,6 +1,6 @@
 const getChord = require('./getChord').getChord
 
-test('return interval between notes', () => {
+test('returns chord names for supported note and interval combinations', () => {
     expect(getChord(['C', 'E', 'G'], [5, 4]))
         .toEqual('C Major')
 
@@ -15,4 +15,19 @@ test('return interval between notes', () => {
 
     expect(getChord(['C', 'E', 'G', 'B'], [5, 4, 5]))
         .toEqual('C Major 7')
+})
+
+test('returns an empty string when no notes are selected', () => {
+    expect(getChord([], [])).toEqual('')
+})
+
+test('returns an empty string when the interval combination is unsupported', () => {
+    const consoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => {})
+
+    try {
+        expect(getChord(['C', 'C#', 'D'], [2, 2])).toEqual('')
+        expect(consoleWarn).toHaveBeenCalledWith('no chord defined')
+    } finally {
+        consoleWarn.mockRestore()
+    }
 })
