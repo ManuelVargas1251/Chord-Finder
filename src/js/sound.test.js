@@ -1,5 +1,6 @@
 const sound = require('./sound.js') // Import the sound module for testing
 
+// playNote test suite
 describe('playNote', () => {
   test('plays the selected note and returns the notes array', () => {
     const play = jest.fn()  // Mock function to simulate note playback
@@ -17,13 +18,33 @@ describe('playNote', () => {
     // Spy on console.error to suppress error output during the test and verify it was called
     const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {})
 
-    expect(sound.playNote(0, notes)).toBe(notes)
-    expect(consoleError).toHaveBeenCalledWith(expect.any(Error))
+    try { // Attempt to play the note and catch any errors
+      expect(sound.playNote(0, notes)).toBe(notes)
+      expect(consoleError).toHaveBeenCalledWith(expect.any(Error))
+    } finally {
+      consoleError.mockRestore()
+    }
+  })
 
-    consoleError.mockRestore()  // Restore the original console.error implementation after the test
+  test('logs an error when playback is rejected', async () => {
+    const error = new Error('playback rejected')
+    // Mock function that returns a rejected promise to simulate playback rejection
+    const play = jest.fn(() => Promise.reject(error))
+    const notes = [{ play }]
+    // Spy on console.error to suppress error output during the test and verify it was called
+    const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {})
+
+    try {
+      expect(sound.playNote(0, notes)).toBe(notes)  // Ensure the function returns the notes array even when playback is rejected
+      await Promise.resolve() // Wait for the promise rejection to be handled
+      expect(consoleError).toHaveBeenCalledWith(error)
+    } finally {
+      consoleError.mockRestore()
+    }
   })
 })
 
+// preload test suite
 describe('preload', () => {
   const originalAudio = global.Audio  // Store the original global Audio constructor to restore it after tests
   let audioInstances  // Array to store instances of mocked audio objects
@@ -36,7 +57,7 @@ describe('preload', () => {
       return audio
     })
   })
-
+  // Restore the original global Audio constructor after each test
   afterEach(() => {
     global.Audio = originalAudio
   })
