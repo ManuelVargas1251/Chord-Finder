@@ -22,6 +22,10 @@ describe('getChord', () => {
         expect(getChord([], [])).toEqual('')
     })
 
+    test('returns the selected note when no intervals are present', () => {
+        expect(getChord(['C'], [])).toEqual('C')
+    })
+
     test('returns an empty string when the interval combination is unsupported', () => {
         const consoleWarn = jest.spyOn(console, 'warn').mockImplementation(() => {})
 
