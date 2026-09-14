@@ -237,13 +237,15 @@ function preload() {
 // Plays a specific note from the preloaded notes array
 function playNote(noteId, notes) {
     try {
-        notes[noteId].play()    // Attempt to play the specified note
+        const playback = notes[noteId].play()
+        if (playback && typeof playback.catch === 'function') {
+            playback.catch(error => console.error(error))
+        }
     } catch (error) {
         console.error(error)    // Log the error if playback fails
     }
     return notes
 }
-
 exports.preload = preload
 exports.playNote = playNote
 },{}],9:[function(require,module,exports){
