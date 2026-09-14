@@ -5,7 +5,8 @@ function getChord(userChord, userIntervals) {
 	// finding root note
 	let root_note = '',
 		root = 0,
-		inversions = 0
+		inversions = 0,
+		output = ''
 
 	// checks all user intervals if they are a major or minor third
 	// if not, if the interval is greater than 5, the chord is an inversion
