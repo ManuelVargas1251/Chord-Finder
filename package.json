@@ -6,9 +6,9 @@
   "scripts": {
     "build": "browserify src/js/index.js > src/js/bundle.js",
     "version": "node scripts/sync-version.js",
-    "test": "jest --coverage --coverageReporters=text --coverageReporters=lcov --coverageReporters=json-summary",
+    "test": "jest --coverage --coverageReporters=text --coverageReporters=lcov --coverageReporters=json-summary --json --outputFile=coverage/test-results.json",
     "jest-watch": "jest --watchAll --coverage",
-    "jest": "jest --coverage --coverageReporters=text --coverageReporters=lcov --coverageReporters=json-summary"
+    "jest": "jest --coverage --coverageReporters=text --coverageReporters=lcov --coverageReporters=json-summary --json --outputFile=coverage/test-results.json"
   },
   "repository": {
     "type": "git",
