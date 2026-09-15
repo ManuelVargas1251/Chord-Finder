@@ -59,8 +59,8 @@ function getChord(userChord, userIntervals) {
 exports.getChord = getChord
 
 },{}],2:[function(require,module,exports){
-function getInterval(note_one, note_two) {
-	return Math.abs(note_one - note_two) + 1
+function getInterval(firstNote, secondNote) {
+	return Math.abs(firstNote - secondNote) + 1
 }
 exports.getInterval = getInterval
 
