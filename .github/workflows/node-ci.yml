@@ -41,7 +41,7 @@ jobs:
         id: coverage-artifact
         uses: actions/upload-artifact@v6
         with:
-          name: chord-finder-coverage
+          name: chord-finder-coverage-run-${{ github.run_number }}
           path: coverage/
           if-no-files-found: error
 
