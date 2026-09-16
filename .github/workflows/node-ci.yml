@@ -110,8 +110,7 @@ jobs:
             ${coverageRows}
 
             [View the CI workflow chart (PNG) 🖼️](<${chartImageUrl}>)
-            [View the CI workflow chart (Desktop) 🖥️](<${chartSourceUrl}>)
-
+            [View the CI workflow chart (Desktop) 💻](<${chartSourceUrl}>)
             ${artifactLink}
 
 
