@@ -98,8 +98,8 @@ jobs:
             const chartSourceUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/blob/${commitSha}/docs/ci-workflows.md`
             const marker = '<!-- chord-finder-coverage -->'
             const body = `${marker}
-            ## Test & Coverage Results 🧪🧑‍🔬
-            [![Tested with Jest](https://img.shields.io/badge/tested%20with-Jest-99424f.svg)](https://jestjs.io/) ${badge} ⚗️🗽
+            ## Test & Coverage Results 🧪📊
+            ${badge} [![Tested with Jest](https://img.shields.io/badge/tested%20with-Jest-99424f.svg)](https://jestjs.io/)
 
             | Test Suites🪎 | Tests⚗️ | Snapshots🤳 | Duration⏱️ |
             | ---: | ---: | ---: | ---: |
@@ -109,9 +109,11 @@ jobs:
             | --- | ---: | ---: | ---: | ---: |
             ${coverageRows}
 
-            [View the CI workflow chart (PNG)](<${chartImageUrl}>) · [View the chart source (desktop)](<${chartSourceUrl}>)
+            [View the CI workflow chart (PNG) 🖼️](<${chartImageUrl}>)
+            [View the CI workflow chart (Desktop) 🖥️](<${chartSourceUrl}>)
 
             ${artifactLink}
+
 
             🕊️`
 
