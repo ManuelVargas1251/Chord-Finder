@@ -81,7 +81,7 @@ jobs:
             const coverageRows = [...Object.entries(summary)
               .filter(([filePath]) => filePath !== 'total')
               .sort(([firstPath], [secondPath]) => firstPath.localeCompare(secondPath))
-              .map(([filePath, coverage]) => coverageRow(`\`${path.relative(process.cwd(), filePath).replaceAll('\\', '/')}\``, coverage)),
+              .map(([filePath, coverage]) => coverageRow(`\`${path.relative(process.cwd(), filePath).replaceAll('\\', '/').replace(/^src\/js\//, '/') }\``, coverage)),
               coverageRow('**Total**', totals)
             ].join('\n')
             const testDurationMs = Number(process.env.TEST_DURATION_MS)
@@ -99,16 +99,17 @@ jobs:
             const chartSource = fs.readFileSync('docs/ci-workflows.mmd', 'utf8').trim()
             const marker = '<!-- chord-finder-coverage -->'
             const body = `${marker}
-            ## Test Results 🧪
+            ## Test & Coverage Results 🧪🧮⚗️🧑‍🔬
+            [![Tested with Jest](https://img.shields.io/badge/tested%20with-Jest-99424f.svg)](https://jestjs.io/)
+            ${badge}
 
-            | Test Suites 🪎 | Tests ⚗️ | Snapshots 📸 | Duration ⏱️ |
+            | Test Suites 🪎 | Tests ⚗️ | Snapshots 🤳 | Duration ⏱️ |
             | ---: | ---: | ---: | ---: |
             ${testResultsRow}
 
-            ## Coverage Report 🧮
-            ${badge}
+            **Coverage by file**
 
-            | File 📄 | Statements 🔬 | Branches 🪸 | Functions 📟 | Lines 🔭 |
+            | File 📜 | Statements 🫆 | Branches 🪸 | Functions 📟 | Lines 🥢 |
             | --- | ---: | ---: | ---: | ---: |
             ${coverageRows}
 
