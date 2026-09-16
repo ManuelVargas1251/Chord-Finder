@@ -100,14 +100,11 @@ jobs:
             const marker = '<!-- chord-finder-coverage -->'
             const body = `${marker}
             ## Test & Coverage Results 🧪🧮⚗️🧑‍🔬
-            [![Tested with Jest](https://img.shields.io/badge/tested%20with-Jest-99424f.svg)](https://jestjs.io/)
-            ${badge}
+            [![Tested with Jest](https://img.shields.io/badge/tested%20with-Jest-99424f.svg)](https://jestjs.io/) ${badge}
 
             | Test Suites 🪎 | Tests ⚗️ | Snapshots 🤳 | Duration ⏱️ |
             | ---: | ---: | ---: | ---: |
             ${testResultsRow}
-
-            **Coverage by file**
 
             | File 📜 | Statements 🫆 | Branches 🪸 | Functions 📟 | Lines 🥢 |
             | --- | ---: | ---: | ---: | ---: |
