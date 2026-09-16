@@ -34,7 +34,15 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm test
+        id: test-results
+        run: |
+          start_time=$(date +%s%3N)
+          set +e
+          npm test
+          exit_code=$?
+          end_time=$(date +%s%3N)
+          echo "duration-ms=$((end_time - start_time))" >> "$GITHUB_OUTPUT"
+          exit $exit_code
 
       - name: Upload coverage report
         if: always()
@@ -50,10 +58,13 @@ jobs:
         uses: actions/github-script@v8
         env:
           COVERAGE_ARTIFACT_URL: ${{ steps.coverage-artifact.outputs.artifact-url }}
+          TEST_DURATION_MS: ${{ steps.test-results.outputs.duration-ms }}
         with:
           script: |
             const fs = require('fs')
+            const path = require('path')
             const summary = JSON.parse(fs.readFileSync('coverage/coverage-summary.json', 'utf8'))
+            const testResults = JSON.parse(fs.readFileSync('coverage/test-results.json', 'utf8'))
             const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
             const totals = summary.total
             const thresholds = packageJson.jest.coverageThreshold.global
@@ -62,52 +73,48 @@ jobs:
             )
             const status = passed ? 'passing' : 'failing'
             const badgeColor = passed ? 'brightgreen' : 'red'
-            const badge = `![Coverage ${status}](https://img.shields.io/badge/coverage-${status}-${badgeColor})`
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+            const badge = `[![Coverage ${status}](https://img.shields.io/badge/coverage-${status}-${badgeColor})](<${runUrl}>)`
             const format = metric => `${metric.pct}%`
-            const metrics = [
-              ['Statements', 'statements'],
-              ['Branches', 'branches'],
-              ['Functions', 'functions'],
-              ['Lines', 'lines']
-            ]
-            const coverageRows = metrics.map(([label, metric]) => {
-              const result = totals[metric]
-              const metricStatus = result.pct >= thresholds[metric] ? 'Pass' : 'Fail'
-              return `| ${label} | ${format(result)} | ${result.covered} / ${result.total} | ${thresholds[metric]}% | ${metricStatus} |`
-            }).join('\n')
+            const formatCoverage = result => `${format(result)} (${result.covered}/${result.total})`
+            const coverageRow = (fileName, coverage) => `| ${fileName} | ${formatCoverage(coverage.statements)} | ${formatCoverage(coverage.branches)} | ${formatCoverage(coverage.functions)} | ${formatCoverage(coverage.lines)} |`
+            const coverageRows = [...Object.entries(summary)
+              .filter(([filePath]) => filePath !== 'total')
+              .sort(([firstPath], [secondPath]) => firstPath.localeCompare(secondPath))
+              .map(([filePath, coverage]) => coverageRow(`\`${path.relative(process.cwd(), filePath).replaceAll('\\', '/').replace(/^src\/js\//, '/') }\``, coverage)),
+              coverageRow('**Total**', totals)
+            ].join('\n')
+            const testDurationMs = Number(process.env.TEST_DURATION_MS)
+            const testDuration = Number.isFinite(testDurationMs)
+              ? `${(testDurationMs / 1000).toFixed(3)}s`
+              : 'Unavailable'
+            const testResultsRow = `| ${testResults.numPassedTestSuites} passed / ${testResults.numTotalTestSuites} total | ${testResults.numPassedTests} passed / ${testResults.numTotalTests} total | ${testResults.snapshot.total} total | ${testDuration} |`
             const artifactsUrl = process.env.COVERAGE_ARTIFACT_URL
             const artifactLink = artifactsUrl
-              ? `[Download the full coverage report](<${artifactsUrl}>)`
+              ? `[Download the full coverage report 📂](<${artifactsUrl}>)`
               : 'The full coverage report artifact is unavailable.'
             const commitSha = context.payload.pull_request.head.sha
             const chartImageUrl = `https://raw.githubusercontent.com/${context.repo.owner}/${context.repo.repo}/${commitSha}/docs/ci-workflows.png`
             const chartSourceUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/blob/${commitSha}/docs/ci-workflows.md`
-            const chartSource = fs.readFileSync('docs/ci-workflows.mmd', 'utf8').trim()
             const marker = '<!-- chord-finder-coverage -->'
             const body = `${marker}
-            ## Coverage Report 📊
-            ${badge}
+            ## Test & Coverage Results 🧪📊
+            ${badge} [![Tested with Jest](https://img.shields.io/badge/tested%20with-Jest-99424f.svg)](https://jestjs.io/)
 
-            | Metric 📏 | Coverage 📈 | Covered 🔢 | Threshold 🎯 | Status ✅ |
-            | --- | ---: | ---: | ---: | --- |
+            | Test Suites🪎 | Tests⚗️ | Snapshots🤳 | Duration⏱️ |
+            | ---: | ---: | ---: | ---: |
+            ${testResultsRow}
+
+            | File 📜 | Statements🫆 | Branches🪸 | Functions📟 | Lines🥢 |
+            | --- | ---: | ---: | ---: | ---: |
             ${coverageRows}
 
+            [View the CI workflow chart (PNG) 🖼️](<${chartImageUrl}>)
+            [View the CI workflow chart (Desktop) 💻](<${chartSourceUrl}>)
             ${artifactLink}
 
-            ![CI workflow overview](<${chartImageUrl}>)
 
-            [View the Mermaid chart source](<${chartSourceUrl}>)
-
-            <details>
-            <summary>View Mermaid source</summary>
-
-            \`\`\`mermaid
-            ${chartSource}
-            \`\`\`
-
-            </details>
-
-            Generated by Node.js CI.`
+            🕊️`
 
             const { owner, repo } = context.repo
             const issue_number = context.issue.number
