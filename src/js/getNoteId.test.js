@@ -13,6 +13,6 @@ describe('getNoteId', () => {
   })
 
   test('returns undefined when the note is not found', () => {
-    expect(getNoteId('H')).toBeUndefined()
+    expect(getNoteId('T')).toBeUndefined()
   })
 })
