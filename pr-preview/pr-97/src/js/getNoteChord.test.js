@@ -25,4 +25,8 @@ describe('getNoteChord', () => {
   test('maps the boundary note IDs', () => {
     expect(getNoteChord([0, 11])).toEqual(['C', 'B'])
   })
+
+  test('returns undefined for an unknown note ID', () => {
+    expect(getNoteChord([12])).toEqual([undefined])
+  })
 })
