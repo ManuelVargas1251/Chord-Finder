@@ -65,18 +65,12 @@ function getInterval(firstNote, secondNote) {
 exports.getInterval = getInterval
 
 },{}],3:[function(require,module,exports){
-// converts user inputted chord 
-// from array of ids to literal note name array
-// return array of literal note names
+// Convert user-input chord IDs to literal note names.
 function getNoteChord(idChord) {
-    return idChord
-        .map((element) => {
-            return _notes[element]
-        })
+    return idChord.map(noteId => _notes[noteId])
 }
 
 exports.getNoteChord = getNoteChord
-
 },{}],4:[function(require,module,exports){
 function getNoteId(value) {
     return Object
