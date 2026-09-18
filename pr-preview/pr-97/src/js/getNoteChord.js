@@ -3,4 +3,4 @@ function getNoteChord(idChord) {
     return idChord.map(noteId => _notes[noteId])
 }
 
-exports.getNoteChord = getNoteChord
+module.exports = getNoteChord

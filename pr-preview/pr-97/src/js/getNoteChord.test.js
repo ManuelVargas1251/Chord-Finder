@@ -1,4 +1,4 @@
-const getNoteChord = require('./getNoteChord').getNoteChord
+const getNoteChord = require('./getNoteChord')
 
 describe('getNoteChord', () => {
   test('maps note IDs to note names in order', () => {

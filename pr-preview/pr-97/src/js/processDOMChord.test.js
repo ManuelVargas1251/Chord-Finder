@@ -2,16 +2,12 @@
 jest.mock('./sound.js', () => ({
   playNote: jest.fn()
 }))
-jest.mock('./getNoteChord.js', () => ({
-  getNoteChord: jest.fn()
-}))
-jest.mock('./updateChord.js', () => ({
-  updateChord: jest.fn()
-}))
+jest.mock('./getNoteChord.js', () => jest.fn())
+jest.mock('./updateChord.js', () => jest.fn())
 
 const sound = require('./sound.js')
-const getNoteChord = require('./getNoteChord.js').getNoteChord
-const updateChord = require('./updateChord.js').updateChord
+const getNoteChord = require('./getNoteChord.js')
+const updateChord = require('./updateChord.js')
 const processDOMChord = require('./processDOMChord')
 
 describe('processDOMChord', () => {

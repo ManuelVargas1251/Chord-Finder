@@ -1,5 +1,5 @@
 require('es6-shim')
-const updateChord = require('./updateChord').updateChord
+const updateChord = require('./updateChord')
 
 test('return chord name from chord notes', () => {
   expect(updateChord(['C', 'E', 'G', 'B']))

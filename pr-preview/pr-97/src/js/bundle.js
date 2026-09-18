@@ -56,13 +56,13 @@ function getChord(userChord, userIntervals) {
 	// Return the chord name prefixed by the root note.
 	return rootNote + ' ' + chord.name
 }
-exports.getChord = getChord
+	module.exports = getChord
 
 },{}],2:[function(require,module,exports){
 function getInterval(firstNote, secondNote) {
 	return Math.abs(firstNote - secondNote) + 1
 }
-exports.getInterval = getInterval
+module.exports = getInterval
 
 },{}],3:[function(require,module,exports){
 // Convert user-input chord IDs to literal note names.
@@ -70,7 +70,7 @@ function getNoteChord(idChord) {
     return idChord.map(noteId => _notes[noteId])
 }
 
-exports.getNoteChord = getNoteChord
+module.exports = getNoteChord
 },{}],4:[function(require,module,exports){
 function getNoteId(value) {
     return Object
@@ -80,7 +80,7 @@ function getNoteId(value) {
 module.exports = getNoteId
 
 },{}],5:[function(require,module,exports){
-const getInterval = require('./getInterval').getInterval
+const getInterval = require('./getInterval')
 const getNoteId = require('./getNoteId')
 
 //return array of intervals found in chord
@@ -146,8 +146,8 @@ $(".reset").click(function () {
 
 },{"./processDOMChord.js":7,"./sound.js":8}],7:[function(require,module,exports){
 const sound = require('./sound.js')
-const getNoteChord = require('./getNoteChord.js').getNoteChord
-const updateChord = require('./updateChord.js').updateChord
+const getNoteChord = require('./getNoteChord.js')
+const updateChord = require('./updateChord.js')
 
 function processDOMChord(newNoteId, userChordIds, notes) {
 
@@ -213,11 +213,10 @@ function playNote(noteId, notes) {
     }
     return notes
 }
-exports.preload = preload
-exports.playNote = playNote
+module.exports = { preload, playNote }
 },{}],9:[function(require,module,exports){
 const getUserIntervals = require('./getUserIntervals.js')
-const getChord = require('./getChord.js').getChord
+const getChord = require('./getChord.js')
 
 // main function in the program
 function updateChord(newChord) {
@@ -229,6 +228,6 @@ function updateChord(newChord) {
 	return getChord(newChord, userIntervals)
 }
 
-exports.updateChord = updateChord
+module.exports = updateChord
 
 },{"./getChord.js":1,"./getUserIntervals.js":5}]},{},[6]);
