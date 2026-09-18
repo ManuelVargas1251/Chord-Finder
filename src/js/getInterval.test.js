@@ -1,6 +1,6 @@
 const getInterval = require('./getInterval')
 
-describe('getInterval', () => {
+describe('getInterval Suite', () => {
     test('returns the interval between two notes', () => {
         expect(getInterval(5, 9)).toEqual(5)
     })

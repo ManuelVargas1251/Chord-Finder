@@ -1,6 +1,6 @@
 const getNoteChord = require('./getNoteChord')
 
-describe('getNoteChord', () => {
+describe('getNoteChord Suite', () => {
   test('maps note IDs to note names in order', () => {
     expect(getNoteChord([0, 4, 7]))
       .toEqual(['C', 'E', 'G'])

@@ -1,6 +1,6 @@
 const getChord = require('./getChord')
 
-describe('getChord', () => {
+describe('getChord Suite', () => {
     test('returns chord names for supported note and interval combinations', () => {
         expect(getChord(['C', 'E', 'G'], [5, 4]))
             .toEqual('C Major')

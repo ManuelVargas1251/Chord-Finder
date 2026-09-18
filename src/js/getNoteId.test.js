@@ -1,6 +1,6 @@
 const getNoteId = require('./getNoteId')
 
-describe('getNoteId', () => {
+describe('getNoteId Suite', () => {
   test('returns the string ID for natural notes', () => {
     expect(getNoteId('C')).toEqual('0')
     expect(getNoteId('E')).toEqual('4')
