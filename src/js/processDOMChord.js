@@ -1,6 +1,5 @@
 const sound = require('./sound.js')
 const getNoteChord = require('./getNoteChord.js').getNoteChord
-const getNoteId = require('./getNoteId.js').getNoteId
 const updateChord = require('./updateChord.js').updateChord
 
 function processDOMChord(newNoteId, userChordIds, notes) {
@@ -36,11 +35,11 @@ function processDOMChord(newNoteId, userChordIds, notes) {
         // console.log('userChord: ' + userChord)
 
         // run the chord update
-        $('.chord').text(updateChord(userChord, getNoteId))
+        $('.chord').text(updateChord(userChord))
 
     } else {
         // reset chord name
-        $('.chord').text(updateChord([], undefined))
+        $('.chord').text(updateChord([]))
     }
 }
 
