@@ -1,4 +1,4 @@
-const getChord = require('./getChord').getChord
+const getChord = require('./getChord')
 
 describe('getChord', () => {
     test('returns chord names for supported note and interval combinations', () => {

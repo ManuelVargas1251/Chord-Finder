@@ -19,5 +19,4 @@ function playNote(noteId, notes) {
     }
     return notes
 }
-exports.preload = preload
-exports.playNote = playNote
+module.exports = { preload, playNote }
