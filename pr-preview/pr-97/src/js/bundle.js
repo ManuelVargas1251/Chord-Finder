@@ -147,7 +147,6 @@ $(".reset").click(function () {
 },{"./processDOMChord.js":7,"./sound.js":8}],7:[function(require,module,exports){
 const sound = require('./sound.js')
 const getNoteChord = require('./getNoteChord.js').getNoteChord
-const getNoteId = require('./getNoteId.js').getNoteId
 const updateChord = require('./updateChord.js').updateChord
 
 function processDOMChord(newNoteId, userChordIds, notes) {
@@ -183,16 +182,16 @@ function processDOMChord(newNoteId, userChordIds, notes) {
         // console.log('userChord: ' + userChord)
 
         // run the chord update
-        $('.chord').text(updateChord(userChord, getNoteId))
+        $('.chord').text(updateChord(userChord))
 
     } else {
         // reset chord name
-        $('.chord').text(updateChord([], undefined))
+        $('.chord').text(updateChord([]))
     }
 }
 
 module.exports = processDOMChord
-},{"./getNoteChord.js":3,"./getNoteId.js":4,"./sound.js":8,"./updateChord.js":9}],8:[function(require,module,exports){
+},{"./getNoteChord.js":3,"./sound.js":8,"./updateChord.js":9}],8:[function(require,module,exports){
 // Preloads audio notes and provides functionality to play them
 function preload() {
     return _notes.map((_, index) => {
