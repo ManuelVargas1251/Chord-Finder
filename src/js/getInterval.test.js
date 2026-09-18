@@ -1,4 +1,4 @@
-const getInterval = require('./getInterval').getInterval
+const getInterval = require('./getInterval')
 
 describe('getInterval', () => {
     test('returns the interval between two notes', () => {

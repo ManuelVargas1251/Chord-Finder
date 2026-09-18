@@ -55,4 +55,4 @@ function getChord(userChord, userIntervals) {
 	// Return the chord name prefixed by the root note.
 	return rootNote + ' ' + chord.name
 }
-exports.getChord = getChord
+	module.exports = getChord
