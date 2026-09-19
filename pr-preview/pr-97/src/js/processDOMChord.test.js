@@ -10,7 +10,7 @@ const getNoteChord = require('./getNoteChord.js')
 const updateChord = require('./updateChord.js')
 const processDOMChord = require('./processDOMChord')
 
-describe('processDOMChord', () => {
+describe('processDOMChord Suite', () => {
   let text  // mock for jQuery text method
 
   beforeEach(() => {

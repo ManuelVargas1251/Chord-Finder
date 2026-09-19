@@ -1,6 +1,6 @@
 const getUserIntervals = require('./getUserIntervals')
 
-describe('getUserIntervals', () => {
+describe('getUserIntervals Suite', () => {
     test('returns an empty array for an empty chord', () => {
         expect(getUserIntervals([])).toEqual([])
     })
