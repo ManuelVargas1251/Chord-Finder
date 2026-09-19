@@ -53,6 +53,11 @@ function getChord(userChord, userIntervals) {
 		return ''
 	}
 
+	// Two-note selections are intervals, not rooted chord names.
+	if (userChord.length === 2) {
+		return chord.name
+	}
+
 	// Return the chord name prefixed by the root note.
 	return rootNote + ' ' + chord.name
 }

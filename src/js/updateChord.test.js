@@ -12,10 +12,18 @@ describe('updateChord Suite', () => {
       .toEqual('C')
   })
 
-  test('returns chord names for supported chords', () => {
-    expect(updateChord(['C', 'D#']))
-      .toEqual('C Minor 3rd')
+  test('returns interval names without root prefixes for intervals (dyads; two-note chords)', () => {
+    expect(updateChord(['C', 'C#']))
+      .toEqual('Minor 2nd')
 
+    expect(updateChord(['C', 'D']))
+      .toEqual('Major 2nd')
+
+    expect(updateChord(['C', 'D#']))
+      .toEqual('Minor 3rd')
+  })
+
+  test('returns chord names for supported chords', () => {
     expect(updateChord(['C', 'E', 'G', 'B']))
       .toEqual('C Major 7')
 
