@@ -2,83 +2,62 @@
 // better searching method using .find()
 function getChord(userChord, userIntervals) {
 
-	// finding root note
-	let root_note = '',
-		root = 0,
-		inversions = 0
+	// Return an empty string if the user has not selected any notes.
+	if (userChord.length === 0) {
+		return ''
+	}
 
-	// checks all user intervals if they are a major or minor third
-	// if not, if the interval is greater than 5, the chord is an inversion
-	// if not, if the interval is less than 4, extended inversions?
+	// finding root note
+	let rootNote = ''	// The determined root note of the chord
+	let root = 0	// Counter for major or minor third intervals
+
+	// Count the number of major or minor third intervals to help determine the root note.
 	userIntervals.forEach(interval => {
 		//console.log('interval: ' + interval)
-		if (interval == 5 || interval == 4) {
+		if (interval === 5 || interval === 4) {
 			root++
-		}
-		else if (interval > 5) {
-			inversions++
 		}
 	})
 
-	// if the root counter is equal to the num of intervals
-	// then the chord is in root position so return the first key
-	// console.log('root: ' + root)
-	// console.log('inversions: ' + inversions)
-	// console.log('userChord: ' + userChord)
-	if (userIntervals.length == root) {
-		root_note = userChord[0]
+	// Determine the root note for root-position chords based on interval analysis
+	if (userIntervals.length === root) {
+		rootNote = userChord[0]	// Root note for root-position chord
 	}
 	else {
-		//console.log('inversion')
-		if (userIntervals[0] > 5) {
-			root_note = userChord[1]
-		}
-		if (userIntervals[1] == 6) {
-			root_note = userChord[2]
-		}
-		if (userIntervals[0] == 8) {
-			root_note = userChord[0]
-		}
-	}
-
-	// displays how many items it had to search through
-	// prints object and a count of the times it's been called
-	let findIntervals = function (library) {
-		//console.log("this: " + this)	
-		return library.interval == userIntervals.toString()
-	}
-
-	// finding the correct array by only sending the interval to be found in the object where the length matches means that searching will take a lot less time because it only has to search through a smaller section of the object library; this will be important for when the object libraries become larger.
-	// console.log('userIntervals: ' + userIntervals)
-	console.log('num of intervals: ' + userIntervals.length)
-
-	//print _intervals
-	// console.log('__intervals: ' + JSON.stringify(__intervals))
-	// console.log('__intervals.get: ' + __intervals.get(userIntervals.length).find(findIntervals).name)
-
-	// console.log(':: ::' + _intervals.get([5,4,5].length).find(library => library.interval == [5,4,5].toString()).name)
-	// console.log(':: :: ::' + _intervals.get(userIntervals.length).find(library.interval == userIntervals.toString()).name)
-
-	if (userChord.length != 0) {
-		
-		try {
-			if (userIntervals.length == 0) {
-				output = root_note
-				console.log('root note: ' + output)
-			} else if (userIntervals.length > 0) {
-				console.log('try: ' + userIntervals.length)
-				output = root_note + ' ' + __intervals.get(userIntervals.length).find(findIntervals).name
-			}
-		} catch (e) {
-			output = ''
-			console.warn("no chord defined")
+		// Inversions use their interval pattern to identify the root.
+		// Check 8 first because it also satisfies the broader > 5 condition.
+		if (userIntervals[0] === 8) {
+			rootNote = userChord[0]	// Root note for first inversion (interval 8)
+		} else if (userIntervals[1] === 6) {
+			rootNote = userChord[2]	// Root note for second inversion (interval 6)
+		} else if (userIntervals[0] > 5) {
+			rootNote = userChord[1]	// Root note for third inversion (interval > 5)
 		}
 	}
-	else {
-		// if there are no notes in the chord, return an empty string
-		output = ''
+
+	// Function to find a matching interval pattern in the library
+	const findIntervals = library => library.interval.toString() === userIntervals.toString()
+
+	// Return the root note immediately if no intervals are selected.
+	if (userIntervals.length === 0) {
+		return rootNote
 	}
-	//return userChord[0] + " " + output.name
-	return output
+
+	// Search intervals matching the selected chord size.
+	const chord = __intervals.get(userIntervals.length)?.find(findIntervals)
+
+	// Warn if no matching chord is found in the interval library
+	if (!chord) {
+		console.warn('no chord defined')
+		return ''
+	}
+
+	// Two-note selections are intervals, not rooted chord names.
+	if (userChord.length === 2) {
+		return chord.name
+	}
+
+	// Return the chord name prefixed by the root note.
+	return rootNote + ' ' + chord.name
 }
-exports.getChord = getChord
+	module.exports = getChord

@@ -1,4 +1,4 @@
-function getInterval(note_one, note_two) {
-	return Math.abs(note_one - note_two) + 1
+function getInterval(firstNote, secondNote) {
+	return Math.abs(firstNote - secondNote) + 1
 }
-exports.getInterval = getInterval
+module.exports = getInterval
