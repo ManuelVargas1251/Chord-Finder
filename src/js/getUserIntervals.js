@@ -1,4 +1,4 @@
-const getInterval = require('./getInterval').getInterval
+const getInterval = require('./getInterval')
 const getNoteId = require('./getNoteId')
 
 //return array of intervals found in chord
