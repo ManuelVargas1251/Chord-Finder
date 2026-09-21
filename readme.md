@@ -16,33 +16,13 @@ I started by rewriting my previous C++ chord finder [console application](https:
 ![Chord Finder app demo](src/demo.gif)
 
 
-## Event Handlers
+## UI & Event Handling
 
-Code is triggered by clicking or pressing keys on the keyboard UI.
-The example assumes `index.js` has already initialized `userChordIds` and preloaded the note audio with `notes = sound.preload()`.
-```javascript
-// mouse click on piano key event
-$(".key").click(function () {
-	//pass note id to add to chord
-	let noteCode = $(this).attr('id')
-	$(this).toggleClass("pressed")	//toggle key color key when pressed
-	processDOMChord(noteCode, userChordIds, notes)
-})
+The application handles user input through mouse and keyboard events on the interface:
 
-// keyboard keypress event
-$("html").keypress(function (element) {
-	let noteCode = _computerKeyboardMap.get(element.which)
-	$("#" + noteCode).toggleClass("pressed")
-	processDOMChord(noteCode, userChordIds, notes)
-})
-
-// reset button event
-$(".reset").click(function (){
-	userChordIds.forEach((v)=>$("#" + v).toggleClass("pressed"))
-	userChordIds = []
-	processDOMChord(undefined, userChordIds)
-})
-```
+- **Key Clicks & Keypresses:** Appends selected note IDs, updates UI state, and recalculates current intervals or chords.
+- **Reset Controls:** Clears user note selections and resets the DOM display state.
+- **Audio Preloading:** Preloads note audio assets on initialization for responsive playback.
 
 
 ## Unit Testing & Coverage
@@ -80,8 +60,8 @@ Use a local server to avoid CORS errors when testing sound. The project uses Bro
 
 Use Node.js 24 and npm to match the CI environment. The repository's lockfile keeps dependency versions consistent, so install dependencies with `npm ci` rather than relying on a globally installed tool or an unpinned `npx` package.
 ```bash
-# download the repo locally from github and cd into the folder
-gh repo clone ManuelVargas1251/Chord-Finder
+# clone the repository and enter its directory
+git clone https://github.com/ManuelVargas1251/Chord-Finder.git
 cd Chord-Finder
 
 # install the locked dependencies, including Browserify
@@ -152,13 +132,10 @@ By using https://raw.githack.com/ I created working lower environments to test c
 
 
 
-# Reference
+## References
 
-[Musical Chord Wiki](https://en.wikipedia.org/wiki/Chord_(music))
-
-[Musical Interval Wiki](https://en.wikipedia.org/wiki/Interval_(music))
-
-[Eleventh Interval Wiki](https://en.wikipedia.org/wiki/Eleventh)
-
-[Octave Interval Wiki](https://en.wikipedia.org/wiki/Octave)
+- https://en.wikipedia.org/wiki/Chord_(music)
+- https://en.wikipedia.org/wiki/Interval_(music)
+- https://en.wikipedia.org/wiki/Eleventh
+- https://en.wikipedia.org/wiki/Octave
 
