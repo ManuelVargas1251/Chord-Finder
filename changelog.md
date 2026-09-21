@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.8.1] 🥨🐈 - 2026-09-20
+
+### Added
+- Comprehensive Jest coverage across core application logic:
+  - Sound playback, chord lookup, note mapping, interval calculation, user intervals, chord updates, and DOM chord processing.
+  - Edge cases including empty selections, invalid/duplicate inputs, unsupported chords, and reset interactions.
+- Consistently named test suite blocks, including nested multi-method `Sound Suite` tests.
+
+### Changed
+- Standardized CommonJS module exports and imports across JavaScript source files, regenerating the Browserify bundle.
+- Improved chord logic handling for empty selections, unsupported interval combinations, inversions, and rootless two-note interval names.
+
+### Fixed
+- Handled rejected audio playback promises gracefully during rapid note/chord triggers.
+- Corrected coverage artifact generation and raw asset URL link construction in CI workflows.
+
+### CI & Tooling
+- Expanded pull-request coverage reporting to include total test count, suite duration, per-file coverage tables, and direct workflow/artifact links.
+- Updated version metadata to `0.8.1` across project files and application UI footer.
+
 ## [0.8.0] 🥨🐈 - 2026-09-07
 ### Added
 - GitHub Actions workflows for Node.js testing, coverage reporting, Browserify builds, GitHub Pages deployment, and pull request previews.
@@ -151,6 +171,7 @@ Releasing this before 0.8 as code is stable now and tests are not part of the fu
 
 ## Commits exist before 0.5.5 but I wasn't keeping count.
 
+[0.8.1]: https://github.com/ManuelVargas1251/Chord-Finder/compare/Release-0.8...Release-0.8.1
 [0.8.0]: #
 [0.7.42]: #
 [0.7.0]: #
