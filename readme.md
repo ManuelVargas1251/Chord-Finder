@@ -71,53 +71,13 @@ npm ci
 npm run build
 ```
 
-## Application Architecture
+## Application Data Flow
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '12px', 'primaryTextColor': '#172033', 'lineColor': '#64748b'}, 'flowchart': {'nodeSpacing': 24, 'rankSpacing': 30, 'padding': 8}}}%%
-flowchart TB
-	user((User)) --> events["index.js<br/>Keyboard and click handlers"]
-	events --> process["processDOMChord.js<br/>Validate, toggle, and sort notes"]
+The following diagram illustrates how user interactions flow step-by-step from input listeners down through chord processing and UI rendering:
 
-	subgraph inputWork["Input processing"]
-		direction TB
-		process -->|valid note| sound["sound.js<br/>Preload and play note"]
-		process --> noteNames["getNoteChord.js<br/>Convert note IDs to names"]
-	end
+![Application Data Flow](docs/app-data-flow.png)
 
-	process --> update["updateChord.js<br/>Build chord result"]
-	process -->|reset| update
-
-	subgraph analysis["Chord analysis"]
-		direction TB
-		update --> intervals["getUserIntervals.js<br/>Calculate adjacent intervals"]
-		intervals --> interval["getInterval.js<br/>Measure distance between notes"]
-		intervals --> noteId["getNoteId.js<br/>Resolve note names to IDs"]
-		intervals --> chord["getChord.js<br/>Match intervals to a chord"]
-	end
-
-	noteNames --> update
-	chord --> display[".chord element<br/>Display chord name"]
-	update --> display
-
-	classDef inputStyle fill:#fff7ed,stroke:#ea580c,color:#172033
-	classDef analysisStyle fill:#e8f1ff,stroke:#2563eb,color:#172033
-	classDef outputStyle fill:#ecfdf5,stroke:#16a34a,color:#172033
-	class user,events,process,sound,noteNames inputStyle
-	class update,intervals,interval,noteId,chord analysisStyle
-	class display outputStyle
-	style inputWork fill:#fffbeb,stroke:#d97706,color:#172033
-	style analysis fill:#eff6ff,stroke:#2563eb,color:#172033
-```
-
-The [canonical Mermaid source](docs/app-architecture.mmd) is also available separately. The static image is available as a fallback for clients that do not render Mermaid diagrams.
-
-<details>
-<summary>View static chart fallback</summary>
-
-![Chord Finder application architecture](docs/app-architecture.png)
-
-</details>
+> For a complete breakdown of initialization, state management, and component architecture, see [System Architecture](docs/system-architecture.md).
 
 
 ## Environments
