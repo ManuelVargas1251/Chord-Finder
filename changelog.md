@@ -24,6 +24,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Expanded pull-request coverage reporting to include total test count, suite duration, per-file coverage tables, and direct workflow/artifact links.
 - Updated version metadata to `0.8.1` across project files and application UI footer.
 
+### Documentation
+- Replaced implementation-level event-handler snippets with a concise UI interaction overview and standard `git clone` setup instructions.
+- Added application data-flow and system-architecture Mermaid diagrams with PNG fallbacks, and linked the README to both views.
+
 ## [0.8.0] 🥨🐈 - 2026-09-07
 ### Added
 - GitHub Actions workflows for Node.js testing, coverage reporting, Browserify builds, GitHub Pages deployment, and pull request previews.
