@@ -91,7 +91,7 @@ jobs:
             const testResultsRow = `| ${testResults.numPassedTestSuites} passed / ${testResults.numTotalTestSuites} total | ${testResults.numPassedTests} passed / ${testResults.numTotalTests} total | ${testResults.snapshot.total} total | ${testDuration} |`
             const artifactsUrl = process.env.COVERAGE_ARTIFACT_URL
             const artifactLink = artifactsUrl
-              ? `[📂 Download the full coverage report](<${artifactsUrl}>)`
+              ? `[Download the full coverage report](<${artifactsUrl}>)`
               : 'The full coverage report artifact is unavailable.'
             const commitSha = context.payload.pull_request.head.sha
             const chartImageUrl = `https://raw.githubusercontent.com/${context.repo.owner}/${context.repo.repo}/${commitSha}/docs/ci-workflows.png`
@@ -109,9 +109,9 @@ jobs:
             | --- | ---: | ---: | ---: | ---: |
             ${coverageRows}
 
-            [🖼️ View the CI workflow chart (PNG)](<${chartImageUrl}>)
-            [💻 View the CI workflow chart (Desktop)](<${chartSourceUrl}>)
-            ${artifactLink}
+            🖼️ [View the CI workflow chart (PNG)](<${chartImageUrl}>)
+            💻 [View the CI workflow chart (Desktop)](<${chartSourceUrl}>)
+            📂 ${artifactLink}
 
 
             🕊️`

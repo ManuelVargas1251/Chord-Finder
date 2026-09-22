@@ -16,33 +16,13 @@ I started by rewriting my previous C++ chord finder [console application](https:
 ![Chord Finder app demo](src/demo.gif)
 
 
-## Event Handlers
+## UI & Event Handling
 
-Code is triggered by clicking or pressing keys on the keyboard UI.
-The example assumes `index.js` has already initialized `userChordIds` and preloaded the note audio with `notes = sound.preload()`.
-```javascript
-// mouse click on piano key event
-$(".key").click(function () {
-	//pass note id to add to chord
-	let noteCode = $(this).attr('id')
-	$(this).toggleClass("pressed")	//toggle key color key when pressed
-	processDOMChord(noteCode, userChordIds, notes)
-})
+The application handles user input through mouse and keyboard events on the interface:
 
-// keyboard keypress event
-$("html").keypress(function (element) {
-	let noteCode = _computerKeyboardMap.get(element.which)
-	$("#" + noteCode).toggleClass("pressed")
-	processDOMChord(noteCode, userChordIds, notes)
-})
-
-// reset button event
-$(".reset").click(function (){
-	userChordIds.forEach((v)=>$("#" + v).toggleClass("pressed"))
-	userChordIds = []
-	processDOMChord(undefined, userChordIds)
-})
-```
+- **Key Clicks & Keypresses:** Appends selected note IDs, updates UI state, and recalculates current intervals or chords.
+- **Reset Controls:** Clears user note selections and resets the DOM display state.
+- **Audio Preloading:** Preloads note audio assets on initialization for responsive playback.
 
 
 ## Unit Testing & Coverage
@@ -80,8 +60,8 @@ Use a local server to avoid CORS errors when testing sound. The project uses Bro
 
 Use Node.js 24 and npm to match the CI environment. The repository's lockfile keeps dependency versions consistent, so install dependencies with `npm ci` rather than relying on a globally installed tool or an unpinned `npx` package.
 ```bash
-# download the repo locally from github and cd into the folder
-gh repo clone ManuelVargas1251/Chord-Finder
+# clone the repository and enter its directory
+git clone https://github.com/ManuelVargas1251/Chord-Finder.git
 cd Chord-Finder
 
 # install the locked dependencies, including Browserify
@@ -91,53 +71,13 @@ npm ci
 npm run build
 ```
 
-## Application Architecture
+## Application Data Flow
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '12px', 'primaryTextColor': '#172033', 'lineColor': '#64748b'}, 'flowchart': {'nodeSpacing': 24, 'rankSpacing': 30, 'padding': 8}}}%%
-flowchart TB
-	user((User)) --> events["index.js<br/>Keyboard and click handlers"]
-	events --> process["processDOMChord.js<br/>Validate, toggle, and sort notes"]
+The following diagram illustrates how user interactions flow step-by-step from input listeners down through chord processing and UI rendering:
 
-	subgraph inputWork["Input processing"]
-		direction TB
-		process -->|valid note| sound["sound.js<br/>Preload and play note"]
-		process --> noteNames["getNoteChord.js<br/>Convert note IDs to names"]
-	end
+![Application Data Flow](docs/app-data-flow.png)
 
-	process --> update["updateChord.js<br/>Build chord result"]
-	process -->|reset| update
-
-	subgraph analysis["Chord analysis"]
-		direction TB
-		update --> intervals["getUserIntervals.js<br/>Calculate adjacent intervals"]
-		intervals --> interval["getInterval.js<br/>Measure distance between notes"]
-		intervals --> noteId["getNoteId.js<br/>Resolve note names to IDs"]
-		intervals --> chord["getChord.js<br/>Match intervals to a chord"]
-	end
-
-	noteNames --> update
-	chord --> display[".chord element<br/>Display chord name"]
-	update --> display
-
-	classDef inputStyle fill:#fff7ed,stroke:#ea580c,color:#172033
-	classDef analysisStyle fill:#e8f1ff,stroke:#2563eb,color:#172033
-	classDef outputStyle fill:#ecfdf5,stroke:#16a34a,color:#172033
-	class user,events,process,sound,noteNames inputStyle
-	class update,intervals,interval,noteId,chord analysisStyle
-	class display outputStyle
-	style inputWork fill:#fffbeb,stroke:#d97706,color:#172033
-	style analysis fill:#eff6ff,stroke:#2563eb,color:#172033
-```
-
-The [canonical Mermaid source](docs/app-architecture.mmd) is also available separately. The static image is available as a fallback for clients that do not render Mermaid diagrams.
-
-<details>
-<summary>View static chart fallback</summary>
-
-![Chord Finder application architecture](docs/app-architecture.png)
-
-</details>
+> For a complete breakdown of initialization, state management, and component architecture, see [System Architecture](docs/system-architecture.md).
 
 
 ## Environments
@@ -152,13 +92,10 @@ By using https://raw.githack.com/ I created working lower environments to test c
 
 
 
-# Reference
+## References
 
-[Musical Chord Wiki](https://en.wikipedia.org/wiki/Chord_(music))
-
-[Musical Interval Wiki](https://en.wikipedia.org/wiki/Interval_(music))
-
-[Eleventh Interval Wiki](https://en.wikipedia.org/wiki/Eleventh)
-
-[Octave Interval Wiki](https://en.wikipedia.org/wiki/Octave)
+- https://en.wikipedia.org/wiki/Chord_(music)
+- https://en.wikipedia.org/wiki/Interval_(music)
+- https://en.wikipedia.org/wiki/Eleventh
+- https://en.wikipedia.org/wiki/Octave
 
