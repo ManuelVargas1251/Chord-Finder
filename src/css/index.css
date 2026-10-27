@@ -50,17 +50,25 @@ body{
 	margin: auto;
 }
 
+/* Container to align and size the toolbar to match your keyboard width */
+.control-bar {
+    width: min(400px, 100%);
+    margin: 0 auto 10px auto;
+    display: flex;
+    justify-content: flex-end; /* Aligns to the right, use 'center' or 'flex-start' if you prefer */
+}
+
+/* Styled Reset Button (fits a button-group look) */
 .reset {
     background-color: var(--piano-black);
     color: var(--piano-white);
     font-family: var(--font-family);
     font-weight: bold;
-    font-size: 14px;
-    border: none;
+    font-size: 13px;
+    border: 2px solid var(--piano-black);
     border-radius: 6px;
-    padding: 8px 16px;
+    padding: 6px 14px;
     cursor: pointer;
-    margin-bottom: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
