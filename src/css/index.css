@@ -50,6 +50,30 @@ body{
 	margin: auto;
 }
 
+.reset {
+    background-color: var(--piano-black);
+    color: var(--piano-white);
+    font-family: 'Raleway', helvetica;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.reset:hover {
+    background-color: var(--piano-hover);
+}
+
+.reset:active {
+    background-color: var(--piano-pressed);
+    transform: scale(0.98);
+}
+
 .key{
 	position: relative;
 	cursor: pointer;
