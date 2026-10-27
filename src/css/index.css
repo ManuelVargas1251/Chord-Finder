@@ -1,7 +1,7 @@
 html{
 	background-color: var(--background-color);
 	color: var(--piano-white);
-	font-family: 'Raleway', helvetica;
+	font-family: var(--font-family);
 	font-weight: bold;
 	overflow: hidden;
 }
@@ -53,7 +53,7 @@ body{
 .reset {
     background-color: var(--piano-black);
     color: var(--piano-white);
-    font-family: 'Raleway', helvetica;
+    font-family: var(--font-family);
     font-weight: bold;
     font-size: 14px;
     border: none;
