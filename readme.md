@@ -13,7 +13,7 @@ I started by rewriting my previous C++ chord finder [console application](https:
 
 [View Web Application](https://mnl.space/Chord-Finder/)
 
-![Chord Finder app demo](src/demo.gif)
+![Chord Finder app demo](src/img/demo.gif)
 
 
 ## UI & Event Handling
