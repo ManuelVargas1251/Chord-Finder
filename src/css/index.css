@@ -1,7 +1,7 @@
 html{
 	background-color: var(--background-color);
 	color: var(--piano-white);
-	font-family: 'Raleway', helvetica;
+	font-family: var(--font-family);
 	font-weight: bold;
 	overflow: hidden;
 }
@@ -48,6 +48,38 @@ body{
 	width: min(400px, 100%);
 	position: relative;
 	margin: auto;
+}
+
+/* Container to align and size the toolbar to match your keyboard width */
+.control-bar {
+    width: min(400px, 100%);
+    margin: 0 auto 10px auto;
+    display: flex;
+    justify-content: flex-end; /* Aligns to the right, use 'center' or 'flex-start' if you prefer */
+}
+
+/* Styled Reset Button (fits a button-group look) */
+.reset {
+    background-color: var(--piano-black);
+    color: var(--piano-white);
+    font-family: var(--font-family);
+    font-weight: bold;
+    font-size: 13px;
+    border: 2px solid var(--piano-black);
+    border-radius: 6px;
+    padding: 6px 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.reset:hover {
+    background-color: var(--piano-hover);
+}
+
+.reset:active {
+    background-color: var(--piano-pressed);
+    transform: scale(0.98);
 }
 
 .key{

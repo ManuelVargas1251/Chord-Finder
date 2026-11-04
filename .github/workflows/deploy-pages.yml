@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - development
-      - master
+      - main
 
 permissions:
   contents: write
@@ -23,7 +23,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v5
         with:
-          ref: master
+          ref: main
 
       - name: Set up Node.js
         uses: actions/setup-node@v5

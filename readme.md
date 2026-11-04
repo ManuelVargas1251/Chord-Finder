@@ -1,6 +1,6 @@
 <!-- using shields.io for status buttons -->
 ![Programming language](https://img.shields.io/badge/Language-Javascript-blue.svg)
-![Version](https://img.shields.io/badge/Version-0.8.1-brightgreen.svg)
+![Version](https://img.shields.io/badge/Version-1.8.2-brightgreen.svg)
 [![CI - production](https://img.shields.io/github/actions/workflow/status/ManuelVargas1251/Chord-Finder/node-ci.yml?branch=master&label=CI%20Production)](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml?query=branch%3Amaster)
 [![CI - development](https://img.shields.io/github/actions/workflow/status/ManuelVargas1251/Chord-Finder/node-ci.yml?branch=development&label=CI%20Development)](https://github.com/ManuelVargas1251/Chord-Finder/actions/workflows/node-ci.yml?query=branch%3Adevelopment)
 [![Tested with Jest](https://img.shields.io/badge/tested%20with-Jest-99424f.svg)](https://jestjs.io/)
@@ -13,7 +13,7 @@ I started by rewriting my previous C++ chord finder [console application](https:
 
 [View Web Application](https://mnl.space/Chord-Finder/)
 
-![Chord Finder app demo](src/demo.gif)
+![Chord Finder app demo](src/img/demo.gif)
 
 
 ## UI & Event Handling
